@@ -25,7 +25,12 @@
   background: var(--color-cream);
 }
 
+/* Como o .tone-slate, troca as variáveis para os filhos (botão, eyebrow, lead) se adaptarem. */
 .toneNavy {
+  --color-text: var(--color-on-dark);
+  --color-text-2: var(--color-on-dark-2);
+  --color-gold: var(--color-gold-light);
+  --color-gold-ink: var(--color-gold-ink-light);
   background: linear-gradient(135deg, var(--color-navy), var(--color-navy-2));
-  color: var(--color-on-dark);
+  color: var(--color-text);
 }
