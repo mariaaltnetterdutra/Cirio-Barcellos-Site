@@ -1,0 +1,39 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.symbol {
+  width: 39px;
+  height: 44px;
+}
+
+.divider {
+  flex-shrink: 0;
+  width: 2px;
+  height: 44px;
+  border-radius: 2px;
+  background: linear-gradient(var(--color-logo-yellow), var(--color-logo-blue));
+}
+
+.name {
+  width: 130px;
+  height: 30px;
+}
+
+@media (max-width: 380px) {
+  .symbol {
+    width: 33px;
+    height: 37px;
+  }
+
+  .divider {
+    height: 37px;
+  }
+
+  .name {
+    width: 112px;
+    height: 26px;
+  }
+}
