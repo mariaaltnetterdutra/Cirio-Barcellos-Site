@@ -1,17 +1,100 @@
+/* Tokens copiados de docs/DESIGN.md (seção 2). Visual fixo: sem prefers-color-scheme. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* fundos claros */
+  --color-white: #ffffff;        /* seções claras, cabeçalho, cards */
+  --color-gray-50: #f5f6f8;      /* seções claras intercaladas */
+  --color-cream: #f7f1e6;        /* chamadas finais */
+
+  /* textos */
+  --color-text: #161a20;         /* títulos e texto principal */
+  --color-text-2: #5b6472;       /* descrições */
+  --color-text-3: #8a93a0;       /* textos de apoio */
+
+  /* bordas */
+  --color-line: #e1e5ea;
+  --color-line-strong: #c4cbd4;
+
+  /* azuis */
+  --color-navy: #14213a;         /* azul-marinho (início do degradê) */
+  --color-navy-2: #20314f;       /* azul-marinho (fim do degradê) */
+  --color-navy-mid: #1a2944;     /* meio do degradê do topo da home */
+  --color-slate: #1b2536;        /* azul-ardósia: seções escuras */
+  --color-mist: #2a3e60;         /* azul-névoa (início) */
+  --color-mist-2: #34507a;       /* azul-névoa (fim) */
+  --color-blue-deep: #1c579a;    /* azul Círio: card com mouse em cima */
+  --color-blue: #2e6fb0;         /* azul médio: ícones e links */
+  --color-blue-soft: #dceafa;    /* azul suave: fundos de selo, avatar */
+
+  /* dourados (só em botões principais e títulos pequenos) */
+  --color-gold: #a9752e;         /* botão principal em fundo claro */
+  --color-gold-light: #d8ba5a;   /* botão principal em fundo escuro */
+  --color-gold-soft: #f3e7ce;    /* fundo de selo dourado */
+  --color-gold-ink: #6b4e1e;     /* eyebrow (título pequeno) em fundo claro */
+  --color-gold-ink-light: #e2c77a; /* eyebrow em fundo escuro */
+  --color-on-gold: #1b1204;      /* texto dentro do botão dourado */
+
+  /* textos em fundo escuro */
+  --color-on-dark: #f5f6f8;
+  --color-on-dark-2: rgba(241, 242, 244, 0.74);
+  --color-on-dark-line: rgba(255, 255, 255, 0.14);
+
+  /* avisos */
+  --color-success: #2f855a;
+  --color-success-soft: #dbf0e4;
+  --color-danger: #b42318;
+
+  /* logo */
+  --color-logo-yellow: #e8d26a;
+  --color-logo-blue: #1a6ff0;
+
+  /* raios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+
+  /* sombras */
+  --shadow-card: 0 1px 2px rgba(22, 26, 32, 0.05), 0 16px 34px -20px rgba(22, 26, 32, 0.25);
+
+  /* layout */
+  --max-width: 1080px;
+  --max-width-narrow: 760px;     /* textos longos e formulários; não definido no DESIGN.md */
+  --gutter: 28px;
+  --section-space: 72px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (max-width: 640px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --gutter: 16px;
+    --section-space: 52px;
   }
 }
 
-html {
-  height: 100%;
+/* Tom escuro de seção: só troca as variáveis, tudo dentro se adapta. */
+.tone-slate {
+  --color-bg: #1b2536;
+  --color-surface: #243044;      /* cards dentro da seção escura */
+  --color-text: #eef1f5;
+  --color-text-2: #b6bfcd;
+  --color-text-3: #8b96a9;
+  --color-line: #313e54;
+  --color-line-strong: #4a5870;
+  --color-gold: #d8ba5a;
+  --color-gold-ink: #ecd28f;
+  --color-blue: #8dbdf0;
+  --color-blue-soft: #283c5c;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -21,20 +104,28 @@ body {
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+h1,
+h2 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -42,8 +133,37 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fica fora da tela até receber foco pelo teclado. */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--color-gold);
+  color: var(--color-on-gold);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
 }

@@ -1,0 +1,31 @@
+.section {
+  padding-block: var(--section-space);
+}
+
+.inner {
+  width: 100%;
+  max-width: calc(var(--max-width) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.narrow {
+  max-width: calc(var(--max-width-narrow) + 2 * var(--gutter));
+}
+
+.toneDefault {
+  background: var(--color-white);
+}
+
+.toneMuted {
+  background: var(--color-gray-50);
+}
+
+.toneCream {
+  background: var(--color-cream);
+}
+
+.toneNavy {
+  background: linear-gradient(135deg, var(--color-navy), var(--color-navy-2));
+  color: var(--color-on-dark);
+}
