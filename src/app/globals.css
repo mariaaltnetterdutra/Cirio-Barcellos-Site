@@ -63,6 +63,7 @@
 
   /* layout */
   --max-width: 1080px;
+  --max-width-wide: 1180px;      /* cabeçalho e rodapé */
   --max-width-narrow: 760px;     /* textos longos e formulários; não definido no DESIGN.md */
   --gutter: 28px;
   --section-space: 72px;

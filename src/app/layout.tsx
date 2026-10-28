@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
-import { MAIN_CONTENT_ID, SKIP_LINK_LABEL } from "@/shared/constants/a11y";
 import { COMPANY } from "@/shared/constants/company";
 import "./globals.css";
 
@@ -35,12 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${fraunces.variable} ${publicSans.variable} ${plexMono.variable}`}
     >
-      <body>
-        <a className="skip-link" href={`#${MAIN_CONTENT_ID}`}>
-          {SKIP_LINK_LABEL}
-        </a>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,0 +1,28 @@
+.header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 40;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: calc(var(--max-width-wide) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: 14px var(--gutter);
+}
+
+.homeLink {
+  display: inline-flex;
+}
+
+/* O menu do celular abre posicionado em relação ao cabeçalho. */
+@media (max-width: 860px) {
+  .inner {
+    position: relative;
+  }
+}
