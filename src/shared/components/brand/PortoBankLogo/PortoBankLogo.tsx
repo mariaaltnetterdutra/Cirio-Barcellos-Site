@@ -3,28 +3,32 @@ import { cn } from "@/shared/utils/cn";
 import styles from "./PortoBankLogo.module.css";
 
 export type PortoBankLogoVariant = "light" | "dark";
+export type PortoBankLogoSize = "sm" | "md" | "lg";
 
 interface PortoBankLogoProps {
   /** light: fundo claro (logo original). dark: fundo escuro (versão com texto branco). */
   variant?: PortoBankLogoVariant;
+  /** sm 30px · md 38px · lg 56px de altura (no celular o lg fica com 44px). */
+  size?: PortoBankLogoSize;
   className?: string;
 }
 
-// Arquivo em 660x130; exibido com 30px de altura (o next/image gera 1x e 2x).
-const DISPLAY_SIZE = { width: 152, height: 30 };
+// O arquivo tem 660x130 (proporção ~5:1). Largura e altura aqui são as do maior tamanho
+// exibido, para o next/image gerar versões nítidas; o CSS define o tamanho de cada variação.
+const INTRINSIC_SIZE = { width: 284, height: 56 };
 
 const SRC: Record<PortoBankLogoVariant, string> = {
   light: "/brand/porto-bank.png",
   dark: "/brand/porto-bank-negativo.png",
 };
 
-export function PortoBankLogo({ variant = "light", className }: PortoBankLogoProps) {
+export function PortoBankLogo({ variant = "light", size = "sm", className }: PortoBankLogoProps) {
   return (
     <Image
-      className={cn(styles.logo, className)}
+      className={cn(styles.logo, styles[size], className)}
       src={SRC[variant]}
       alt="Porto Bank"
-      {...DISPLAY_SIZE}
+      {...INTRINSIC_SIZE}
     />
   );
 }

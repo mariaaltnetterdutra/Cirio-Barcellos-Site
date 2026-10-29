@@ -28,7 +28,7 @@ export const TRUST_CONTENT = {
   experience: { value: "+20", label: "anos de mercado" } satisfies StatItem,
   clients: { value: COMPANY.clientsLabel, label: "clientes atendidos" } satisfies StatItem,
   google: { label: "no Google", linkLabel: "ver avaliações" },
-  partner: { value: "Porto", label: "parceria oficial Consórcio Porto Bank" } satisfies StatItem,
+  partner: { label: "Parceria oficial Consórcio Porto Bank" },
 } as const;
 
 export const GOALS_CONTENT = {
