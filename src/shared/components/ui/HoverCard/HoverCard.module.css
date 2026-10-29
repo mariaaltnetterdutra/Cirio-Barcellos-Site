@@ -1,0 +1,93 @@
+/* Branco por padrão; com mouse ou foco vira azul Círio. O azul-claro só aparece na transição. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 26px 24px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+button.card {
+  cursor: pointer;
+}
+
+.icon {
+  color: var(--color-blue);
+  transition: color 0.35s ease;
+}
+
+.title {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.text {
+  font-size: 14px;
+  color: var(--color-text-2);
+  transition: color 0.35s ease;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-gold-ink);
+  transition: color 0.35s ease;
+}
+
+/* O link cobre o card todo, mas continua sendo um só elemento para o leitor de tela. */
+.stretchedLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.card:hover,
+.card:focus-within,
+button.card:focus-visible {
+  background: var(--color-blue-deep);
+  border-color: var(--color-blue-deep);
+  color: var(--color-white);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card:hover .icon,
+.card:hover .text,
+.card:hover .cta,
+.card:focus-within .icon,
+.card:focus-within .text,
+.card:focus-within .cta,
+button.card:focus-visible .icon,
+button.card:focus-visible .text,
+button.card:focus-visible .cta {
+  color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .icon,
+  .text,
+  .cta {
+    transition: none;
+  }
+}
