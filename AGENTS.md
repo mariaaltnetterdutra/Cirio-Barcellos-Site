@@ -90,6 +90,18 @@ O site tem **visual fixo claro com seções escuras intercaladas**; não depende
 - Ao terminar, rode `npm run typecheck` e `npm run lint` e corrija os erros.
 - No fim, responda com: arquivos criados/alterados, o que foi feito, e como testar no navegador.
 
+## Escopo atual: V1
+
+O projeto tem 3 entregas:
+
+- **V1 (agora):** o site é **uma landing page de consórcio imobiliário Porto Bank**, na **raiz** do site (`/`), com o nome de página "Consórcio". Telas de apoio: `/confirmacao` (depois do formulário) e `/politica-de-privacidade`. O formulário envia para um backend NestJS, que salva o pedido com protocolo e avisa a equipe por email.
+- **V2 (depois):** página inicial institucional, Seguros, Imobiliária e avaliações automáticas do Google.
+- **V3 (depois):** área do corretor (login e painel de leads).
+
+Referência visual e de textos da V1: a tela "Consórcio imobiliário (anúncios)" do `docs/prototipo-v5.html` (bloco `<div data-page="consorcio-imobiliario">`, montado pela função `consHTML` com `CONS.imobiliario`), **sem** as seções de avaliações do Google e de contemplações.
+
+**Não crie nada da V2 ou da V3 agora.** O planejamento da V1, task por task, fica no quadro "Planejamento V1".
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

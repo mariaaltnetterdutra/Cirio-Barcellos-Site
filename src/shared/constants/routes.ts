@@ -1,31 +1,45 @@
+/**
+ * Rotas da V1: a landing de consórcio fica na raiz do site.
+ * Página inicial institucional, Seguros e Imobiliária entram na V2; a área do corretor, na V3.
+ */
 export const ROUTES = {
   home: "/",
-  seguros: "/seguros",
-  consorcio: "/consorcio",
-  consorcioImobiliario: "/consorcio-imobiliario",
-  imobiliaria: "/imobiliaria",
-  simulador: "/simular",
-  confirmacao: "/simular/confirmacao",
+  confirmacao: "/confirmacao",
   privacidade: "/politica-de-privacidade",
-  painelLogin: "/painel/login",
-  painelLeads: "/painel/leads",
 } as const;
 
 export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
 
-/** Âncora do rodapé, que concentra os dados de contato. */
-export const CONTACT_ANCHOR = "#contato";
+/** Ids das seções da landing: usados pelas âncoras do menu e pelos botões que rolam a página. */
+export const SECTION_IDS = {
+  objetivos: "objetivos",
+  planos: "planos",
+  comoFunciona: "como-funciona",
+  portoBank: "porto-bank",
+  especialista: "especialista",
+  analise: "analise",
+  duvidas: "duvidas",
+  contato: "contato",
+} as const;
+
+export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
+
+export type SectionHref = `#${SectionId}`;
+
+export function sectionHref(id: SectionId): SectionHref {
+  return `#${id}`;
+}
 
 export interface NavItem {
   label: string;
-  href: AppRoute | typeof CONTACT_ANCHOR;
+  sectionId: SectionId;
 }
 
-// Consórcio imobiliário fica fora do menu de propósito: é acessado a partir da página de consórcio.
+// Página única: o menu rola até as seções em vez de trocar de página.
 export const SITE_NAV: readonly NavItem[] = [
-  { label: "Sobre", href: ROUTES.home },
-  { label: "Seguros", href: ROUTES.seguros },
-  { label: "Consórcio", href: ROUTES.consorcio },
-  { label: "Imobiliária", href: ROUTES.imobiliaria },
-  { label: "Contato", href: CONTACT_ANCHOR },
+  { label: "Objetivos", sectionId: SECTION_IDS.objetivos },
+  { label: "Planos", sectionId: SECTION_IDS.planos },
+  { label: "Como funciona", sectionId: SECTION_IDS.comoFunciona },
+  { label: "Dúvidas", sectionId: SECTION_IDS.duvidas },
+  { label: "Contato", sectionId: SECTION_IDS.contato },
 ];

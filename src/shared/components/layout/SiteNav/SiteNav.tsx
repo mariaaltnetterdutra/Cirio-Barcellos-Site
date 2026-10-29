@@ -3,21 +3,16 @@
 import Link from "next/link";
 import { useId } from "react";
 import { MobileMenuToggle } from "@/shared/components/layout/MobileMenuToggle/MobileMenuToggle";
-import { SITE_NAV } from "@/shared/constants/routes";
+import { SITE_NAV, sectionHref } from "@/shared/constants/routes";
 import { useMobileMenu } from "@/shared/hooks/useMobileMenu";
 import { cn } from "@/shared/utils/cn";
 import { SITE_HEADER_CONTENT } from "@/shared/components/layout/SiteHeader/content";
 import styles from "./SiteNav.module.css";
 
-// Comparar com "/" no fim evita marcar /consorcio quando a página é /consorcio-imobiliario.
-function isCurrentPage(pathname: string, href: string): boolean {
-  return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
-}
-
 // O botão vem antes da lista no HTML: com o menu aberto, o próximo Tab já cai nos links.
 export function SiteNav() {
   const navId = useId();
-  const { isOpen, toggle, close, toggleRef, pathname } = useMobileMenu();
+  const { isOpen, toggle, close, toggleRef } = useMobileMenu();
 
   return (
     <>
@@ -35,14 +30,9 @@ export function SiteNav() {
         aria-label={SITE_HEADER_CONTENT.navLabel}
       >
         <ul className={styles.list}>
-          {SITE_NAV.map(({ label, href }) => (
-            <li key={href}>
-              <Link
-                className={styles.link}
-                href={href}
-                aria-current={isCurrentPage(pathname, href) ? "page" : undefined}
-                onClick={close}
-              >
+          {SITE_NAV.map(({ label, sectionId }) => (
+            <li key={sectionId}>
+              <Link className={styles.link} href={sectionHref(sectionId)} onClick={close}>
                 {label}
               </Link>
             </li>

@@ -31,5 +31,5 @@ export function useMobileMenu() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, close]);
 
-  return { isOpen, toggle, close, toggleRef, pathname };
+  return { isOpen, toggle, close, toggleRef };
 }
