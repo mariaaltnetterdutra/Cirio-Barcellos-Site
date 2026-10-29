@@ -25,7 +25,12 @@ export type IconName =
   | "phone"
   | "image"
   | "user"
-  | "star";
+  | "star"
+  | "map"
+  | "build"
+  | "tool"
+  | "trend"
+  | "plus";
 
 export const ICONS: Record<IconName, readonly IconShape[]> = {
   menu: [{ kind: "path", d: "M4 7h16M4 12h16M4 17h16" }],
@@ -96,4 +101,20 @@ export const ICONS: Record<IconName, readonly IconShape[]> = {
     { kind: "path", d: "M4 21a8 8 0 0 1 16 0" },
   ],
   star: [{ kind: "path", d: "M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3l-5.5 2.9 1-6.2L3 9.6l6.2-.9z" }],
+  map: [
+    { kind: "path", d: "M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z" },
+    { kind: "path", d: "M9 3v15M15 6v15" },
+  ],
+  build: [{ kind: "path", d: "M3 20h18M4 20v-5h7v5M13 20v-5h7v5M7.5 15v-5h9v5M10.5 10V5.5h3V10" }],
+  tool: [
+    {
+      kind: "path",
+      d: "M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.4-.4-2.6z",
+    },
+  ],
+  trend: [
+    { kind: "path", d: "M3 17l6-6 4 4 8-8" },
+    { kind: "path", d: "M15 7h6v6" },
+  ],
+  plus: [{ kind: "path", d: "M12 5v14M5 12h14" }],
 };
