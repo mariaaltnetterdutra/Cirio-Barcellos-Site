@@ -12,9 +12,13 @@ const TITLE_ID = "hero-titulo";
 
 export function ConsortiumHero() {
   return (
-    <Section tone="slate" labelledBy={TITLE_ID} className={styles.hero}>
+    <Section tone="slate" labelledBy={TITLE_ID}>
       <div className={styles.grid}>
-        <div>
+        <div className={styles.text}>
+          <div className={styles.partner}>
+            <span className={styles.partnerLabel}>{CONTENT.partnerLabel}</span>
+            <PortoBankLogo variant="dark" size="lg" />
+          </div>
           <SectionHeading
             as="h1"
             titleId={TITLE_ID}
@@ -33,10 +37,6 @@ export function ConsortiumHero() {
             >
               {CONTENT.secondaryCta.label}
             </ButtonLink>
-          </div>
-          <div className={styles.partner}>
-            <span>{CONTENT.partnerLabel}</span>
-            <PortoBankLogo variant="dark" />
           </div>
         </div>
         <ImagePlaceholder

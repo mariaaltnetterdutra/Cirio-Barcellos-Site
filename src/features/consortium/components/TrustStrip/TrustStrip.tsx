@@ -1,3 +1,4 @@
+import { PortoBankLogo } from "@/shared/components/brand/PortoBankLogo/PortoBankLogo";
 import { GoogleRatingBadge } from "@/shared/components/ui/GoogleRatingBadge/GoogleRatingBadge";
 import type { StatItem } from "../../types";
 import { TRUST_CONTENT as CONTENT } from "../../content";
@@ -13,6 +14,7 @@ function Stat({ value, label }: StatItem) {
 }
 
 // Faixa logo abaixo do topo: números da empresa, nota no Google e a parceria com a Porto.
+// Todos os itens seguem o mesmo padrão: destaque em cima, legenda embaixo, centralizados.
 export function TrustStrip() {
   return (
     <div className={`tone-slate ${styles.strip}`}>
@@ -22,7 +24,10 @@ export function TrustStrip() {
         <li className={styles.item}>
           <GoogleRatingBadge label={CONTENT.google.label} linkLabel={CONTENT.google.linkLabel} />
         </li>
-        <Stat {...CONTENT.partner} />
+        <li className={styles.item}>
+          <PortoBankLogo variant="dark" size="md" />
+          <span className={styles.label}>{CONTENT.partner.label}</span>
+        </li>
       </ul>
     </div>
   );
