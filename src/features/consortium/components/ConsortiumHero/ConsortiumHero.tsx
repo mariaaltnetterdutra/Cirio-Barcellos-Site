@@ -42,9 +42,9 @@ export function ConsortiumHero() {
           label={CONTENT.photo.alt}
           src={CONTENT.photo.src}
           alt={CONTENT.photo.alt}
-          aspectRatio="4/5"
+          aspectRatio="2/3"
           className={styles.photo}
-          sizes="(max-width: 820px) 100vw, 520px"
+          sizes="(max-width: 820px) 360px, 420px"
           preload
         />
       </div>
