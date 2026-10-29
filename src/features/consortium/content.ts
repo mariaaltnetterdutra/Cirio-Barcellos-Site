@@ -18,8 +18,8 @@ export const HERO_CONTENT = {
   primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
   secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
   photo: {
-    src: "/images/consorcio/predio-fachada.jpg",
-    alt: "Fachada de um edifício residencial moderno ao entardecer",
+    src: "/images/consorcio/predio-topo.jpg",
+    alt: "Edifício residencial moderno com varandas de vidro",
   },
 } as const;
 
@@ -27,7 +27,7 @@ export const TRUST_CONTENT = {
   experience: { value: "+20", label: "anos de mercado" } satisfies StatItem,
   clients: { value: COMPANY.clientsLabel, label: "clientes atendidos" } satisfies StatItem,
   google: { label: "no Google", linkLabel: "ver avaliações" },
-  partner: { label: "Parceria oficial Consórcio Porto Bank" },
+  partner: { label: "Parceria oficial Consórcio" },
 } as const;
 
 export const GOALS_CONTENT = {
@@ -56,11 +56,31 @@ export const PLANS_CONTENT = {
   footnote:
     "Valores de crédito ilustrativos. Parcelas, prazos e condições conforme o grupo e as regras vigentes do produto.",
   plans: [
-    { creditInThousands: 200, budget: "100a300" },
-    { creditInThousands: 300, budget: "100a300" },
-    { creditInThousands: 400, budget: "300a500" },
-    { creditInThousands: 500, budget: "300a500" },
-    { creditInThousands: 600, budget: "500a1m" },
+    {
+      creditInThousands: 200,
+      budget: "100a300",
+      photo: { src: "/images/consorcio/planos/plano-200.jpg", alt: "Sala de estar de apartamento com varanda" },
+    },
+    {
+      creditInThousands: 300,
+      budget: "100a300",
+      photo: { src: "/images/consorcio/planos/plano-300.jpg", alt: "Casa térrea com jardim e garagem" },
+    },
+    {
+      creditInThousands: 400,
+      budget: "300a500",
+      photo: { src: "/images/consorcio/planos/plano-400.jpg", alt: "Prédio residencial com varandas" },
+    },
+    {
+      creditInThousands: 500,
+      budget: "300a500",
+      photo: { src: "/images/consorcio/planos/plano-500.jpg", alt: "Sala de estar ampla integrada à sala de jantar" },
+    },
+    {
+      creditInThousands: 600,
+      budget: "500a1m",
+      photo: { src: "/images/consorcio/planos/plano-600.jpg", alt: "Área de lazer com piscina e espaço gourmet" },
+    },
   ] satisfies readonly CreditPlan[],
 } as const;
 
