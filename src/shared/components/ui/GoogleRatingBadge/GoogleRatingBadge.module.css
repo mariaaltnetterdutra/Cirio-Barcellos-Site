@@ -1,0 +1,41 @@
+.badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-gold);
+}
+
+.star {
+  fill: none;
+}
+
+.filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+.rating {
+  font-size: 13.5px;
+  color: var(--color-text-2);
+}
+
+.value {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-blue);
+}
+
+.link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-gold-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -31,6 +31,10 @@
   --color-text-2: var(--color-on-dark-2);
   --color-gold: var(--color-gold-light);
   --color-gold-ink: var(--color-gold-ink-light);
+  --color-text-3: var(--color-on-dark-2);
+  --color-surface: var(--color-on-dark-hover);
+  --color-line: var(--color-on-dark-line);
+  --color-line-strong: var(--color-on-dark-border);
   background: linear-gradient(135deg, var(--color-navy), var(--color-navy-2));
   color: var(--color-text);
 }

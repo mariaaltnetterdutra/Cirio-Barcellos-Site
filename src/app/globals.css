@@ -5,6 +5,10 @@
   --color-gray-50: #f5f6f8;      /* seções claras intercaladas */
   --color-cream: #f7f1e6;        /* chamadas finais */
 
+  /* fundo e superfície de cards (redefinidos nos tons escuros) */
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-white);
+
   /* textos */
   --color-text: #161a20;         /* títulos e texto principal */
   --color-text-2: #5b6472;       /* descrições */
@@ -45,6 +49,11 @@
   --color-success-soft: #dbf0e4;
   --color-danger: #b42318;
 
+  /* espaço reservado de foto (docs/DESIGN.md, seção 5) */
+  --color-placeholder-a: #e6edf6;
+  --color-placeholder-b: #f5f6f8;
+  --color-placeholder-ink: #5b6f86;
+
   /* logo */
   --color-logo-yellow: #e8d26a;
   --color-logo-blue: #1a6ff0;
@@ -60,6 +69,7 @@
 
   /* sombras */
   --shadow-card: 0 1px 2px rgba(22, 26, 32, 0.05), 0 16px 34px -20px rgba(22, 26, 32, 0.25);
+  --shadow-card-hover: 0 18px 36px -20px rgba(28, 87, 154, 0.6);
 
   /* layout */
   --max-width: 1080px;
