@@ -18,8 +18,10 @@ export const HERO_CONTENT = {
   primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
   secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
   partnerLabel: "Parceria oficial",
-  partnerLogoLabel: "Logo Porto Bank",
-  photoLabel: "Foto de arquitetura: fachada de casa ou apartamento",
+  photo: {
+    src: "/images/consorcio/predio-fachada.jpg",
+    alt: "Fachada de um edifício residencial moderno ao entardecer",
+  },
 } as const;
 
 export const TRUST_CONTENT = {
@@ -85,7 +87,6 @@ export const PORTO_BANK_CONTENT = {
     { icon: "trend", label: "Planejamento patrimonial" },
   ] satisfies readonly IconItem[],
   footnote: "*Conforme as regras do grupo e da utilização do crédito.",
-  logoLabel: "Logo Porto Bank (versão clara)",
 } as const;
 
 export const SPECIALIST_CONTENT = {

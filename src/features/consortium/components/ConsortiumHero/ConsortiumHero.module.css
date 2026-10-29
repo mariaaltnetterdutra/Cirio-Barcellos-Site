@@ -43,7 +43,14 @@
     gap: 32px;
   }
 
+  /* Foto vertical (prédio): no celular continua em pé, só com largura limitada. */
   .photo {
-    aspect-ratio: 16 / 11;
+    max-width: 420px;
+    margin-inline: auto;
   }
+}
+
+/* A foto do prédio é bem vertical: mostra do topo da torre até perto da base. */
+.photo img {
+  object-position: 50% 35%;
 }

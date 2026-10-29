@@ -1,7 +1,7 @@
+import { PortoBankLogo } from "@/shared/components/brand/PortoBankLogo/PortoBankLogo";
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
 import { Section } from "@/shared/components/layout/Section/Section";
 import { ButtonLink } from "@/shared/components/ui/Button/Button";
-import { LogoSlot } from "@/shared/components/ui/LogoSlot/LogoSlot";
 import { SectionHeading } from "@/shared/components/ui/SectionHeading/SectionHeading";
 import { SECTION_IDS, sectionHref } from "@/shared/constants/routes";
 import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
@@ -36,15 +36,17 @@ export function ConsortiumHero() {
           </div>
           <div className={styles.partner}>
             <span>{CONTENT.partnerLabel}</span>
-            <LogoSlot label={CONTENT.partnerLogoLabel} />
+            <PortoBankLogo variant="dark" />
           </div>
         </div>
         <ImagePlaceholder
-          label={CONTENT.photoLabel}
-          tone="dark"
+          label={CONTENT.photo.alt}
+          src={CONTENT.photo.src}
+          alt={CONTENT.photo.alt}
           aspectRatio="4/5"
           className={styles.photo}
           sizes="(max-width: 820px) 100vw, 520px"
+          preload
         />
       </div>
     </Section>

@@ -16,6 +16,8 @@ interface ImagePlaceholderProps {
   alt?: string;
   /** Tamanho exibido, para o next/image gerar só as versões necessárias. */
   sizes?: string;
+  /** true para a imagem principal da primeira dobra (carrega antes das outras). */
+  preload?: boolean;
   className?: string;
 }
 
@@ -38,6 +40,7 @@ export function ImagePlaceholder({
   src,
   alt,
   sizes = "(max-width: 820px) 100vw, 50vw",
+  preload = false,
   className,
 }: ImagePlaceholderProps) {
   const frameClass = cn(styles.frame, RATIO_CLASS[aspectRatio], className);
@@ -45,7 +48,14 @@ export function ImagePlaceholder({
   if (src) {
     return (
       <div className={frameClass}>
-        <Image className={styles.photo} src={src} alt={alt ?? label} fill sizes={sizes} />
+        <Image
+          className={styles.photo}
+          src={src}
+          alt={alt ?? label}
+          fill
+          sizes={sizes}
+          preload={preload}
+        />
       </div>
     );
   }
