@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // A API (NestJS) tem as próprias regras e dependências.
+    "api/**",
   ]),
 ]);
 

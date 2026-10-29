@@ -100,4 +100,6 @@ O projeto tem 3 entregas:
 
 Referência visual e de textos da V1: a tela "Consórcio imobiliário (anúncios)" do `docs/prototipo-v5.html` (bloco `<div data-page="consorcio-imobiliario">`, montado pela função `consHTML` com `CONS.imobiliario`), **sem** as seções de avaliações do Google e de contemplações.
 
+**Backend:** a API (NestJS + MongoDB) fica na pasta `api/`, com `package.json`, `CLAUDE.md` e testes próprios. O site não importa nada de `api/`, e vice-versa.
+
 **Não crie nada da V2 ou da V3 agora.** O planejamento da V1, task por task, fica no quadro "Planejamento V1".
