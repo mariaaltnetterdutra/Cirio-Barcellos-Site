@@ -1,10 +1,12 @@
-import { Section } from "@/shared/components/layout/Section/Section";
+import { ConsortiumHero } from "@/features/consortium/components/ConsortiumHero/ConsortiumHero";
+import { TrustStrip } from "@/features/consortium/components/TrustStrip/TrustStrip";
 
-// TEMPORÁRIO (T07): a landing é montada seção por seção a partir da T12.
+// A landing é montada seção por seção (planejamento V1, T12 a T21).
 export default function ConsortiumPage() {
   return (
-    <Section>
-      <h1>Consórcio</h1>
-    </Section>
+    <>
+      <ConsortiumHero />
+      <TrustStrip />
+    </>
   );
 }

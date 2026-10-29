@@ -1,0 +1,52 @@
+import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
+import { Section } from "@/shared/components/layout/Section/Section";
+import { ButtonLink } from "@/shared/components/ui/Button/Button";
+import { LogoSlot } from "@/shared/components/ui/LogoSlot/LogoSlot";
+import { SectionHeading } from "@/shared/components/ui/SectionHeading/SectionHeading";
+import { SECTION_IDS, sectionHref } from "@/shared/constants/routes";
+import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
+import { HERO_CONTENT as CONTENT, SPECIALIST_WHATSAPP_MESSAGE } from "../../content";
+import styles from "./ConsortiumHero.module.css";
+
+const TITLE_ID = "hero-titulo";
+
+export function ConsortiumHero() {
+  return (
+    <Section tone="slate" labelledBy={TITLE_ID} className={styles.hero}>
+      <div className={styles.grid}>
+        <div>
+          <SectionHeading
+            as="h1"
+            titleId={TITLE_ID}
+            eyebrow={CONTENT.eyebrow}
+            title={CONTENT.title}
+            lead={CONTENT.lead}
+            className={styles.heading}
+          />
+          <div className={styles.actions}>
+            <ButtonLink href={sectionHref(SECTION_IDS.analise)}>{CONTENT.primaryCta.label}</ButtonLink>
+            <ButtonLink
+              href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}
+              variant="ghost-inverse"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {CONTENT.secondaryCta.label}
+            </ButtonLink>
+          </div>
+          <div className={styles.partner}>
+            <span>{CONTENT.partnerLabel}</span>
+            <LogoSlot label={CONTENT.partnerLogoLabel} />
+          </div>
+        </div>
+        <ImagePlaceholder
+          label={CONTENT.photoLabel}
+          tone="dark"
+          aspectRatio="4/5"
+          className={styles.photo}
+          sizes="(max-width: 820px) 100vw, 520px"
+        />
+      </div>
+    </Section>
+  );
+}
