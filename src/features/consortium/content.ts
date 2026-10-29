@@ -17,7 +17,6 @@ export const HERO_CONTENT = {
   lead: "Compra de imóvel, terreno, construção ou reforma com uma estratégia pensada para o seu objetivo, o seu prazo e o seu orçamento.",
   primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
   secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
-  partnerLabel: "Parceria oficial",
   photo: {
     src: "/images/consorcio/predio-fachada.jpg",
     alt: "Fachada de um edifício residencial moderno ao entardecer",

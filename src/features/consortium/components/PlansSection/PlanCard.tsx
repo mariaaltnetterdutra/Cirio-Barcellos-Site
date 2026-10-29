@@ -18,6 +18,8 @@ export function PlanCard({ plan }: PlanCardProps) {
     <article className={styles.card}>
       <ImagePlaceholder
         label={`${CONTENT.photoLabel} — ${credit}`}
+        src={plan.photo?.src}
+        alt={plan.photo?.alt}
         aspectRatio="4/5"
         className={styles.photo}
         sizes="(max-width: 560px) 82vw, (max-width: 900px) 50vw, 350px"
