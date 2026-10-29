@@ -41,9 +41,9 @@
   border-radius: 22px;
 }
 
-/* A foto do prédio é bem vertical: mostra do topo da torre até perto da base. */
+/* Mantém a torre do prédio centralizada quando a foto é cortada. */
 .photo img {
-  object-position: 50% 30%;
+  object-position: 50% 40%;
 }
 
 @media (max-width: 820px) {
