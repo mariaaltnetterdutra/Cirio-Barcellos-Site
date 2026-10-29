@@ -1,0 +1,28 @@
+import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { APP_GUARD } from "@nestjs/core";
+import { MongooseModule } from "@nestjs/mongoose";
+import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
+import { type EnvironmentVariables, validateEnvironment } from "./config/env.validation";
+import { HealthController } from "./health/health.controller";
+import { LeadsModule } from "./leads/leads.module";
+
+// Limite geral por IP; a rota do formulário tem um limite próprio, mais baixo.
+const DEFAULT_RATE_LIMIT = { ttl: 60_000, limit: 60 };
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true, validate: validateEnvironment }),
+    MongooseModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService<EnvironmentVariables, true>) => ({
+        uri: config.get("MONGODB_URI", { infer: true }),
+      }),
+    }),
+    ThrottlerModule.forRoot([DEFAULT_RATE_LIMIT]),
+    LeadsModule,
+  ],
+  controllers: [HealthController],
+  providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
+})
+export class AppModule {}
