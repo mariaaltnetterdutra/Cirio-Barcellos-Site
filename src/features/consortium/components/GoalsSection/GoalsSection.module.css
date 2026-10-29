@@ -1,0 +1,42 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+  list-style: none;
+}
+
+.hint {
+  display: none;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--color-text-3);
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* No celular vira carrossel: os cards passam de lado, encaixando um por vez. */
+@media (max-width: 760px) {
+  .list {
+    display: flex;
+    gap: 12px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .item {
+    flex: 0 0 76%;
+    scroll-snap-align: start;
+  }
+
+  .hint {
+    display: block;
+  }
+}
