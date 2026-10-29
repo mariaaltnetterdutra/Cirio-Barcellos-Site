@@ -1,16 +1,10 @@
-import { Logo } from "@/shared/components/brand/Logo/Logo";
 import { Section } from "@/shared/components/layout/Section/Section";
 
-// TEMPORÁRIO: só para conferir a logo nos dois fundos. Sai quando a home for montada.
-export default function Home() {
+// TEMPORÁRIO (T07): a landing é montada seção por seção a partir da T12.
+export default function ConsortiumPage() {
   return (
-    <>
-      <Section>
-        <Logo variant="light" />
-      </Section>
-      <Section tone="navy">
-        <Logo variant="dark" />
-      </Section>
-    </>
+    <Section>
+      <h1>Consórcio</h1>
+    </Section>
   );
 }

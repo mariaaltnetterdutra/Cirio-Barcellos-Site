@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
 import { COMPANY } from "@/shared/constants/company";
+import { SITE_METADATA } from "@/shared/constants/site";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -23,9 +24,10 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: COMPANY.name,
+    default: SITE_METADATA.title,
     template: `%s | ${COMPANY.name}`,
   },
+  description: SITE_METADATA.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
