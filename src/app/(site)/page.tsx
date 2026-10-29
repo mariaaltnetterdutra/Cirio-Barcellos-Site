@@ -1,5 +1,7 @@
 import { ConsortiumHero } from "@/features/consortium/components/ConsortiumHero/ConsortiumHero";
 import { GoalsSection } from "@/features/consortium/components/GoalsSection/GoalsSection";
+import { HowItWorksSection } from "@/features/consortium/components/HowItWorksSection/HowItWorksSection";
+import { PlansSection } from "@/features/consortium/components/PlansSection/PlansSection";
 import { TrustStrip } from "@/features/consortium/components/TrustStrip/TrustStrip";
 import { ConsortiumIntentProvider } from "@/features/consortium/state/ConsortiumIntentContext";
 
@@ -11,6 +13,8 @@ export default function ConsortiumPage() {
       <ConsortiumHero />
       <TrustStrip />
       <GoalsSection />
+      <PlansSection />
+      <HowItWorksSection />
     </ConsortiumIntentProvider>
   );
 }
