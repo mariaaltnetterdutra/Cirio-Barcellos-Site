@@ -1,3 +1,9 @@
+export interface GoogleReviewsSummary {
+  rating: number;
+  total: number;
+  url: string;
+}
+
 export interface Company {
   name: string;
   legalName: string;
@@ -11,6 +17,7 @@ export interface Company {
   cep: string | null;
   foundedYearsLabel: string;
   clientsLabel: string;
+  googleReviews: GoogleReviewsSummary;
 }
 
 export const COMPANY: Company = {
@@ -25,4 +32,10 @@ export const COMPANY: Company = {
   cep: null, // TODO: confirmar com o cliente
   foundedYearsLabel: "+20 anos",
   clientsLabel: "+10 mil",
+  // TODO: confirmar nota, total e link reais do perfil no Google com o cliente.
+  googleReviews: {
+    rating: 4.9,
+    total: 312,
+    url: "https://www.google.com/search?q=C%C3%ADrio+%26+Barcellos+Seguros+Canoas",
+  },
 };
