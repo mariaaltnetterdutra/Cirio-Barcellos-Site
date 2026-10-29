@@ -1,0 +1,15 @@
+/* --color-gold-ink vira o dourado claro em fundo escuro (rodapé, seções escuras). */
+.badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 8px;
+  border: 1px dashed var(--color-gold-ink);
+  border-radius: var(--radius-pill);
+  color: var(--color-gold-ink);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
