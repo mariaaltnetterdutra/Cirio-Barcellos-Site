@@ -27,6 +27,8 @@ export interface CreditPlan {
   creditInThousands: number;
   /** Faixa de valor que o plano marca no formulário. */
   budget: BudgetRange;
+  /** Foto do imóvel em /public (enquanto não houver, aparece o espaço reservado). */
+  photo?: { src: string; alt: string };
 }
 
 export interface Step {

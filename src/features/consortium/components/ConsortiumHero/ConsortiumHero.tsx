@@ -15,10 +15,7 @@ export function ConsortiumHero() {
     <Section tone="slate" labelledBy={TITLE_ID}>
       <div className={styles.grid}>
         <div className={styles.text}>
-          <div className={styles.partner}>
-            <span className={styles.partnerLabel}>{CONTENT.partnerLabel}</span>
-            <PortoBankLogo variant="dark" size="lg" />
-          </div>
+          <PortoBankLogo variant="dark" size="lg" className={styles.partnerLogo} />
           <SectionHeading
             as="h1"
             titleId={TITLE_ID}
