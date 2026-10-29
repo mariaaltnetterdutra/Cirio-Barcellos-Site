@@ -12,14 +12,14 @@ import type {
 } from "./types";
 
 export const HERO_CONTENT = {
-  eyebrow: "Consórcio imobiliário Porto Bank",
+  partnerCaption: "Consórcio imobiliário Porto Bank",
   title: "Seu próximo imóvel pode começar com planejamento.",
   lead: "Compra de imóvel, terreno, construção ou reforma com uma estratégia pensada para o seu objetivo, o seu prazo e o seu orçamento.",
   primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
   secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
   photo: {
     src: "/images/consorcio/predio-topo.jpg",
-    alt: "Edifício residencial moderno com varandas de vidro",
+    alt: "Torre residencial moderna iluminada ao anoitecer",
   },
 } as const;
 
@@ -59,27 +59,27 @@ export const PLANS_CONTENT = {
     {
       creditInThousands: 200,
       budget: "100a300",
-      photo: { src: "/images/consorcio/planos/plano-200.jpg", alt: "Sala de estar de apartamento com varanda" },
+      photo: { src: "/images/consorcio/planos/plano-200.jpg", alt: "Sala de estar com mesa de jantar e varanda com vista da cidade" },
     },
     {
       creditInThousands: 300,
       budget: "100a300",
-      photo: { src: "/images/consorcio/planos/plano-300.jpg", alt: "Casa térrea com jardim e garagem" },
+      photo: { src: "/images/consorcio/planos/plano-300.jpg", alt: "Casa térrea com jardim, palmeira e garagem coberta" },
     },
     {
       creditInThousands: 400,
       budget: "300a500",
-      photo: { src: "/images/consorcio/planos/plano-400.jpg", alt: "Prédio residencial com varandas" },
+      photo: { src: "/images/consorcio/planos/plano-400.jpg", alt: "Prédio residencial com varandas de vidro ao entardecer" },
     },
     {
       creditInThousands: 500,
       budget: "300a500",
-      photo: { src: "/images/consorcio/planos/plano-500.jpg", alt: "Sala de estar ampla integrada à sala de jantar" },
+      photo: { src: "/images/consorcio/planos/plano-500.jpg", alt: "Sala ampla integrada à cozinha, com vista do pôr do sol" },
     },
     {
       creditInThousands: 600,
       budget: "500a1m",
-      photo: { src: "/images/consorcio/planos/plano-600.jpg", alt: "Área de lazer com piscina e espaço gourmet" },
+      photo: { src: "/images/consorcio/planos/plano-600.jpg", alt: "Piscina com deck de madeira e espaço gourmet" },
     },
   ] satisfies readonly CreditPlan[],
 } as const;

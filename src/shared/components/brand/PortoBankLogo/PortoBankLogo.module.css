@@ -11,12 +11,12 @@
 }
 
 .lg {
-  height: 56px;
+  height: 48px;
 }
 
 @media (max-width: 640px) {
   .lg {
-    height: 44px;
+    height: 40px;
   }
 }
 

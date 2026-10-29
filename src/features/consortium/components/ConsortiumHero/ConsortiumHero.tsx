@@ -15,11 +15,9 @@ export function ConsortiumHero() {
     <Section tone="slate" labelledBy={TITLE_ID}>
       <div className={styles.grid}>
         <div className={styles.text}>
-          <PortoBankLogo variant="dark" size="lg" className={styles.partnerLogo} />
           <SectionHeading
             as="h1"
             titleId={TITLE_ID}
-            eyebrow={CONTENT.eyebrow}
             title={CONTENT.title}
             lead={CONTENT.lead}
             className={styles.heading}
@@ -34,6 +32,10 @@ export function ConsortiumHero() {
             >
               {CONTENT.secondaryCta.label}
             </ButtonLink>
+          </div>
+          <div className={styles.partner}>
+            <PortoBankLogo variant="dark" size="lg" />
+            <span className={styles.partnerCaption}>{CONTENT.partnerCaption}</span>
           </div>
         </div>
         <ImagePlaceholder

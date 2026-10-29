@@ -12,10 +12,22 @@
   justify-content: center;
 }
 
-/* Logo da Porto em destaque, colada ao título: a página tem a cara da Porto. */
-.partnerLogo {
-  align-self: flex-start;
-  margin-bottom: 20px;
+/* Logo da Porto em destaque logo abaixo dos botões, separada da logo da Círio & Barcellos
+   (que fica no cabeçalho), com o nome do produto embaixo. */
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.partnerCaption {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-2);
 }
 
 /* Título maior que o h1 padrão: é a primeira dobra da landing. */
