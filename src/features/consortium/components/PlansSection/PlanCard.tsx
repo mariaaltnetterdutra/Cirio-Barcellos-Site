@@ -20,7 +20,7 @@ export function PlanCard({ plan }: PlanCardProps) {
         label={`${CONTENT.photoLabel} — ${credit}`}
         src={plan.photo?.src}
         alt={plan.photo?.alt}
-        aspectRatio="2/3"
+        aspectRatio="4/5"
         className={styles.photo}
         sizes="(max-width: 560px) 82vw, (max-width: 900px) 50vw, 350px"
       />

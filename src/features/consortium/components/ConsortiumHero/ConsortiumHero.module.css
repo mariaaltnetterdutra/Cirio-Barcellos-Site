@@ -1,9 +1,9 @@
 /* Mesmo espaçamento vertical das outras seções (padrão do Section). */
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .text {
@@ -44,9 +44,18 @@
   margin-top: 32px;
 }
 
-/* Foto na proporção original (2:3): aparece inteira, sem zoom nem corte. */
-.photo {
+/* A foto acompanha a altura do texto, em vez de ditar a altura da seção.
+   ".grid .photo" para vencer a proporção padrão do ImagePlaceholder. */
+.grid .photo {
+  height: 100%;
+  min-height: 420px;
+  aspect-ratio: auto;
   border-radius: 22px;
+}
+
+/* Mantém a torre do prédio centralizada quando a foto é cortada. */
+.photo img {
+  object-position: 50% 40%;
 }
 
 @media (max-width: 820px) {
@@ -55,8 +64,9 @@
     gap: 32px;
   }
 
-  .photo {
-    max-width: 360px;
-    margin-inline: auto;
+  .grid .photo {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 }

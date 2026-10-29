@@ -3,7 +3,7 @@ import { Icon, type IconName } from "@/shared/components/ui/Icon/Icon";
 import { cn } from "@/shared/utils/cn";
 import styles from "./ImagePlaceholder.module.css";
 
-export type AspectRatio = "2/3" | "4/5" | "5/4" | "16/10" | "16/11" | "1/1";
+export type AspectRatio = "4/5" | "5/4" | "16/10" | "16/11" | "1/1";
 
 interface ImagePlaceholderProps {
   /** Descreve a foto que vai entrar aqui (também é o texto para leitores de tela). */
@@ -22,7 +22,6 @@ interface ImagePlaceholderProps {
 }
 
 const RATIO_CLASS: Record<AspectRatio, string | undefined> = {
-  "2/3": styles.ratio2x3,
   "4/5": styles.ratio4x5,
   "5/4": styles.ratio5x4,
   "16/10": styles.ratio16x10,
