@@ -1,65 +1,54 @@
 /* Tokens copiados de docs/DESIGN.md (seção 2). Visual fixo: sem prefers-color-scheme. */
 :root {
-  /* fundos claros */
-  --color-white: #ffffff;        /* seções claras, cabeçalho, cards */
-  --color-gray-50: #f5f6f8;      /* seções claras intercaladas */
-  --color-cream: #f7f1e6;        /* chamadas finais */
+  --color-white: #ffffff;
+  --color-gray-50: #f5f6f8;
+  --color-cream: #f7f1e6;
 
-  /* fundo e superfície de cards (redefinidos nos tons escuros) */
   --color-bg: var(--color-white);
   --color-surface: var(--color-white);
 
-  /* textos */
-  --color-text: #161a20;         /* títulos e texto principal */
-  --color-text-2: #5b6472;       /* descrições */
-  --color-text-3: #8a93a0;       /* textos de apoio */
+  --color-text: #161a20;
+  --color-text-2: #5b6472;
+  --color-text-3: #8a93a0;
 
-  /* bordas */
   --color-line: #e1e5ea;
   --color-line-strong: #c4cbd4;
 
-  /* azuis */
-  --color-navy: #14213a;         /* azul-marinho (início do degradê) */
-  --color-navy-2: #20314f;       /* azul-marinho (fim do degradê) */
-  --color-navy-mid: #1a2944;     /* meio do degradê do topo da home */
-  --color-slate: #1b2536;        /* azul-ardósia: seções escuras */
-  --color-slate-2: #202b3e;      /* faixa logo abaixo do topo (ardósia um tom acima) */
-  --color-mist: #2a3e60;         /* azul-névoa (início) */
-  --color-mist-2: #34507a;       /* azul-névoa (fim) */
-  --color-blue-deep: #1c579a;    /* azul Círio: card com mouse em cima */
-  --color-blue: #2e6fb0;         /* azul médio: ícones e links */
-  --color-blue-soft: #dceafa;    /* azul suave: fundos de selo, avatar */
+  --color-navy: #14213a;
+  --color-navy-2: #20314f;
+  --color-navy-mid: #1a2944;
+  --color-slate: #1b2536;
+  --color-slate-2: #202b3e;
+  --color-mist: #2a3e60;
+  --color-mist-2: #34507a;
+  --color-blue-deep: #1c579a;
+  --color-blue: #2e6fb0;
+  --color-blue-soft: #dceafa;
 
-  /* dourados (só em botões principais e títulos pequenos) */
-  --color-gold: #a9752e;         /* botão principal em fundo claro */
-  --color-gold-light: #d8ba5a;   /* botão principal em fundo escuro */
-  --color-gold-soft: #f3e7ce;    /* fundo de selo dourado */
-  --color-gold-ink: #6b4e1e;     /* eyebrow (título pequeno) em fundo claro */
-  --color-gold-ink-light: #e2c77a; /* eyebrow em fundo escuro */
-  --color-on-gold: #1b1204;      /* texto dentro do botão dourado */
+  --color-gold: #a9752e;
+  --color-gold-light: #d8ba5a;
+  --color-gold-soft: #f3e7ce;
+  --color-gold-ink: #6b4e1e;
+  --color-gold-ink-light: #e2c77a;
+  --color-on-gold: #1b1204;
 
-  /* textos em fundo escuro */
   --color-on-dark: #f5f6f8;
   --color-on-dark-2: rgba(241, 242, 244, 0.74);
   --color-on-dark-line: rgba(255, 255, 255, 0.14);
-  --color-on-dark-border: rgba(255, 255, 255, 0.32); /* contorno do botão em fundo escuro */
+  --color-on-dark-border: rgba(255, 255, 255, 0.32);
   --color-on-dark-hover: rgba(255, 255, 255, 0.08);
 
-  /* avisos */
   --color-success: #2f855a;
   --color-success-soft: #dbf0e4;
   --color-danger: #b42318;
 
-  /* espaço reservado de foto (docs/DESIGN.md, seção 5) */
   --color-placeholder-a: #e6edf6;
   --color-placeholder-b: #f5f6f8;
   --color-placeholder-ink: #5b6f86;
 
-  /* logo */
   --color-logo-yellow: #e8d26a;
   --color-logo-blue: #1a6ff0;
 
-  /* raios */
   --radius-sm: 8px;
   --radius-button: 9px;
   --radius-md: 12px;
@@ -68,17 +57,16 @@
   --radius-xl: 18px;
   --radius-pill: 999px;
 
-  /* sombras */
   --shadow-card: 0 1px 2px rgba(22, 26, 32, 0.05), 0 16px 34px -20px rgba(22, 26, 32, 0.25);
   --gradient-photo-overlay: linear-gradient(to top, rgba(8, 12, 20, 0.9) 0%, rgba(8, 12, 20, 0.6) 34%, rgba(8, 12, 20, 0) 62%);
   --shadow-card-hover: 0 18px 36px -20px rgba(28, 87, 154, 0.6);
 
-  /* layout */
   --max-width: 1080px;
-  --max-width-wide: 1180px;      /* cabeçalho e rodapé */
-  --max-width-narrow: 760px;     /* textos longos e formulários; não definido no DESIGN.md */
+  --max-width-wide: 1180px;
+  --max-width-narrow: 760px;
   --gutter: 28px;
   --section-space: 72px;
+  --mobile-bar-height: 68px;
   --header-height: 73px;         /* logo 44px + 2 x 14px de padding + 1px de borda */
 }
 
@@ -92,7 +80,7 @@
 /* Tom escuro de seção: só troca as variáveis, tudo dentro se adapta. */
 .tone-slate {
   --color-bg: #1b2536;
-  --color-surface: #243044;      /* cards dentro da seção escura */
+  --color-surface: #243044;
   --color-text: #eef1f5;
   --color-text-2: #b6bfcd;
   --color-text-3: #8b96a9;
@@ -129,6 +117,13 @@ html {
 /* clip (e não hidden) para não criar uma área de rolagem própria, que quebraria o cabeçalho sticky. */
 body {
   overflow-x: clip;
+}
+
+/* Reserva o espaço da barra fixa do celular, para ela não cobrir o rodapé. */
+@media (max-width: 820px) {
+  body {
+    padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 body {
@@ -178,7 +173,6 @@ a {
   border: 0;
 }
 
-/* Fica fora da tela até receber foco pelo teclado. */
 .skip-link {
   position: absolute;
   top: 8px;
