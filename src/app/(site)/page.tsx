@@ -3,7 +3,7 @@ import { FaqSection } from "@/features/consortium/components/FaqSection/FaqSecti
 import { FinalCtaSection } from "@/features/consortium/components/FinalCtaSection/FinalCtaSection";
 import { GoalsSection } from "@/features/consortium/components/GoalsSection/GoalsSection";
 import { HowItWorksSection } from "@/features/consortium/components/HowItWorksSection/HowItWorksSection";
-import { MobileBar } from "@/features/consortium/components/MobileBar/MobileBar";
+import { MobileStickyBar } from "@/features/consortium/components/MobileStickyBar/MobileStickyBar";
 import { PlansSection } from "@/features/consortium/components/PlansSection/PlansSection";
 import { PortoBankSection } from "@/features/consortium/components/PortoBankSection/PortoBankSection";
 import { SpecialistSection } from "@/features/consortium/components/SpecialistSection/SpecialistSection";
@@ -23,7 +23,7 @@ export default function ConsortiumPage() {
       <SpecialistSection />
       <FaqSection />
       <FinalCtaSection />
-      <MobileBar />
+      <MobileStickyBar />
     </ConsortiumIntentProvider>
   );
 }

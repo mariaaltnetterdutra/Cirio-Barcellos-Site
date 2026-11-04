@@ -10,7 +10,6 @@ interface PlanCardProps {
   plan: CreditPlan;
 }
 
-// Foto do imóvel ao fundo, com um degradê escuro por baixo do texto para manter a leitura.
 export function PlanCard({ plan }: PlanCardProps) {
   const credit = formatCredit(plan.creditInThousands);
 

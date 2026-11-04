@@ -19,7 +19,6 @@
   }
 }
 
-/* No celular vira carrossel: os cards passam de lado, encaixando um por vez. */
 @media (max-width: 760px) {
   .list {
     display: flex;
