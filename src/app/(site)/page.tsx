@@ -1,12 +1,16 @@
 import { ConsortiumHero } from "@/features/consortium/components/ConsortiumHero/ConsortiumHero";
+import { FaqSection } from "@/features/consortium/components/FaqSection/FaqSection";
+import { FinalCtaSection } from "@/features/consortium/components/FinalCtaSection/FinalCtaSection";
 import { GoalsSection } from "@/features/consortium/components/GoalsSection/GoalsSection";
 import { HowItWorksSection } from "@/features/consortium/components/HowItWorksSection/HowItWorksSection";
+import { MobileBar } from "@/features/consortium/components/MobileBar/MobileBar";
 import { PlansSection } from "@/features/consortium/components/PlansSection/PlansSection";
+import { PortoBankSection } from "@/features/consortium/components/PortoBankSection/PortoBankSection";
+import { SpecialistSection } from "@/features/consortium/components/SpecialistSection/SpecialistSection";
 import { TrustStrip } from "@/features/consortium/components/TrustStrip/TrustStrip";
 import { ConsortiumIntentProvider } from "@/features/consortium/state/ConsortiumIntentContext";
 
-// A landing é montada seção por seção (planejamento V1, T12 a T21). O Provider deixa os
-// objetivos e os planos marcarem respostas no formulário.
+// O Provider deixa os objetivos e os planos marcarem respostas no formulário.
 export default function ConsortiumPage() {
   return (
     <ConsortiumIntentProvider>
@@ -15,6 +19,11 @@ export default function ConsortiumPage() {
       <GoalsSection />
       <PlansSection />
       <HowItWorksSection />
+      <PortoBankSection />
+      <SpecialistSection />
+      <FaqSection />
+      <FinalCtaSection />
+      <MobileBar />
     </ConsortiumIntentProvider>
   );
 }
