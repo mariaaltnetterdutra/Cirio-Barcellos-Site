@@ -14,8 +14,8 @@ export function FaqSection() {
     <Section id={SECTION_IDS.duvidas} tone="muted" width="narrow" labelledBy={TITLE_ID}>
       <SectionHeading titleId={TITLE_ID} eyebrow={CONTENT.eyebrow} title={CONTENT.title} />
       <div className={styles.list}>
-        {CONTENT.items.map((item) => (
-          <details key={item.question} className={styles.item}>
+        {CONTENT.items.map((item, index) => (
+          <details key={item.question} className={styles.item} open={index === 0}>
             <summary className={styles.question}>
               <span>{item.question}</span>
               <Icon name="plus" size="sm" className={styles.icon} />

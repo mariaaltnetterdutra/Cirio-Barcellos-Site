@@ -6,7 +6,6 @@ import { GOALS_CONTENT as CONTENT } from "../../content";
 import { useConsortiumIntent } from "../../state/ConsortiumIntentContext";
 import styles from "./GoalsSection.module.css";
 
-// Cada card marca o objetivo no formulário e leva a pessoa até ele.
 export function GoalCards() {
   const { chooseGoal } = useConsortiumIntent();
 

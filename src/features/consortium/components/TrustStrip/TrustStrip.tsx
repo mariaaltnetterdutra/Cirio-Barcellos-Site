@@ -13,8 +13,6 @@ function Stat({ value, label }: StatItem) {
   );
 }
 
-// Faixa logo abaixo do topo: números da empresa, nota no Google e a parceria com a Porto.
-// Todos os itens seguem o mesmo padrão: destaque em cima, legenda embaixo, centralizados.
 export function TrustStrip() {
   return (
     <div className={`tone-slate ${styles.strip}`}>

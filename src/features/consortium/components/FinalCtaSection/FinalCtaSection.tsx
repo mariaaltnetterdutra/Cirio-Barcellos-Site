@@ -10,13 +10,13 @@ const TITLE_ID = "chamada-final-titulo";
 
 export function FinalCtaSection() {
   return (
-    <Section tone="cream" width="narrow" labelledBy={TITLE_ID}>
+    <Section tone="slate" width="narrow" labelledBy={TITLE_ID}>
       <SectionHeading titleId={TITLE_ID} title={CONTENT.title} lead={CONTENT.lead} align="center" />
       <div className={styles.actions}>
         <ButtonLink href={sectionHref(SECTION_IDS.analise)}>{CONTENT.primaryCta.label}</ButtonLink>
         <ButtonLink
           href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}
-          variant="ghost"
+          variant="ghost-inverse"
           target="_blank"
           rel="noopener noreferrer"
         >

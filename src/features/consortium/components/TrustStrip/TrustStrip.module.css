@@ -12,7 +12,6 @@
   list-style: none;
 }
 
-/* Mesmo padrão em todos: destaque em cima, legenda embaixo, tudo centralizado. */
 .item {
   display: flex;
   flex-direction: column;

@@ -13,7 +13,6 @@ interface PlansCarouselProps {
 
 type Direction = -1 | 1;
 
-// Lista horizontal com encaixe (scroll-snap). As setas andam a largura de um card.
 export function PlansCarousel({ heading, previousLabel, nextLabel, children }: PlansCarouselProps) {
   const listRef = useRef<HTMLUListElement>(null);
 
