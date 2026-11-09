@@ -1,4 +1,3 @@
-/* Mesmo efeito do tom navy: troca as variáveis para o fundo escuro. */
 .footer {
   --color-text: var(--color-on-dark);
   --color-text-2: var(--color-on-dark-2);

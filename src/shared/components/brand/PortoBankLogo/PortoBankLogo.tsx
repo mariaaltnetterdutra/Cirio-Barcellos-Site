@@ -6,9 +6,7 @@ export type PortoBankLogoVariant = "light" | "dark";
 export type PortoBankLogoSize = "sm" | "md" | "lg";
 
 interface PortoBankLogoProps {
-  /** light: fundo claro (logo original). dark: fundo escuro (versão com texto branco). */
   variant?: PortoBankLogoVariant;
-  /** sm 30px · md 38px · lg 48px de altura (no celular o lg fica com 40px). */
   size?: PortoBankLogoSize;
   className?: string;
 }

@@ -20,7 +20,6 @@
   display: inline-flex;
 }
 
-/* O menu do celular abre posicionado em relação ao cabeçalho. */
 @media (max-width: 860px) {
   .inner {
     position: relative;

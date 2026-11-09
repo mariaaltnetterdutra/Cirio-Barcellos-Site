@@ -6,7 +6,6 @@ import styles from "./Logo.module.css";
 export type LogoVariant = "light" | "dark";
 
 interface LogoProps {
-  /** light: fundo claro (nome preto). dark: fundo escuro (nome branco). */
   variant?: LogoVariant;
   className?: string;
 }

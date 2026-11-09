@@ -13,7 +13,6 @@ import styles from "./SiteNav.module.css";
 
 const NAV_SECTION_IDS: readonly SectionId[] = SITE_NAV.map((item) => item.sectionId);
 
-// Na landing o link só rola a página; em outras páginas (ex.: política) ele volta para a landing.
 function navHref(sectionId: SectionId, isOnLanding: boolean): string {
   return isOnLanding ? sectionHref(sectionId) : `${ROUTES.home}${sectionHref(sectionId)}`;
 }

@@ -1,5 +1,4 @@
-// Desenhos copiados do mapa ICONS de docs/prototipo-v5.html (viewBox 24x24, só traço).
-// Guardados como dados, e não como HTML, para renderizar sem dangerouslySetInnerHTML.
+// Desenhos guardados como dados, e não como HTML, para renderizar sem dangerouslySetInnerHTML.
 
 export type IconShape =
   | { kind: "path"; d: string }

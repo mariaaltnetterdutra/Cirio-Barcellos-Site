@@ -1,7 +1,6 @@
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
 import { Section } from "@/shared/components/layout/Section/Section";
 import { ButtonLink } from "@/shared/components/ui/Button/Button";
-import { PendingBadge } from "@/shared/components/ui/PendingBadge/PendingBadge";
 import { SectionHeading } from "@/shared/components/ui/SectionHeading/SectionHeading";
 import { SECTION_IDS } from "@/shared/constants/routes";
 import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
@@ -13,32 +12,38 @@ const TITLE_ID = "especialista-titulo";
 export function SpecialistSection() {
   return (
     <Section id={SECTION_IDS.especialista} labelledBy={TITLE_ID}>
-      <div className={styles.grid}>
-        <ImagePlaceholder
-          label={CONTENT.photoLabel}
-          icon="user"
-          aspectRatio="4/5"
-          className={styles.photo}
-          sizes="(max-width: 820px) 100vw, 380px"
-        />
-        <div className={styles.text}>
-          <SectionHeading titleId={TITLE_ID} eyebrow={CONTENT.eyebrow} title={CONTENT.title} />
-          <p className={styles.name}>
-            {CONTENT.name} <PendingBadge label={CONTENT.pendingLabel} />
-          </p>
-          <p className={styles.role}>{CONTENT.role}</p>
-          <blockquote className={styles.quote}>{CONTENT.quote}</blockquote>
-          <ButtonLink
-            href={buildWhatsAppUrl(CONTENT.whatsappMessage)}
-            icon="message"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.cta}
-          >
-            {CONTENT.cta.label}
-          </ButtonLink>
-        </div>
-      </div>
+      <SectionHeading
+        titleId={TITLE_ID}
+        eyebrow={CONTENT.eyebrow}
+        title={CONTENT.title}
+        lead={CONTENT.lead}
+      />
+      <ul className={styles.people}>
+        {CONTENT.people.map((person) => (
+          <li key={person.name} className={styles.person}>
+            <ImagePlaceholder
+              label={person.photo.alt}
+              src={person.photo.src}
+              alt={person.photo.alt}
+              aspectRatio="4/5"
+              className={styles.photo}
+              sizes="(max-width: 700px) 100vw, 400px"
+            />
+            <h3 className={styles.name}>{person.name}</h3>
+            <p className={styles.role}>{person.role}</p>
+            <p className={styles.text}>{person.text}</p>
+          </li>
+        ))}
+      </ul>
+      <ButtonLink
+        href={buildWhatsAppUrl(CONTENT.whatsappMessage)}
+        icon="message"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.cta}
+      >
+        {CONTENT.cta.label}
+      </ButtonLink>
     </Section>
   );
 }

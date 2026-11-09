@@ -1,8 +1,13 @@
-.grid {
+.people {
   display: grid;
-  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
-  gap: 56px;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+  list-style: none;
+}
+
+.person {
+  min-width: 0;
 }
 
 .photo {
@@ -11,43 +16,32 @@
 }
 
 .name {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
+  margin-top: 20px;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.2;
 }
 
 .role {
   margin-top: 4px;
-  font-size: 14.5px;
-  color: var(--color-text-2);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-gold-ink);
 }
 
-.quote {
-  max-width: 56ch;
-  margin-top: 20px;
-  padding-left: 18px;
-  border-left: 3px solid var(--color-gold);
-  font-size: 17px;
+.text {
+  max-width: 52ch;
+  margin-top: 10px;
   color: var(--color-text-2);
 }
 
 .cta {
-  margin-top: 28px;
+  margin-top: 36px;
 }
 
-@media (max-width: 820px) {
-  .grid {
+@media (max-width: 700px) {
+  .people {
     grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .photo {
-    max-width: 380px;
   }
 }

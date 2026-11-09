@@ -4,7 +4,6 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 import { SECTION_IDS } from "@/shared/constants/routes";
 import type { BudgetRange, ConsortiumGoal } from "../types";
 
-/** Respostas escolhidas fora do formulário (cards de objetivo e planos). */
 export interface ConsortiumIntent {
   goal?: ConsortiumGoal;
   budget?: BudgetRange;
@@ -27,8 +26,6 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-// Leva a pessoa até o formulário e move o foco para lá (quem usa teclado ou leitor de tela
-// continua de onde a tela está).
 function goToLeadForm(): void {
   const form = document.getElementById(SECTION_IDS.analise);
   if (!form) return;

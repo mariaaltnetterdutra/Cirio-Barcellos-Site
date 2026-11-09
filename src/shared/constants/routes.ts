@@ -1,7 +1,3 @@
-/**
- * Rotas da V1: a landing de consórcio fica na raiz do site.
- * Página inicial institucional, Seguros e Imobiliária entram na V2; a área do corretor, na V3.
- */
 export const ROUTES = {
   home: "/",
   confirmacao: "/confirmacao",
@@ -10,7 +6,6 @@ export const ROUTES = {
 
 export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
 
-/** Ids das seções da landing: usados pelas âncoras do menu e pelos botões que rolam a página. */
 export const SECTION_IDS = {
   objetivos: "objetivos",
   planos: "planos",
@@ -35,7 +30,6 @@ export interface NavItem {
   sectionId: SectionId;
 }
 
-// Página única: o menu rola até as seções em vez de trocar de página.
 export const SITE_NAV: readonly NavItem[] = [
   { label: "Objetivos", sectionId: SECTION_IDS.objetivos },
   { label: "Planos", sectionId: SECTION_IDS.planos },

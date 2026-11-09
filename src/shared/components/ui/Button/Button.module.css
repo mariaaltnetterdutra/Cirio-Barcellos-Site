@@ -25,7 +25,6 @@
   pointer-events: none;
 }
 
-/* --color-gold vira o dourado claro dentro de seções escuras (tokens do tom). */
 .primary {
   background: var(--color-gold);
   color: var(--color-on-gold);

@@ -7,13 +7,11 @@ import styles from "./GoogleRatingBadge.module.css";
 const MAX_STARS = 5;
 
 interface GoogleRatingBadgeProps {
-  /** Texto ao lado da nota, ex.: "no Google". */
   label: string;
   linkLabel: string;
   className?: string;
 }
 
-// Selo da V1: nota e link para o perfil. As avaliações completas e automáticas chegam na V2.
 export function GoogleRatingBadge({ label, linkLabel, className }: GoogleRatingBadgeProps) {
   const { rating, url } = COMPANY.googleReviews;
   const ratingText = formatRating(rating);

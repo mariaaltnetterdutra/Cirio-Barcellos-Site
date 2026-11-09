@@ -1,6 +1,6 @@
 import { info } from "@/core/logger/logger";
 
-/** Eventos medidos para os anúncios. Nunca enviar nome ou telefone nos parâmetros. */
+// Nunca enviar nome ou telefone nos parâmetros.
 export type TrackEventName =
   | "clique_analisar_projeto"
   | "clique_falar_especialista"

@@ -8,18 +8,15 @@ interface HoverCardBaseProps {
   icon: IconName;
   title: string;
   children: ReactNode;
-  /** Texto com setinha no rodapé do card (ex.: "Analisar este projeto"). */
   ctaLabel: string;
   className?: string;
 }
 
-/** Leva para outra página ou âncora: o card inteiro é clicável, com um único link no HTML. */
 interface HoverCardLinkProps extends HoverCardBaseProps {
   href: string;
   onClick?: never;
 }
 
-/** Executa uma ação na própria página (ex.: marcar o objetivo no formulário). */
 interface HoverCardButtonProps extends HoverCardBaseProps {
   onClick: () => void;
   href?: never;
