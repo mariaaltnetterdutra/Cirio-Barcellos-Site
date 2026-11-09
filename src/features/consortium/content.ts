@@ -117,14 +117,14 @@ export const SPECIALIST_CONTENT = {
       role: "Especialista em consórcio",
       text: "Entende o seu projeto antes de falar em números e acompanha o seu consórcio de perto, do primeiro contato até o fim.",
       photo: {
-        src: "/images/equipe/priscila-marques.png",
+        src: "/images/equipe/priscila-marques.jpg",
         alt: "Priscila Marques, especialista em consórcio, sentada em sua mesa no escritório da Círio & Barcellos",
       },
     },
     {
       name: "Vinicius Barcellos Dutra",
-      role: "Administrador · Habilitado pela Susep",
-      text: "Formado em administração, com mais de 20 anos de habilitação na Susep e experiência em seguros desde o início da Círio & Barcellos. Acompanha os atendimentos junto com a Priscila.",
+      role: "Co-fundador · Formação em Administração",
+      text: "Profissional com mais de 20 anos de experiência como corretor de seguros na Círio & Barcellos. Acompanha os atendimentos junto com a Priscila.",
       photo: {
         src: "/images/equipe/vinicius-barcellos.png",
         alt: "Vinicius Barcellos Dutra, sentado no escritório da Círio & Barcellos",

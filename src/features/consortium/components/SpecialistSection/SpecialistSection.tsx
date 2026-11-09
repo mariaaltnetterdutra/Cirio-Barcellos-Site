@@ -27,7 +27,7 @@ export function SpecialistSection() {
               alt={person.photo.alt}
               aspectRatio="4/5"
               className={styles.photo}
-              sizes="(max-width: 700px) 100vw, 400px"
+              sizes="150px"
             />
             <h3 className={styles.name}>{person.name}</h3>
             <p className={styles.role}>{person.role}</p>
