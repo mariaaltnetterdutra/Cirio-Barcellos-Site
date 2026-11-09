@@ -2,6 +2,10 @@
   padding-block: var(--section-space);
 }
 
+.section[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .inner {
   width: 100%;
   max-width: calc(var(--max-width) + 2 * var(--gutter));
@@ -25,7 +29,6 @@
   background: var(--color-cream);
 }
 
-/* Como o .tone-slate, troca as variáveis para os filhos (botão, eyebrow, lead) se adaptarem. */
 .toneNavy {
   --color-text: var(--color-on-dark);
   --color-text-2: var(--color-on-dark-2);

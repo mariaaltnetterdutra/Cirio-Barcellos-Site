@@ -3,6 +3,7 @@ import { FaqSection } from "@/features/consortium/components/FaqSection/FaqSecti
 import { FinalCtaSection } from "@/features/consortium/components/FinalCtaSection/FinalCtaSection";
 import { GoalsSection } from "@/features/consortium/components/GoalsSection/GoalsSection";
 import { HowItWorksSection } from "@/features/consortium/components/HowItWorksSection/HowItWorksSection";
+import { LeadFormSection } from "@/features/consortium/components/LeadFormSection/LeadFormSection";
 import { MobileStickyBar } from "@/features/consortium/components/MobileStickyBar/MobileStickyBar";
 import { PlansSection } from "@/features/consortium/components/PlansSection/PlansSection";
 import { PortoBankSection } from "@/features/consortium/components/PortoBankSection/PortoBankSection";
@@ -21,6 +22,7 @@ export default function ConsortiumPage() {
       <HowItWorksSection />
       <PortoBankSection />
       <SpecialistSection />
+      <LeadFormSection />
       <FaqSection />
       <FinalCtaSection />
       <MobileStickyBar />

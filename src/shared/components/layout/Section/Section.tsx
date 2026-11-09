@@ -9,14 +9,13 @@ interface SectionProps {
   id?: string;
   tone?: SectionTone;
   width?: SectionWidth;
-  /** id do título da seção, ligado via aria-labelledby. */
   labelledBy?: string;
+  /** -1 deixa a seção receber foco por código (ex.: ao rolar até o formulário). */
+  tabIndex?: number;
   className?: string;
   children: ReactNode;
 }
 
-// O tom ardósia usa a classe global .tone-slate, que redefine as variáveis de cor
-// para tudo o que estiver dentro da seção.
 const TONE_CLASS: Record<SectionTone, string | undefined> = {
   default: styles.toneDefault,
   muted: styles.toneMuted,
@@ -30,6 +29,7 @@ export function Section({
   tone = "default",
   width = "default",
   labelledBy,
+  tabIndex,
   className,
   children,
 }: SectionProps) {
@@ -37,6 +37,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={labelledBy}
+      tabIndex={tabIndex}
       className={cn(styles.section, TONE_CLASS[tone], className)}
     >
       <div className={cn(styles.inner, width === "narrow" && styles.narrow)}>

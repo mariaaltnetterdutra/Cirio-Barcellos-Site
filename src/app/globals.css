@@ -90,6 +90,7 @@
   --color-gold-ink: #ecd28f;
   --color-blue: #8dbdf0;
   --color-blue-soft: #283c5c;
+  --color-danger: #f0968c;
   background: var(--color-bg);
   color: var(--color-text);
 }
