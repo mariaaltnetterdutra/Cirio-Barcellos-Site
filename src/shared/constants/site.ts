@@ -1,4 +1,3 @@
-/** Título e descrição padrão do site (V1: landing de consórcio imobiliário). */
 export const SITE_METADATA = {
   title: "Consórcio imobiliário Porto Bank | Círio & Barcellos",
   description:

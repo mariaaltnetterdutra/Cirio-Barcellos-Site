@@ -19,7 +19,6 @@ function ContactItem({ icon, children }: { icon: IconName; children: ReactNode }
   );
 }
 
-// Valor confirmado pelo cliente ou o selo "a confirmar" enquanto for null.
 function ConfirmedValue({ value }: { value: string | null }) {
   return value ? <>{value}</> : <PendingBadge />;
 }
@@ -41,7 +40,8 @@ export async function SiteFooter() {
           <h2 className={styles.title}>{CONTENT.contactTitle}</h2>
           <ul className={styles.list}>
             <ContactItem icon="pin">
-              {COMPANY.address} {!COMPANY.cep && <PendingBadge label={`${CONTENT.cepLabel} a confirmar`} />}
+              {COMPANY.address}{" "}
+              {COMPANY.cep ? `· ${CONTENT.cepLabel} ${COMPANY.cep}` : <PendingBadge label={`${CONTENT.cepLabel} a confirmar`} />}
             </ContactItem>
             <ContactItem icon="phone">{COMPANY.phoneDisplay}</ContactItem>
             <ContactItem icon="message">

@@ -11,12 +11,9 @@ interface ImagePlaceholderProps {
   tone?: "light" | "dark";
   aspectRatio?: AspectRatio;
   icon?: Extract<IconName, "image" | "user">;
-  /** Quando o cliente mandar a foto: caminho em /public e texto alternativo. */
   src?: string;
   alt?: string;
-  /** Tamanho exibido, para o next/image gerar só as versões necessárias. */
   sizes?: string;
-  /** true para a imagem principal da primeira dobra (carrega antes das outras). */
   preload?: boolean;
   className?: string;
 }
@@ -31,7 +28,6 @@ const RATIO_CLASS: Record<AspectRatio, string | undefined> = {
 
 const PENDING_LABEL = "Aguardando foto";
 
-// Espaço reservado para as fotos que o cliente ainda vai mandar. Com src, mostra a foto.
 export function ImagePlaceholder({
   label,
   tone = "light",

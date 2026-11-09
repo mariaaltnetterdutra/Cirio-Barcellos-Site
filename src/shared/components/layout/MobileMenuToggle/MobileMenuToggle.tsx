@@ -6,13 +6,11 @@ interface MobileMenuToggleProps {
   ref?: Ref<HTMLButtonElement>;
   isOpen: boolean;
   onToggle: () => void;
-  /** id do menu que o botão abre e fecha (aria-controls). */
   controlsId: string;
   openLabel: string;
   closeLabel: string;
 }
 
-// Só desenha: o estado vem de quem usa (ver useMobileMenu). Aparece até 860px.
 export function MobileMenuToggle({
   ref,
   isOpen,

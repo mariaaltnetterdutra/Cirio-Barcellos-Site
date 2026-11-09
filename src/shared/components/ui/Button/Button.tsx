@@ -8,7 +8,6 @@ export type ButtonVariant = "primary" | "ghost" | "ghost-inverse";
 
 interface ButtonBaseProps {
   variant?: ButtonVariant;
-  /** Ícone opcional à direita do texto. */
   icon?: IconName;
   children: ReactNode;
 }

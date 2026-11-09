@@ -6,11 +6,9 @@ import styles from "./SectionHeading.module.css";
 interface SectionHeadingProps {
   eyebrow?: ReactNode;
   title: ReactNode;
-  /** h1 só no topo da página (um por página); nas demais seções, h2. */
   as?: "h1" | "h2";
   lead?: ReactNode;
   align?: "left" | "center";
-  /** id do título, para o Section apontar com labelledBy. */
   titleId?: string;
   className?: string;
 }

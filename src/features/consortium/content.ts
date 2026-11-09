@@ -1,5 +1,3 @@
-// Textos da landing (V1), copiados da tela "Consórcio imobiliário" de docs/prototipo-v5.html.
-// Nenhum texto da página deve ficar solto no JSX: tudo sai daqui.
 import { COMPANY } from "@/shared/constants/company";
 import type {
   CallToAction,
@@ -9,6 +7,7 @@ import type {
   IconItem,
   StatItem,
   Step,
+  TeamMember,
 } from "./types";
 
 export const HERO_CONTENT = {
@@ -109,16 +108,31 @@ export const PORTO_BANK_CONTENT = {
 } as const;
 
 export const SPECIALIST_CONTENT = {
-  eyebrow: "Sua especialista",
+  eyebrow: "Sua equipe",
   title: "Quem vai conversar com você.",
-  name: "Priscila", // TODO: sobrenome e formação a confirmar com o cliente
-  role: "Especialista em consórcio · Círio & Barcellos",
-  pendingLabel: "sobrenome e formação a confirmar",
-  quote:
-    "Meu trabalho é entender o seu projeto antes de falar em números. Quando o planejamento vem primeiro, o consórcio deixa de ser uma aposta e passa a ser uma estratégia.",
+  lead: "Do primeiro contato até o uso do crédito, quem atende é sempre uma pessoa da equipe.",
+  people: [
+    {
+      name: "Priscila Marques",
+      role: "Especialista em consórcio",
+      text: "Entende o seu projeto antes de falar em números e acompanha o seu consórcio de perto, do primeiro contato até o fim.",
+      photo: {
+        src: "/images/equipe/priscila-marques.png",
+        alt: "Priscila Marques, especialista em consórcio, sentada em sua mesa no escritório da Círio & Barcellos",
+      },
+    },
+    {
+      name: "Vinicius Barcellos Dutra",
+      role: "Administrador · Habilitado pela Susep",
+      text: "Formado em administração, com mais de 20 anos de habilitação na Susep e experiência em seguros desde o início da Círio & Barcellos. Acompanha os atendimentos junto com a Priscila.",
+      photo: {
+        src: "/images/equipe/vinicius-barcellos.png",
+        alt: "Vinicius Barcellos Dutra, sentado no escritório da Círio & Barcellos",
+      },
+    },
+  ] satisfies readonly TeamMember[],
   cta: { label: "Falar com a Priscila" } satisfies CallToAction,
   whatsappMessage: "Olá, Priscila! Vim pelo site e quero conversar sobre consórcio imobiliário.",
-  photoLabel: "Foto profissional da Priscila",
 } as const;
 
 export const LEAD_FORM_CONTENT = {
@@ -198,6 +212,5 @@ export const MOBILE_BAR_CONTENT = {
   secondaryLabel: "Falar com uma especialista pelo WhatsApp",
 } as const;
 
-/** Mensagem padrão dos botões "Falar com uma especialista". */
 export const SPECIALIST_WHATSAPP_MESSAGE =
   "Olá! Vim pelo site e quero falar com uma especialista em consórcio imobiliário.";

@@ -1,4 +1,3 @@
-/* Branco por padrão; com mouse ou foco vira azul Círio. O azul-claro só aparece na transição. */
 .card {
   position: relative;
   display: flex;

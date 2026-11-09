@@ -20,7 +20,6 @@
   }
 }
 
-/* Cabe em meia largura de celular (faixa de números em 2 colunas). */
 @media (max-width: 560px) {
   .md {
     height: 28px;
