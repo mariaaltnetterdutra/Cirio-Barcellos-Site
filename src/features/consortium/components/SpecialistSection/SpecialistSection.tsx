@@ -17,6 +17,7 @@ export function SpecialistSection() {
         eyebrow={CONTENT.eyebrow}
         title={CONTENT.title}
         lead={CONTENT.lead}
+        align="center"
       />
       <ul className={styles.people}>
         {CONTENT.people.map((person) => (
@@ -27,7 +28,7 @@ export function SpecialistSection() {
               alt={person.photo.alt}
               aspectRatio="4/5"
               className={styles.photo}
-              sizes="150px"
+              sizes="(max-width: 420px) 100vw, 380px"
             />
             <h3 className={styles.name}>{person.name}</h3>
             <p className={styles.role}>{person.role}</p>
@@ -35,15 +36,16 @@ export function SpecialistSection() {
           </li>
         ))}
       </ul>
-      <ButtonLink
-        href={buildWhatsAppUrl(CONTENT.whatsappMessage)}
-        icon="message"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.cta}
-      >
-        {CONTENT.cta.label}
-      </ButtonLink>
+      <div className={styles.action}>
+        <ButtonLink
+          href={buildWhatsAppUrl(CONTENT.whatsappMessage)}
+          icon="message"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {CONTENT.cta.label}
+        </ButtonLink>
+      </div>
     </Section>
   );
 }
