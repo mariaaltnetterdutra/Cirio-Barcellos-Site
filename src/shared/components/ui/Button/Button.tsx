@@ -4,7 +4,7 @@ import { cn } from "@/shared/utils/cn";
 import { Icon, type IconName } from "../Icon/Icon";
 import styles from "./Button.module.css";
 
-export type ButtonVariant = "primary" | "ghost" | "ghost-inverse";
+export type ButtonVariant = "primary" | "ghost" | "ghost-inverse" | "whatsapp";
 
 interface ButtonBaseProps {
   variant?: ButtonVariant;
@@ -19,6 +19,7 @@ const VARIANT_CLASS: Record<ButtonVariant, string | undefined> = {
   primary: styles.primary,
   ghost: styles.ghost,
   "ghost-inverse": styles.ghostInverse,
+  whatsapp: styles.whatsapp,
 };
 
 function buttonClassName(variant: ButtonVariant, className: string | undefined): string {

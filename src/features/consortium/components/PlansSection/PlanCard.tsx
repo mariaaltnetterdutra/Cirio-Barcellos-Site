@@ -1,5 +1,4 @@
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
-import { Icon } from "@/shared/components/ui/Icon/Icon";
 import { formatCredit } from "@/shared/utils/format";
 import { PLANS_CONTENT as CONTENT } from "../../content";
 import type { CreditPlan } from "../../types";
@@ -24,12 +23,10 @@ export function PlanCard({ plan }: PlanCardProps) {
         sizes="(max-width: 560px) 82vw, (max-width: 900px) 50vw, 350px"
       />
       <div className={styles.body}>
-        <span className={styles.type}>
-          <Icon name="home" size="sm" />
-          {CONTENT.typeLabel}
-        </span>
+        <h3 className={styles.title}>{plan.title}</h3>
+        <p className={styles.text}>{plan.text}</p>
         <span className={styles.creditLabel}>{CONTENT.creditLabel}</span>
-        <h3 className={styles.credit}>{credit}</h3>
+        <p className={styles.credit}>{credit}</p>
         <ChoosePlanButton plan={plan} label={CONTENT.cta} />
       </div>
     </article>

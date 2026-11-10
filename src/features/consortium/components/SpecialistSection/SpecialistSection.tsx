@@ -1,10 +1,11 @@
+import { WhatsAppLogo } from "@/shared/components/brand/WhatsAppLogo/WhatsAppLogo";
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
 import { Section } from "@/shared/components/layout/Section/Section";
 import { ButtonLink } from "@/shared/components/ui/Button/Button";
 import { SectionHeading } from "@/shared/components/ui/SectionHeading/SectionHeading";
 import { SECTION_IDS } from "@/shared/constants/routes";
 import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
-import { SPECIALIST_CONTENT as CONTENT } from "../../content";
+import { SPECIALIST_CONTENT as CONTENT, SPECIALIST_WHATSAPP_MESSAGE } from "../../content";
 import styles from "./SpecialistSection.module.css";
 
 const TITLE_ID = "especialista-titulo";
@@ -36,14 +37,18 @@ export function SpecialistSection() {
           </li>
         ))}
       </ul>
-      <div className={styles.action}>
+      <div className={styles.callToAction}>
+        <h3 className={styles.callTitle}>{CONTENT.callToAction.title}</h3>
+        <p className={styles.callText}>{CONTENT.callToAction.text}</p>
         <ButtonLink
-          href={buildWhatsAppUrl(CONTENT.whatsappMessage)}
-          icon="message"
+          href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}
+          variant="whatsapp"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.callButton}
         >
-          {CONTENT.cta.label}
+          <WhatsAppLogo />
+          {CONTENT.callToAction.button}
         </ButtonLink>
       </div>
     </Section>

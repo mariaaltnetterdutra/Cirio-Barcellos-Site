@@ -16,6 +16,7 @@ export const BUDGET_LABELS = {
   "300a500": "R$ 300 mil a R$ 500 mil",
   "500a1m": "R$ 500 mil a R$ 1 milhão",
   "1m": "Acima de R$ 1 milhão",
+  "nao-sei": "Ainda não sei",
 } as const;
 
 export const TIMEFRAME_LABELS = {

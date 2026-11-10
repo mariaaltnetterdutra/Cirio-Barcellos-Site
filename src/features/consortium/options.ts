@@ -15,6 +15,7 @@ export const BUDGET_OPTIONS = [
   { value: "300a500", label: "R$ 300 mil a R$ 500 mil" },
   { value: "500a1m", label: "R$ 500 mil a R$ 1 milhão" },
   { value: "1m", label: "Acima de R$ 1 milhão" },
+  { value: "nao-sei", label: "Ainda não sei" },
 ] as const;
 
 export const TIMEFRAME_OPTIONS = [

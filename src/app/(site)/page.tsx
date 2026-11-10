@@ -17,9 +17,9 @@ export default function ConsortiumPage() {
       <TrustStrip />
       <GoalsSection />
       <PlansSection />
+      <SpecialistSection />
       <HowItWorksSection />
       <PortoBankSection />
-      <SpecialistSection />
       <LeadFormSection />
       <FaqSection />
     </ConsortiumIntentProvider>

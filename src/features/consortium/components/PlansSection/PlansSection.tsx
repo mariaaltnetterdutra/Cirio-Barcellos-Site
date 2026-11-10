@@ -15,6 +15,7 @@ export function PlansSection() {
         heading={<SectionHeading titleId={TITLE_ID} eyebrow={CONTENT.eyebrow} title={CONTENT.title} />}
         previousLabel={CONTENT.previousLabel}
         nextLabel={CONTENT.nextLabel}
+        ofLabel={CONTENT.ofLabel}
       >
         {CONTENT.plans.map((plan) => (
           <PlanCard key={plan.creditInThousands} plan={plan} />
