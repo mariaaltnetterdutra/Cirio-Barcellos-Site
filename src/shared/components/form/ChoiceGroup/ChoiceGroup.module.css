@@ -4,9 +4,9 @@
 }
 
 .legend {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   padding: 0;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -81,10 +81,18 @@
 }
 
 .compact .pill {
-  min-height: 40px;
+  min-height: 38px;
   justify-content: center;
-  padding: 8px 10px;
-  font-size: 14px;
+  padding: 7px 6px;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.stacked .pill {
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 6px;
+  font-size: 13.5px;
   text-align: center;
 }
 
@@ -94,6 +102,20 @@
 
 .threeColumns {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fourColumns {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 480px) {
+  .fourColumns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stacked.fourColumns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 380px) {

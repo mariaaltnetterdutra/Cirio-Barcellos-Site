@@ -17,9 +17,11 @@ interface ChoiceGroupProps<TValue extends string> {
   value: TValue | undefined;
   onChange: (value: TValue) => void;
   error?: string;
-  columns?: 1 | 2 | 3;
+  columns?: 1 | 2 | 3 | 4;
   /** Pílulas mais baixas, para listas longas (valores, prazos). */
   compact?: boolean;
+  /** Ícone em cima do texto, para opções curtas lado a lado. */
+  stacked?: boolean;
 }
 
 // Rádios de verdade (teclado com setas, leitor de tela), só que desenhados como "pílulas".
@@ -32,6 +34,7 @@ export function ChoiceGroup<TValue extends string>({
   error,
   columns = 1,
   compact = false,
+  stacked = false,
 }: ChoiceGroupProps<TValue>) {
   const errorId = useId();
 
@@ -43,6 +46,8 @@ export function ChoiceGroup<TValue extends string>({
           styles.options,
           columns === 2 && styles.twoColumns,
           columns === 3 && styles.threeColumns,
+          columns === 4 && styles.fourColumns,
+          stacked && styles.stacked,
           compact && styles.compact,
         )}
       >

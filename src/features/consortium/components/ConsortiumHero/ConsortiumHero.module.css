@@ -18,11 +18,17 @@
   object-position: 50% 40%;
 }
 
-/* Camada escura só para o texto ficar legível; a foto em si não muda. */
+/* Camada escura só do lado do texto: a foto aparece inteira à direita. O arquivo não muda. */
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(27, 37, 54, 0.95) 0%, rgba(27, 37, 54, 0.84) 55%, rgba(27, 37, 54, 0.72) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(27, 37, 54, 0.92) 0%,
+    rgba(27, 37, 54, 0.74) 32%,
+    rgba(27, 37, 54, 0.28) 62%,
+    rgba(27, 37, 54, 0.08) 100%
+  );
 }
 
 /* A seção fica por cima da foto, sem o fundo sólido do tom escuro. */
@@ -33,8 +39,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: 48px;
   align-items: center;
 }
 
@@ -55,16 +61,18 @@
 }
 
 .title {
-  max-width: 17ch;
-  font-size: clamp(32px, 4vw, 46px);
-  line-height: 1.08;
-  text-wrap: balance;
+  font-size: clamp(28px, 3.3vw, 40px);
+  line-height: 1.12;
 }
 
+.titleLine {
+  display: block;
+}
+
+
 .lead {
-  max-width: 46ch;
-  margin-top: 16px;
-  font-size: 17px;
+  margin-top: 14px;
+  font-size: 16px;
   color: var(--color-text-2);
 }
 
@@ -89,7 +97,7 @@
   color: var(--color-gold);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
     gap: 32px;
