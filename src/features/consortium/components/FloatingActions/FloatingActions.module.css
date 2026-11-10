@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 12px;
+  gap: 14px;
   /* A faixa em volta não pode bloquear cliques no conteúdo da página. */
   pointer-events: none;
   transition: bottom 0.2s ease;
@@ -16,18 +16,26 @@
   pointer-events: auto;
 }
 
-.whatsapp {
-  display: grid;
-  place-items: center;
-  width: 58px;
+/* Os dois botões têm a mesma altura, o mesmo formato e a mesma sombra. */
+.whatsapp,
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 58px;
-  border-radius: 50%;
-  background: var(--color-whatsapp);
-  color: var(--color-white);
+  border-radius: 29px;
   box-shadow: 0 10px 24px -8px rgba(22, 26, 32, 0.55);
   transition:
     background-color 0.15s,
-    transform 0.15s;
+    transform 0.15s,
+    opacity 0.2s,
+    visibility 0.2s;
+}
+
+.whatsapp {
+  width: 58px;
+  background: var(--color-whatsapp);
+  color: var(--color-white);
 }
 
 .whatsapp:hover {
@@ -35,17 +43,45 @@
   transform: translateY(-2px);
 }
 
-.whatsapp:focus-visible {
-  outline: 3px solid var(--color-gold-light);
-  outline-offset: 3px;
+.form {
+  gap: 0;
+  padding-inline: 17px;
+  background: var(--color-gold-light);
+  color: var(--color-on-gold);
+  font-size: 14.5px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.form {
-  box-shadow: 0 10px 24px -10px rgba(22, 26, 32, 0.6);
+.form:hover,
+.form:focus-visible {
+  gap: 10px;
+  transform: translateY(-2px);
+}
+
+/* O texto fica escondido até o mouse ou o teclado chegarem: em repouso é só o círculo. */
+.formLabel {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
   transition:
-    opacity 0.2s,
-    visibility 0.2s,
-    filter 0.15s;
+    max-width 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.form:hover .formLabel,
+.form:focus-visible .formLabel {
+  max-width: 200px;
+  opacity: 1;
+}
+
+.whatsapp:focus-visible,
+.form:focus-visible {
+  /* Anel duplo: aparece tanto em fundo claro quanto escuro. */
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--color-white),
+    0 0 0 6px var(--color-navy);
 }
 
 .hidden {
@@ -71,7 +107,8 @@
 @media (prefers-reduced-motion: reduce) {
   .wrap,
   .whatsapp,
-  .form {
+  .form,
+  .formLabel {
     transition: none;
   }
 }

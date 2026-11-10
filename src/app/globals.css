@@ -38,8 +38,8 @@
   --color-on-dark-border: rgba(255, 255, 255, 0.32);
   --color-on-dark-hover: rgba(255, 255, 255, 0.08);
 
-  --color-whatsapp: #1a9e4a;
-  --color-whatsapp-hover: #15803d;
+  --color-whatsapp: #25d366;           /* verde oficial do WhatsApp */
+  --color-whatsapp-hover: #1ebe5a;
 
   --color-success: #2f855a;
   --color-success-soft: #dbf0e4;
