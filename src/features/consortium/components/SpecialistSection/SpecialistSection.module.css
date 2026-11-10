@@ -2,14 +2,14 @@
 .layout {
   display: grid;
   gap: 20px;
-  max-width: 960px;
+  max-width: 800px;
   margin: 28px auto 0;
 }
 
 .people {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 40px;
   list-style: none;
 }
 
@@ -55,20 +55,13 @@
   color: var(--color-gold-ink);
 }
 
-/* Quando o cargo quebra em duas linhas (telas médias), reserva o espaço para o texto dos dois começar no mesmo ponto. */
+/* O cargo do Vinicius quebra em duas linhas: reserva o espaço para o texto dos dois começar no mesmo ponto. */
 @media (min-width: 641px) {
   .role {
     min-height: 2.9em;
   }
 }
 
-/* No computador o cargo cabe em uma linha só. */
-@media (min-width: 1024px) {
-  .role {
-    min-height: 0;
-    white-space: nowrap;
-  }
-}
 
 .text {
   margin-top: 6px;
