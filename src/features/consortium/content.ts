@@ -24,17 +24,16 @@ export const HERO_CONTENT = {
 
 export const TRUST_CONTENT = {
   experience: { value: "+20", label: "anos de mercado" } satisfies StatItem,
-  clients: { value: COMPANY.clientsLabel, label: "clientes atendidos" } satisfies StatItem,
+  clients: { value: COMPANY.clientsLabel, label: "clientes atendidos pela Círio & Barcellos" } satisfies StatItem,
   google: { label: "no Google", linkLabel: "ver avaliações" },
   partner: { label: "Parceria oficial Consórcio" },
 } as const;
 
 export const GOALS_CONTENT = {
-  eyebrow: "Qual é o seu objetivo?",
-  title: "Qual é o seu próximo passo?",
-  lead: "Escolha uma opção e ela já vem marcada no formulário de análise.",
-  mobileHint: "Deslize para ver todas as opções →",
-  cardLink: "Analisar este projeto",
+  eyebrow: "Seu objetivo",
+  title: "O que você quer conquistar?",
+  lead: "Escolha seu objetivo. Vamos ajudar você a conhecer as possibilidades.",
+  cardLink: "Conhecer minhas opções",
   items: [
     { value: "imovel", icon: "patrimonio", title: "Comprar um imóvel", text: "Casa ou apartamento para morar ou para alugar." },
     { value: "terreno", icon: "map", title: "Comprar um terreno", text: "O primeiro passo para construir do seu jeito." },
@@ -45,38 +44,48 @@ export const GOALS_CONTENT = {
 
 export const PLANS_CONTENT = {
   eyebrow: "Cartas de crédito",
-  title: "Conheça alguns dos nossos planos.",
-  typeLabel: "Imóvel",
+  title: "Sua próxima conquista pode começar aqui",
   creditLabel: "Crédito",
-  cta: "Quero este plano",
+  cta: "Quero conhecer esse crédito",
   photoLabel: "Foto do imóvel",
   previousLabel: "Planos anteriores",
   nextLabel: "Próximos planos",
+  ofLabel: "de",
   footnote:
-    "Valores de crédito ilustrativos. Parcelas, prazos e condições conforme o grupo e as regras vigentes do produto.",
+    "Imagens e valores de crédito ilustrativos. Parcelas, prazos e condições conforme o grupo e as regras vigentes do produto.",
   plans: [
     {
       creditInThousands: 200,
+      title: "Seu começo, do seu jeito",
+      text: "Conheça as opções para planejar o seu imóvel com a nossa equipe.",
       budget: "100a300",
       photo: { src: "/images/consorcio/planos/plano-200.jpg", alt: "Sala de estar com mesa de jantar e varanda com vista da cidade" },
     },
     {
       creditInThousands: 300,
+      title: "A casa que você imagina",
+      text: "Veja como planejar a compra com atendimento próximo.",
       budget: "100a300",
       photo: { src: "/images/consorcio/planos/plano-300.jpg", alt: "Casa térrea com jardim, palmeira e garagem coberta" },
     },
     {
       creditInThousands: 400,
+      title: "Seu apartamento, no seu tempo",
+      text: "Entenda as possibilidades para chegar ao imóvel certo.",
       budget: "300a500",
       photo: { src: "/images/consorcio/planos/plano-400.jpg", alt: "Prédio residencial com varandas de vidro ao entardecer" },
     },
     {
       creditInThousands: 500,
+      title: "Mais espaço para viver",
+      text: "Conheça as opções para um imóvel maior, com orientação clara.",
       budget: "300a500",
       photo: { src: "/images/consorcio/planos/plano-500.jpg", alt: "Sala ampla integrada à cozinha, com vista do pôr do sol" },
     },
     {
       creditInThousands: 600,
+      title: "Espaço e lazer para a família",
+      text: "Veja as possibilidades para esse projeto, com acompanhamento.",
       budget: "500a1m",
       photo: { src: "/images/consorcio/planos/plano-600.jpg", alt: "Piscina com deck de madeira e espaço gourmet" },
     },
@@ -85,7 +94,7 @@ export const PLANS_CONTENT = {
 
 export const HOW_IT_WORKS_CONTENT = {
   eyebrow: "Como funciona",
-  title: "Do projeto à estratégia.",
+  title: "Dos seus planos ao próximo passo.",
   steps: [
     { number: "01", title: "Entendemos o seu projeto", text: "Conversamos sobre o que você quer comprar, construir ou reformar e em quanto tempo." },
     { number: "02", title: "Analisamos valor e prazo", text: "Definimos o crédito e a parcela que cabem no seu orçamento, sem apertar o mês." },
@@ -108,41 +117,45 @@ export const PORTO_BANK_CONTENT = {
 } as const;
 
 export const SPECIALIST_CONTENT = {
-  eyebrow: "Sua equipe",
-  title: "Quem vai conversar com você.",
-  lead: "Do primeiro contato até o uso do crédito, quem atende é sempre uma pessoa da equipe.",
+  eyebrow: "Quem vai conversar com você",
+  title: "Seu projeto começa com uma boa conversa",
+  lead: "Conheça quem vai ouvir seus planos, esclarecer suas dúvidas e ajudar você a escolher um consórcio que faça sentido para seu momento.",
   people: [
     {
       name: "Priscila Marques",
-      role: "Especialista em consórcio",
-      text: "Entende o seu projeto antes de falar em números e acompanha o seu consórcio de perto, do primeiro contato até o fim.",
+      role: "Especialista em Consórcios Porto Bank",
+      text: "Quero entender o que você deseja conquistar e ajudar a encontrar um plano que caiba no seu orçamento. Conte comigo para explicar cada etapa com clareza e acompanhar você ao longo dessa jornada.",
       photo: {
         src: "/images/equipe/priscila-marques.jpg",
-        alt: "Priscila Marques, especialista em consórcio, sentada em sua mesa no escritório da Círio & Barcellos",
+        alt: "Priscila Marques, especialista em consórcios, sentada em sua mesa no escritório da Círio & Barcellos",
       },
     },
     {
       name: "Vinicius Barcellos Dutra",
-      role: "Co-fundador · Formação em Administração",
-      text: "Profissional com mais de 20 anos de experiência como corretor de seguros na Círio & Barcellos. Acompanha os atendimentos junto com a Priscila.",
+      role: "Sócio-diretor | Especialista em Consórcios Porto Bank",
+      text: "Meu trabalho é ajudar você a transformar seus objetivos em um planejamento concreto. Com atendimento próximo e orientação clara, ajudo a avaliar as possibilidades para que você escolha com confiança.",
       photo: {
         src: "/images/equipe/vinicius-barcellos.png",
         alt: "Vinicius Barcellos Dutra, sentado no escritório da Círio & Barcellos",
       },
     },
   ] satisfies readonly TeamMember[],
-  cta: { label: "Falar com a Priscila" } satisfies CallToAction,
-  whatsappMessage: "Olá, Priscila! Vim pelo site e quero conversar sobre consórcio imobiliário.",
+  callToAction: {
+    title: "Vamos conversar sobre seus planos?",
+    text: "Tire suas dúvidas e conheça as opções para o seu objetivo, sem compromisso.",
+    button: "Conversar pelo WhatsApp",
+  },
 } as const;
 
 export const LEAD_FORM_CONTENT = {
-  eyebrow: "Análise do seu projeto",
-  title: "Conte qual é o seu projeto.",
-  lead: "Com essas respostas, a nossa especialista prepara uma análise antes de entrar em contato com você.",
+  eyebrow: "Fale com a nossa equipe",
+  title: "Vamos encontrar um caminho para sua conquista?",
+  lead: "Conte o que você tem em mente. Nossa equipe vai ajudar você a conhecer as opções de crédito e parcelas para o seu objetivo.",
   bullets: [
-    "Perguntas de marcar, leva menos de 1 minuto",
+    "Leva menos de 1 minuto",
     "Não pedimos CPF, endereço nem email",
     "Quem responde é sempre uma pessoa da equipe",
+    "Ainda não sabe os valores? Tudo bem. Começamos por uma conversa.",
   ],
   goalQuestion: "Qual é o seu objetivo?",
   otherGoal: { label: "Conte em poucas palavras (opcional)", placeholder: "Ex.: comprar uma sala comercial", maxLength: 80 },
@@ -150,7 +163,7 @@ export const LEAD_FORM_CONTENT = {
   timeframeQuestion: "Em quanto tempo você pretende realizar?",
   name: { label: "Seu nome", placeholder: "Como podemos te chamar?" },
   whatsapp: { label: "WhatsApp", placeholder: "(51) 9 0000-0000" },
-  submit: "Quero analisar meu projeto",
+  submit: "Quero conhecer minhas opções",
   submitting: "Enviando…",
   consentBefore:
     "Ao enviar seus dados, você concorda em ser contatado pela Círio & Barcellos para atendimento relacionado ao seu interesse. Consulte nossa",

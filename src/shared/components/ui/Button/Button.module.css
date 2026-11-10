@@ -54,3 +54,18 @@
 .ghostInverse:hover {
   background: var(--color-on-dark-hover);
 }
+
+/* Verde oficial do WhatsApp. O texto é escuro porque branco sobre esse verde não tem contraste suficiente. */
+.whatsapp {
+  background: var(--color-whatsapp);
+  color: var(--color-text);
+}
+
+.whatsapp:hover {
+  background: var(--color-whatsapp-hover);
+}
+
+.whatsapp svg {
+  width: 22px;
+  height: 22px;
+}

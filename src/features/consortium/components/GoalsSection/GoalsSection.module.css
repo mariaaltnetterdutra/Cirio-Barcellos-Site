@@ -6,36 +6,15 @@
   list-style: none;
 }
 
-.hint {
-  display: none;
-  margin-top: 12px;
-  font-size: 12.5px;
-  color: var(--color-text-3);
-}
-
-@media (max-width: 1000px) and (min-width: 761px) {
+@media (max-width: 1000px) {
   .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 760px) {
+/* Nenhuma opção fica escondida atrás de rolagem: no celular são sempre visíveis. */
+@media (max-width: 420px) {
   .list {
-    display: flex;
-    gap: 12px;
-    margin-inline: calc(var(--gutter) * -1);
-    padding: 0 var(--gutter) 10px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-  }
-
-  .item {
-    flex: 0 0 76%;
-    scroll-snap-align: start;
-  }
-
-  .hint {
-    display: block;
+    grid-template-columns: 1fr;
   }
 }

@@ -12,7 +12,7 @@ export function GoalCards() {
   return (
     <ul className={styles.list}>
       {CONTENT.items.map((item) => (
-        <li key={item.value} className={styles.item}>
+        <li key={item.value}>
           <HoverCard
             icon={item.icon}
             title={item.title}

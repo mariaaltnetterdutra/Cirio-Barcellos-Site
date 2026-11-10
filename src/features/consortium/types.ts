@@ -25,6 +25,9 @@ export interface GoalCard {
 export interface CreditPlan {
   /** Valor da carta de crédito, em milhares de reais. */
   creditInThousands: number;
+  /** Chamada curta e frase do cartão: falam da possibilidade, sem prometer condições. */
+  title: string;
+  text: string;
   budget: BudgetRange;
   photo?: { src: string; alt: string };
 }
