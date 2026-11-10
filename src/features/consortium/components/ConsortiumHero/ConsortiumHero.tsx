@@ -2,8 +2,9 @@ import { PortoBankLogo } from "@/shared/components/brand/PortoBankLogo/PortoBank
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
 import { Section } from "@/shared/components/layout/Section/Section";
 import { ButtonLink } from "@/shared/components/ui/Button/Button";
+import { SectionButtonLink } from "@/shared/components/ui/SectionButtonLink/SectionButtonLink";
 import { SectionHeading } from "@/shared/components/ui/SectionHeading/SectionHeading";
-import { SECTION_IDS, sectionHref } from "@/shared/constants/routes";
+import { SECTION_IDS } from "@/shared/constants/routes";
 import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
 import { HERO_CONTENT as CONTENT, SPECIALIST_WHATSAPP_MESSAGE } from "../../content";
 import styles from "./ConsortiumHero.module.css";
@@ -23,7 +24,7 @@ export function ConsortiumHero() {
             className={styles.heading}
           />
           <div className={styles.actions}>
-            <ButtonLink href={sectionHref(SECTION_IDS.analise)}>{CONTENT.primaryCta.label}</ButtonLink>
+            <SectionButtonLink sectionId={SECTION_IDS.analise}>{CONTENT.primaryCta.label}</SectionButtonLink>
             <ButtonLink
               href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}
               variant="ghost-inverse"

@@ -9,6 +9,7 @@ import { ROUTES, SITE_NAV, sectionHref, type SectionId } from "@/shared/constant
 import { useActiveSection } from "@/shared/hooks/useActiveSection";
 import { useMobileMenu } from "@/shared/hooks/useMobileMenu";
 import { cn } from "@/shared/utils/cn";
+import { handleSectionLinkClick } from "@/shared/utils/scroll";
 import styles from "./SiteNav.module.css";
 
 const NAV_SECTION_IDS: readonly SectionId[] = SITE_NAV.map((item) => item.sectionId);
@@ -46,7 +47,10 @@ export function SiteNav() {
                 className={styles.link}
                 href={navHref(sectionId, isOnLanding)}
                 aria-current={activeSectionId === sectionId ? "true" : undefined}
-                onClick={close}
+                onClick={(event) => {
+                  close();
+                  if (isOnLanding) handleSectionLinkClick(event, sectionId);
+                }}
               >
                 {label}
               </Link>
