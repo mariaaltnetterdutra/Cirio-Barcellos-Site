@@ -1,3 +1,4 @@
+import { FloatingActions } from "@/features/consortium/components/FloatingActions/FloatingActions";
 import { LegalNotice } from "@/shared/components/layout/LegalNotice/LegalNotice";
 import { SiteFooter } from "@/shared/components/layout/SiteFooter/SiteFooter";
 import { SiteHeader } from "@/shared/components/layout/SiteHeader/SiteHeader";
@@ -13,6 +14,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <main id={MAIN_CONTENT_ID}>{children}</main>
       <LegalNotice />
       <SiteFooter />
+      <FloatingActions />
     </>
   );
 }
