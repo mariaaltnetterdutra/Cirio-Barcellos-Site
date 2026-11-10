@@ -169,6 +169,41 @@ a {
   border: 0;
 }
 
+/* Barra de rolagem padrão das listas que rolam para o lado (carrosséis).
+   Use junto com a classe da lista: <ul className={cn("scroll-row", styles.list)}>.
+   As cores vêm dos tokens de linha, então se adaptam sozinhas aos tons claros e escuros. */
+.scroll-row {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-row::-webkit-scrollbar-track {
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-line) 55%, transparent);
+}
+
+.scroll-row::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-pill);
+  background: var(--color-line-strong);
+}
+
+.scroll-row::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Firefox não entende ::-webkit-scrollbar. Nos outros navegadores estas duas linhas
+   anulariam o desenho acima, por isso ficam só aqui. */
+@supports not selector(::-webkit-scrollbar) {
+  .scroll-row {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+}
+
 .skip-link {
   position: absolute;
   top: 8px;
