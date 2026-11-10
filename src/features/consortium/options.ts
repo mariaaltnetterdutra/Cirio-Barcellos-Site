@@ -1,26 +1,21 @@
-// Opções das perguntas de marcar do formulário. O backend valida os mesmos valores.
+// Opções do card de simulação. O backend valida os mesmos objetivos (api/src/leads/leads.constants.ts).
+import type { IconName } from "@/shared/components/ui/Icon/Icon";
 
 export const GOAL_OPTIONS = [
-  { value: "imovel", label: "Comprar um imóvel" },
-  { value: "terreno", label: "Comprar um terreno" },
-  { value: "construir", label: "Construir" },
-  { value: "reformar", label: "Reformar" },
-  { value: "investir", label: "Investir e ampliar patrimônio" },
-  { value: "outro", label: "Outro" },
-] as const;
+  { value: "imovel", label: "Imóvel", icon: "patrimonio" },
+  { value: "terreno", label: "Terreno", icon: "map" },
+  { value: "construir", label: "Construção", icon: "build" },
+  { value: "reformar", label: "Reforma", icon: "tool" },
+] as const satisfies readonly { value: string; label: string; icon: IconName }[];
 
-export const BUDGET_OPTIONS = [
-  { value: "ate100", label: "Até R$ 100 mil" },
-  { value: "100a300", label: "R$ 100 mil a R$ 300 mil" },
-  { value: "300a500", label: "R$ 300 mil a R$ 500 mil" },
-  { value: "500a1m", label: "R$ 500 mil a R$ 1 milhão" },
-  { value: "1m", label: "Acima de R$ 1 milhão" },
-  { value: "nao-sei", label: "Ainda não sei" },
-] as const;
+/** Valores de crédito sugeridos, em reais. */
+export const CREDIT_VALUES = [100_000, 150_000, 200_000, 300_000, 400_000, 500_000, 600_000, 800_000, 1_000_000] as const;
 
-export const TIMEFRAME_OPTIONS = [
-  { value: "1ano", label: "Em até 1 ano" },
-  { value: "1a3", label: "De 1 a 3 anos" },
-  { value: "3a5", label: "De 3 a 5 anos" },
-  { value: "avaliando", label: "Ainda estou avaliando" },
-] as const;
+export const CUSTOM_CREDIT = "outro";
+export const UNKNOWN_CREDIT = "nao-sei";
+export const UNKNOWN_TERM = "ajuda";
+
+export const CREDIT_LIMITS = { min: 50_000, max: 10_000_000 } as const;
+
+// TODO: confirmar com o cliente quais prazos (em meses) existem nos grupos de consórcio imobiliário.
+export const TERM_MONTHS = [100, 120, 150, 180, 200] as const;

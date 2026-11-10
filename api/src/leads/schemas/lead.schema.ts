@@ -1,15 +1,11 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import type { HydratedDocument } from "mongoose";
 import {
-  BUDGETS,
-  type BudgetRange,
   type ConsortiumGoal,
   DEFAULT_RESPONSIBLE,
   GOALS,
   LEAD_STATUSES,
   type LeadStatus,
-  TIMEFRAMES,
-  type Timeframe,
 } from "../leads.constants";
 
 /** De onde o visitante veio (anúncio, campanha, página). Tudo opcional. */
@@ -43,14 +39,13 @@ export class Lead {
   @Prop({ required: true, enum: GOALS })
   objetivo!: ConsortiumGoal;
 
-  @Prop({ trim: true })
-  objetivoOutro?: string;
+  /** Em reais. Vazio quando a pessoa ainda não sabe o valor. */
+  @Prop()
+  valorCredito?: number;
 
-  @Prop({ required: true, enum: BUDGETS })
-  valor!: BudgetRange;
-
-  @Prop({ required: true, enum: TIMEFRAMES })
-  prazo!: Timeframe;
+  /** Em meses. Vazio quando a pessoa quer ajuda para escolher. */
+  @Prop()
+  prazoMeses?: number;
 
   @Prop({ type: LeadOriginSchema, default: {} })
   origem!: LeadOrigin;

@@ -1,14 +1,22 @@
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 56px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  grid-template-areas:
+    "text card"
+    "photo card";
+  grid-template-rows: auto 1fr;
+  gap: 32px 56px;
 }
 
 .text {
+  grid-area: text;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.card {
+  grid-area: card;
+  align-self: start;
 }
 
 .partner {
@@ -16,7 +24,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  margin-top: 36px;
+  margin-bottom: 28px;
 }
 
 .partnerCaption {
@@ -27,24 +35,46 @@
   color: var(--color-text-2);
 }
 
-.heading h1 {
-  font-size: clamp(32px, 4.4vw, 48px);
-  line-height: 1.06;
-  max-width: 16ch;
+.title {
+  max-width: 17ch;
+  font-size: clamp(32px, 4.4vw, 46px);
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
-.actions {
+.lead {
+  max-width: 46ch;
+  margin-top: 16px;
+  font-size: 17px;
+  color: var(--color-text-2);
+}
+
+.benefits {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 32px;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  list-style: none;
 }
 
-/* A foto acompanha a altura do texto, em vez de ditar a altura da seção.
-   ".grid .photo" para vencer a proporção padrão do ImagePlaceholder. */
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.benefitIcon {
+  flex: none;
+  color: var(--color-gold);
+}
+
+/* A foto ocupa o espaço que sobra ao lado do cartão. ".grid .photo" vence a proporção padrão. */
 .grid .photo {
+  grid-area: photo;
   height: 100%;
-  min-height: 420px;
+  min-height: 220px;
   aspect-ratio: auto;
   border-radius: 22px;
 }
@@ -54,15 +84,20 @@
   object-position: 50% 40%;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-areas:
+      "text"
+      "card"
+      "photo";
+    grid-template-rows: auto;
+    gap: 28px;
   }
 
   .grid .photo {
     height: auto;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 }

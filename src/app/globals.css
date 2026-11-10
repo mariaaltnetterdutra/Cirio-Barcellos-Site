@@ -97,6 +97,24 @@
   color: var(--color-text);
 }
 
+/* Cartão claro dentro de uma seção escura (ex.: simulação no topo): devolve as variáveis ao tom claro. */
+.tone-light {
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #161a20;
+  --color-text-2: #5b6472;
+  --color-text-3: #6f7886;
+  --color-line: #e1e5ea;
+  --color-line-strong: #c4cbd4;
+  --color-gold: #a9752e;
+  --color-gold-ink: #6b4e1e;
+  --color-blue: #2e6fb0;
+  --color-blue-soft: #dceafa;
+  --color-danger: #b42318;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
 *,
 *::before,
 *::after {

@@ -1,4 +1,4 @@
-import type { BudgetRange, ConsortiumGoal, Timeframe } from "../types";
+import type { ConsortiumGoal } from "../types";
 
 // Mesmo formato que a API (api/src/leads/dto) espera e devolve.
 
@@ -18,9 +18,10 @@ export interface CreateLeadRequestDto {
   /** Só os números, com DDD. */
   whatsapp: string;
   objetivo: ConsortiumGoal;
-  objetivoOutro?: string;
-  valor: BudgetRange;
-  prazo: Timeframe;
+  /** Em reais; ausente quando a pessoa ainda não sabe. */
+  valorCredito?: number;
+  /** Em meses; ausente quando a pessoa quer ajuda para escolher. */
+  prazoMeses?: number;
   consentimento: true;
   origem?: LeadOriginDto;
   /** Campo escondido anti-robô: pessoas deixam vazio. */

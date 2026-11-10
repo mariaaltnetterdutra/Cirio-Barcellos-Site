@@ -2,7 +2,7 @@
 
 import { trackEvent } from "@/core/analytics/track";
 import { Button } from "@/shared/components/ui/Button/Button";
-import { formatCredit } from "@/shared/utils/format";
+import { formatCreditValue } from "@/shared/utils/currency";
 import { useConsortiumIntent } from "../../state/ConsortiumIntentContext";
 import type { CreditPlan } from "../../types";
 import styles from "./PlansSection.module.css";
@@ -19,8 +19,8 @@ export function ChoosePlanButton({ plan, label }: ChoosePlanButtonProps) {
     <Button
       className={styles.choose}
       onClick={() => {
-        trackEvent("clique_plano", { credito: formatCredit(plan.creditInThousands) });
-        choosePlan(plan.budget);
+        trackEvent("clique_plano", { credito: formatCreditValue(plan.credit) });
+        choosePlan(plan.credit);
       }}
     >
       {label}

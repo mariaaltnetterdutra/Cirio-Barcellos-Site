@@ -6,9 +6,9 @@ import { Lead } from "./schemas/lead.schema";
 /** Dados que o serviço informa; status, responsável e datas vêm dos padrões do schema. */
 export type NewLead = Pick<
   Lead,
-  "protocolo" | "nome" | "whatsapp" | "objetivo" | "valor" | "prazo" | "origem" | "consentimentoEm"
+  "protocolo" | "nome" | "whatsapp" | "objetivo" | "origem" | "consentimentoEm"
 > &
-  Partial<Pick<Lead, "objetivoOutro">>;
+  Partial<Pick<Lead, "valorCredito" | "prazoMeses">>;
 
 // Único ponto que conhece o Mongoose: trocar de banco mexe só aqui.
 @Injectable()

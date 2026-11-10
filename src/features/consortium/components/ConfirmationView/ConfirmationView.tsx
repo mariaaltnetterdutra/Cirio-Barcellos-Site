@@ -48,12 +48,12 @@ export function ConfirmationView() {
               <dd>{lead.goalLabel}</dd>
             </div>
             <div>
-              <dt>{CONTENT.summaryLabels.budget}</dt>
-              <dd>{lead.budgetLabel}</dd>
+              <dt>{CONTENT.summaryLabels.credit}</dt>
+              <dd>{lead.creditLabel}</dd>
             </div>
             <div>
-              <dt>{CONTENT.summaryLabels.timeframe}</dt>
-              <dd>{lead.timeframeLabel}</dd>
+              <dt>{CONTENT.summaryLabels.term}</dt>
+              <dd>{lead.termLabel}</dd>
             </div>
           </dl>
         </>

@@ -8,8 +8,8 @@ const VALID_DTO: CreateLeadDto = {
   nome: "Maria Teste",
   whatsapp: "51999998888",
   objetivo: "imovel",
-  valor: "300a500",
-  prazo: "1a3",
+  valorCredito: 300_000,
+  prazoMeses: 180,
   consentimento: true,
   origem: { pagina: "/", utmSource: "google", gclid: "teste" },
 };

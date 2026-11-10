@@ -1,5 +1,5 @@
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
-import { formatCredit } from "@/shared/utils/format";
+import { formatCreditValue } from "@/shared/utils/currency";
 import { PLANS_CONTENT as CONTENT } from "../../content";
 import type { CreditPlan } from "../../types";
 import { ChoosePlanButton } from "./ChoosePlanButton";
@@ -10,7 +10,7 @@ interface PlanCardProps {
 }
 
 export function PlanCard({ plan }: PlanCardProps) {
-  const credit = formatCredit(plan.creditInThousands);
+  const credit = formatCreditValue(plan.credit);
 
   return (
     <article className={styles.card}>

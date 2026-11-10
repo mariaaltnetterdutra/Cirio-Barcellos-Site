@@ -5,37 +5,39 @@ import { useRef, useState, type FormEvent, type RefObject } from "react";
 import { ApiError } from "@/core/api/httpClient";
 import { trackEvent } from "@/core/analytics/track";
 import { ROUTES } from "@/shared/constants/routes";
+import { formatCreditValue } from "@/shared/utils/currency";
 import { formatWhatsApp } from "@/shared/utils/phone";
-import { LEAD_FORM_CONTENT } from "../content";
-import { BUDGET_OPTIONS, GOAL_OPTIONS, TIMEFRAME_OPTIONS } from "../options";
+import { SIMULATION_CONTENT } from "../content";
+import { GOAL_OPTIONS } from "../options";
 import { buildCreateLeadRequest, createLead } from "../services/leadService";
 import { saveLastLead } from "../services/lastLeadStorage";
 import { useConsortiumIntent } from "../state/ConsortiumIntentContext";
 import {
-  LEAD_FORM_FIELD_ORDER,
+  CHOICE_FIELD_ORDER,
+  CONTACT_FIELD_ORDER,
+  validateChoices,
   validateLeadForm,
   type LeadFormErrors,
+  type LeadFormField,
   type LeadFormValues,
 } from "../validation/validateLeadForm";
 
 export type LeadFormStatus = "idle" | "submitting" | "error";
+export type SimulationStep = 1 | 2;
 
 const INITIAL_VALUES: LeadFormValues = {
-  otherGoal: "",
+  goal: "imovel",
+  customCredit: "",
   name: "",
   whatsapp: "",
   website: "",
 };
 
-function labelOf(options: readonly { value: string; label: string }[], value: string): string {
-  return options.find((option) => option.value === value)?.label ?? value;
-}
-
 function submitErrorMessage(error: unknown): string {
   if (error instanceof ApiError && error.kind === "rate_limited") {
-    return LEAD_FORM_CONTENT.errors.tooManyRequests;
+    return SIMULATION_CONTENT.errors.tooManyRequests;
   }
-  return LEAD_FORM_CONTENT.errors.submit;
+  return SIMULATION_CONTENT.errors.submit;
 }
 
 /** `formRef` fica no componente do formulário: o hook só usa para levar o foco ao 1º erro. */
@@ -46,20 +48,22 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
 
   const [values, setValues] = useState<LeadFormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<LeadFormErrors>({});
+  const [step, setStep] = useState<SimulationStep>(1);
   const [status, setStatus] = useState<LeadFormStatus>("idle");
   const [submitError, setSubmitError] = useState<string>();
   const [appliedRequestId, setAppliedRequestId] = useState(intent.requestId);
 
-  // Quando a pessoa clica num objetivo ou num plano lá em cima, as respostas já vêm marcadas.
+  // Quando a pessoa clica num plano lá embaixo, o valor do crédito já vem marcado.
   // Ajustar o estado durante a renderização evita um efeito e um quadro com valores velhos.
   if (appliedRequestId !== intent.requestId) {
     setAppliedRequestId(intent.requestId);
     setValues((current) => ({
       ...current,
-      goal: intent.goal ?? current.goal,
-      budget: intent.budget ?? current.budget,
+      goal: "imovel",
+      creditChoice: intent.creditValue ? String(intent.creditValue) : current.creditChoice,
     }));
-    setErrors((current) => ({ ...current, goal: undefined, budget: undefined }));
+    setErrors((current) => ({ ...current, goal: undefined, creditChoice: undefined }));
+    setStep(1);
   }
 
   function markStarted(): void {
@@ -74,20 +78,41 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
-  function focusFirstError(found: LeadFormErrors): void {
-    const firstField = LEAD_FORM_FIELD_ORDER.find((field) => found[field]);
+  function focusFirstError(order: readonly LeadFormField[], found: LeadFormErrors): void {
+    const firstField = order.find((field) => found[field]);
     if (!firstField) return;
     formRef.current?.querySelector<HTMLElement>(`[name="${firstField}"]`)?.focus();
+  }
+
+  function goToContact(): void {
+    const result = validateChoices(values);
+    if (!result.ok) {
+      setErrors(result.errors);
+      focusFirstError(CHOICE_FIELD_ORDER, result.errors);
+      return;
+    }
+    trackEvent("simulacao_passo_2");
+    setStep(2);
+  }
+
+  function goBack(): void {
+    setStatus("idle");
+    setSubmitError(undefined);
+    setStep(1);
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
     if (status === "submitting") return;
+    if (step === 1) {
+      goToContact();
+      return;
+    }
 
     const result = validateLeadForm(values);
     if (!result.ok) {
       setErrors(result.errors);
-      focusFirstError(result.errors);
+      focusFirstError(CONTACT_FIELD_ORDER, result.errors);
       return;
     }
 
@@ -99,11 +124,15 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
         protocol: response.protocolo,
         firstName: form.name.split(" ")[0] ?? form.name,
         whatsapp: formatWhatsApp(form.whatsapp),
-        goalLabel: labelOf(GOAL_OPTIONS, form.goal),
-        budgetLabel: labelOf(BUDGET_OPTIONS, form.budget),
-        timeframeLabel: labelOf(TIMEFRAME_OPTIONS, form.timeframe),
+        goalLabel: GOAL_OPTIONS.find((option) => option.value === form.goal)?.label ?? form.goal,
+        creditLabel: form.creditValue ? formatCreditValue(form.creditValue) : SIMULATION_CONTENT.unknownCreditOption,
+        termLabel: form.termMonths ? SIMULATION_CONTENT.termOption(form.termMonths) : SIMULATION_CONTENT.unknownTermOption,
       });
-      trackEvent("formulario_enviado", { objetivo: form.goal, valor: form.budget, prazo: form.timeframe });
+      trackEvent("formulario_enviado", {
+        objetivo: form.goal,
+        valor: form.creditValue ?? "nao-sei",
+        prazo: form.termMonths ?? "ajuda",
+      });
       router.push(ROUTES.confirmacao);
     } catch (error) {
       setStatus("error");
@@ -114,10 +143,12 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
   return {
     values,
     errors,
+    step,
     status,
     submitError,
     isSubmitting: status === "submitting",
     setField,
+    goBack,
     handleSubmit,
   };
 }

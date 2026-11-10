@@ -8,8 +8,8 @@ export interface LastLead {
   /** Já formatado para mostrar, ex.: (51) 9 8177-5864. */
   whatsapp: string;
   goalLabel: string;
-  budgetLabel: string;
-  timeframeLabel: string;
+  creditLabel: string;
+  termLabel: string;
 }
 
 export function saveLastLead(lead: LastLead): void {
@@ -31,7 +31,7 @@ export function readLastLeadRaw(): string | null {
 function isLastLead(data: unknown): data is LastLead {
   if (typeof data !== "object" || data === null) return false;
   const record: Record<string, unknown> = { ...data };
-  const fields = ["protocol", "firstName", "whatsapp", "goalLabel", "budgetLabel", "timeframeLabel"];
+  const fields = ["protocol", "firstName", "whatsapp", "goalLabel", "creditLabel", "termLabel"];
   return fields.every((field) => typeof record[field] === "string");
 }
 

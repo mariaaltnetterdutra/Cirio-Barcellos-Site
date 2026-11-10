@@ -2,21 +2,17 @@ import { Transform, Type } from "class-transformer";
 import {
   Equals,
   IsIn,
+  IsInt,
   IsOptional,
   IsString,
   Length,
   Matches,
+  Max,
   MaxLength,
+  Min,
   ValidateNested,
 } from "class-validator";
-import {
-  BUDGETS,
-  type BudgetRange,
-  type ConsortiumGoal,
-  GOALS,
-  TIMEFRAMES,
-  type Timeframe,
-} from "../leads.constants";
+import { CREDIT_LIMITS, type ConsortiumGoal, GOALS, TERM_LIMITS } from "../leads.constants";
 import { LeadOriginDto } from "./lead-origin.dto";
 
 const trim = ({ value }: { value: unknown }) => (typeof value === "string" ? value.trim() : value);
@@ -34,17 +30,19 @@ export class CreateLeadDto {
   @IsIn(GOALS, { message: "Escolha um objetivo." })
   objetivo!: ConsortiumGoal;
 
+  /** Valor do crédito em reais. Fica de fora quando a pessoa ainda não sabe. */
   @IsOptional()
-  @Transform(trim)
-  @IsString()
-  @MaxLength(80)
-  objetivoOutro?: string;
+  @IsInt({ message: "Informe o valor do crédito em reais." })
+  @Min(CREDIT_LIMITS.min, { message: "Valor de crédito abaixo do mínimo." })
+  @Max(CREDIT_LIMITS.max, { message: "Valor de crédito acima do máximo." })
+  valorCredito?: number;
 
-  @IsIn(BUDGETS, { message: "Escolha o valor aproximado." })
-  valor!: BudgetRange;
-
-  @IsIn(TIMEFRAMES, { message: "Escolha o prazo." })
-  prazo!: Timeframe;
+  /** Prazo do plano em meses. Fica de fora quando a pessoa quer ajuda para escolher. */
+  @IsOptional()
+  @IsInt({ message: "Informe o prazo em meses." })
+  @Min(TERM_LIMITS.min, { message: "Prazo abaixo do mínimo." })
+  @Max(TERM_LIMITS.max, { message: "Prazo acima do máximo." })
+  prazoMeses?: number;
 
   @Equals(true, { message: "É preciso aceitar ser contatado para enviar o pedido." })
   consentimento!: true;
