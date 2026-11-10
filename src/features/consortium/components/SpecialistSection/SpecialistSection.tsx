@@ -12,7 +12,7 @@ const TITLE_ID = "especialista-titulo";
 
 export function SpecialistSection() {
   return (
-    <Section id={SECTION_IDS.especialista} width="wide" labelledBy={TITLE_ID}>
+    <Section id={SECTION_IDS.especialista} labelledBy={TITLE_ID}>
       <SectionHeading
         titleId={TITLE_ID}
         eyebrow={CONTENT.eyebrow}
