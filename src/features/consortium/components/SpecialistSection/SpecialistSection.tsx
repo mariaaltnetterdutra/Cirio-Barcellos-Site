@@ -19,6 +19,7 @@ export function SpecialistSection() {
         title={CONTENT.title}
         lead={CONTENT.lead}
         align="center"
+        className={styles.heading}
       />
       <div className={styles.layout}>
         <ul className={styles.people}>

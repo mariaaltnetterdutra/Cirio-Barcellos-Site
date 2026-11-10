@@ -1,4 +1,3 @@
-// Ponto único de log: para trocar por um serviço externo depois, basta mudar este arquivo.
 const isDevelopment = process.env.NODE_ENV === "development";
 
 export function info(...args: unknown[]): void {

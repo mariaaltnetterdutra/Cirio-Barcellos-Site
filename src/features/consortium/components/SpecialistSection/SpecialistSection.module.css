@@ -1,4 +1,11 @@
-/* Duas pessoas lado a lado e, embaixo, o convite para o WhatsApp. */
+/* No computador o título cabe em uma linha só; no celular quebra normalmente. */
+@media (min-width: 721px) {
+  .heading h2 {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
 .layout {
   display: grid;
   gap: 20px;
@@ -13,7 +20,6 @@
   list-style: none;
 }
 
-/* As duas pessoas usam o mesmo cartão: foto em cima, texto embaixo, tudo na mesma posição. */
 .person {
   display: flex;
   flex-direction: column;
@@ -32,7 +38,6 @@
   border-radius: var(--radius-lg);
 }
 
-/* Mantém o rosto no enquadramento quando a foto é cortada. */
 .photo img {
   object-position: 50% 28%;
 }
@@ -46,7 +51,6 @@
   color: var(--color-blue-deep);
 }
 
-/* Duas linhas reservadas: o cargo do Vinicius é mais longo, e o texto dos dois começa no mesmo ponto. */
 .role {
   margin-top: 4px;
   font-size: 15px;
@@ -55,13 +59,11 @@
   color: var(--color-gold-ink);
 }
 
-/* O cargo do Vinicius quebra em duas linhas: reserva o espaço para o texto dos dois começar no mesmo ponto. */
 @media (min-width: 641px) {
   .role {
     min-height: 2.9em;
   }
 }
-
 
 .text {
   margin-top: 6px;

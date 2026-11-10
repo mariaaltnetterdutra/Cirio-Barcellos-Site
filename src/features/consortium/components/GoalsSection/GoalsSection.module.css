@@ -12,7 +12,6 @@
   }
 }
 
-/* Nenhuma opção fica escondida atrás de rolagem: no celular são sempre visíveis. */
 @media (max-width: 420px) {
   .list {
     grid-template-columns: 1fr;

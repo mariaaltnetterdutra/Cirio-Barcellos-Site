@@ -8,7 +8,6 @@ import styles from "./ConsortiumHero.module.css";
 
 const TITLE_ID = "hero-titulo";
 
-// A foto fica de fundo, atrás de uma camada escura só no CSS: o arquivo da imagem não é alterado.
 export function ConsortiumHero() {
   return (
     <div className={styles.hero}>

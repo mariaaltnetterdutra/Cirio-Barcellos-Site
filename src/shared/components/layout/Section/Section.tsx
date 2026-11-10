@@ -10,7 +10,6 @@ interface SectionProps {
   tone?: SectionTone;
   width?: SectionWidth;
   labelledBy?: string;
-  /** -1 deixa a seção receber foco por código (ex.: ao rolar até o formulário). */
   tabIndex?: number;
   className?: string;
   children: ReactNode;

@@ -18,7 +18,6 @@ function navHref(sectionId: SectionId, isOnLanding: boolean): string {
   return isOnLanding ? sectionHref(sectionId) : `${ROUTES.home}${sectionHref(sectionId)}`;
 }
 
-// O botão vem antes da lista no HTML: com o menu aberto, o próximo Tab já cai nos links.
 export function SiteNav() {
   const navId = useId();
   const isOnLanding = usePathname() === ROUTES.home;

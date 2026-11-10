@@ -8,7 +8,6 @@ import styles from "./FaqSection.module.css";
 
 const TITLE_ID = "duvidas-titulo";
 
-// <details> nativo: abre e fecha com teclado e leitor de tela, sem JavaScript no navegador.
 export function FaqSection() {
   return (
     <Section id={SECTION_IDS.duvidas} tone="muted" width="narrow" labelledBy={TITLE_ID}>

@@ -11,8 +11,6 @@ interface PortoBankLogoProps {
   className?: string;
 }
 
-// O arquivo tem 660x130 (proporção ~5:1). Largura e altura aqui são as do maior tamanho
-// exibido, para o next/image gerar versões nítidas; o CSS define o tamanho de cada variação.
 const INTRINSIC_SIZE = { width: 244, height: 48 };
 
 const SRC: Record<PortoBankLogoVariant, string> = {

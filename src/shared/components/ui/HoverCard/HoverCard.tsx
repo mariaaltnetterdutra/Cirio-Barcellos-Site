@@ -38,7 +38,6 @@ export function HoverCard(props: HoverCardProps) {
   const iconElement = <Icon name={icon} size="lg" className={styles.icon} />;
   const textElement = <span className={styles.text}>{children}</span>;
 
-  // Um <button> não pode conter títulos (h3): no modo botão o título vira <span>.
   if (props.onClick) {
     return (
       <button type="button" className={cn(styles.card, className)} onClick={props.onClick}>

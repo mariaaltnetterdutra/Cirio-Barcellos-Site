@@ -53,7 +53,6 @@ button.card {
   transition: color 0.35s ease;
 }
 
-/* O link cobre o card todo, mas continua sendo um só elemento para o leitor de tela. */
 .stretchedLink::after {
   content: "";
   position: absolute;

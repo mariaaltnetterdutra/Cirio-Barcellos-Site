@@ -25,7 +25,6 @@ function kindFromStatus(status: number): ApiErrorKind {
   return "server";
 }
 
-/** `parse` confere o formato da resposta, para o resto do site não depender de dados não verificados. */
 export async function postJson<TResponse>(
   path: string,
   body: object,

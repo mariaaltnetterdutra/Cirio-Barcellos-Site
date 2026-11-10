@@ -7,31 +7,23 @@ const MIN_NAME_LENGTH = 2;
 
 export interface LeadFormValues {
   goal?: ConsortiumGoal;
-  /** Um valor da lista (em reais, como texto), "outro" ou "nao-sei". */
   creditChoice?: string;
-  /** Só os números, usado quando creditChoice é "outro". */
   customCredit: string;
-  /** Um prazo da lista (em meses, como texto) ou "ajuda". */
   termChoice?: string;
   name: string;
-  /** Só os números. */
   whatsapp: string;
-  /** Campo escondido anti-robô. */
   website: string;
 }
 
 export type LeadFormField = "goal" | "creditChoice" | "customCredit" | "termChoice" | "name" | "whatsapp";
 export type LeadFormErrors = Partial<Record<LeadFormField, string>>;
 
-/** Campos do passo 1 e do passo 2, na ordem da tela: o foco vai para o primeiro com erro. */
 export const CHOICE_FIELD_ORDER: readonly LeadFormField[] = ["goal", "creditChoice", "customCredit", "termChoice"];
 export const CONTACT_FIELD_ORDER: readonly LeadFormField[] = ["name", "whatsapp"];
 
 export interface ValidChoices {
   goal: ConsortiumGoal;
-  /** Em reais; ausente quando a pessoa ainda não sabe. */
   creditValue?: number;
-  /** Em meses; ausente quando a pessoa quer ajuda para escolher. */
   termMonths?: number;
 }
 

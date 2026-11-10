@@ -9,7 +9,6 @@ type SectionButtonLinkProps = Omit<ComponentProps<typeof ButtonLink>, "href" | "
   sectionId: SectionId;
 };
 
-// Botão que leva a uma seção da mesma página, rolando sempre (mesmo se já estiver no "#").
 export function SectionButtonLink({ sectionId, ...props }: SectionButtonLinkProps) {
   return (
     <ButtonLink

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// Faixa no meio da tela: a seção que cruza essa linha é a que a pessoa está lendo.
 const MIDDLE_BAND = "-45% 0px -50% 0px";
 
 export function useActiveSection(ids: readonly string[], enabled = true): string | null {

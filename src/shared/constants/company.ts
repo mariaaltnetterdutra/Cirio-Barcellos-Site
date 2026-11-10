@@ -9,7 +9,6 @@ export interface Company {
   city: string;
   address: string;
   phoneDisplay: string;
-  /** Formato internacional, só dígitos, para links wa.me. */
   whatsappNumber: string;
   cnpj: string | null;
   susep: string | null;

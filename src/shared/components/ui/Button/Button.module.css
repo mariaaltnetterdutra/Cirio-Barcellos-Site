@@ -40,7 +40,6 @@
   color: inherit;
 }
 
-/* Derivado da cor do texto para funcionar em fundo claro e escuro. */
 .ghost:hover {
   background: color-mix(in srgb, currentColor 6%, transparent);
 }
@@ -55,7 +54,6 @@
   background: var(--color-on-dark-hover);
 }
 
-/* Verde oficial do WhatsApp. O texto é escuro porque branco sobre esse verde não tem contraste suficiente. */
 .whatsapp {
   background: var(--color-whatsapp);
   color: var(--color-text);

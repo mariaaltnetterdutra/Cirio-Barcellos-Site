@@ -1,5 +1,3 @@
-// Desenhos guardados como dados, e não como HTML, para renderizar sem dangerouslySetInnerHTML.
-
 export type IconShape =
   | { kind: "path"; d: string }
   | { kind: "circle"; cx: number; cy: number; r: number }

@@ -5,7 +5,6 @@ import type { CreateLeadRequestDto, CreateLeadResponseDto } from "./lead.dto";
 
 const LEADS_PATH = "/leads";
 const MOCK_DELAY_MS = 800;
-// Mesmo alfabeto da API: sem 0, 1, I e O, que se confundem quando o protocolo é lido em voz alta.
 const PROTOCOL_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 const PROTOCOL_SUFFIX_LENGTH = 5;
 
@@ -49,7 +48,6 @@ async function createMockLead(): Promise<CreateLeadResponseDto> {
   return { protocolo: buildMockProtocol(), criadoEm: new Date().toISOString() };
 }
 
-/** Com NEXT_PUBLIC_USE_MOCKS ligado (só fora de produção), simula o envio sem precisar da API. */
 export function createLead(request: CreateLeadRequestDto): Promise<CreateLeadResponseDto> {
   if (env.useMocks) return createMockLead();
   return postJson(LEADS_PATH, request, parseCreateLeadResponse);

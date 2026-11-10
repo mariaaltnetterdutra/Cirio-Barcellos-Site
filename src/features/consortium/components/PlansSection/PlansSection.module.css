@@ -57,8 +57,6 @@
   color: var(--color-white);
 }
 
-/* A foto (ou o espaço reservado) ocupa o card inteiro, atrás do texto.
-   ".card .photo" para vencer os estilos padrão do ImagePlaceholder. */
 .card .photo {
   position: absolute;
   inset: 0;
@@ -120,7 +118,6 @@
   font-size: 13.5px;
 }
 
-/* No celular as setas somem; o contador mostra quantos planos existem e onde a pessoa está. */
 .counter {
   display: none;
   margin-top: 4px;

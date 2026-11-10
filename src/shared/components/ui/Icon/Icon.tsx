@@ -31,7 +31,6 @@ function renderShape(shape: IconShape, index: number) {
   }
 }
 
-// Sempre decorativo: o texto ao lado (ou um aria-label no botão) é quem dá o significado.
 export function Icon({ name, size = "md", className }: IconProps) {
   return (
     <svg
