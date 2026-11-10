@@ -53,13 +53,13 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
   const [submitError, setSubmitError] = useState<string>();
   const [appliedRequestId, setAppliedRequestId] = useState(intent.requestId);
 
-  // Quando a pessoa clica num plano lá embaixo, o valor do crédito já vem marcado.
+  // Quando a pessoa clica num objetivo ou num plano lá embaixo, as respostas já vêm marcadas.
   // Ajustar o estado durante a renderização evita um efeito e um quadro com valores velhos.
   if (appliedRequestId !== intent.requestId) {
     setAppliedRequestId(intent.requestId);
     setValues((current) => ({
       ...current,
-      goal: "imovel",
+      goal: intent.goal ?? current.goal,
       creditChoice: intent.creditValue ? String(intent.creditValue) : current.creditChoice,
     }));
     setErrors((current) => ({ ...current, goal: undefined, creditChoice: undefined }));

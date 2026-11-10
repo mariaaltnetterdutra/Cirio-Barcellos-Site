@@ -17,6 +17,10 @@
   max-width: calc(var(--max-width-narrow) + 2 * var(--gutter));
 }
 
+.wide {
+  max-width: calc(var(--max-width-wide) + 2 * var(--gutter));
+}
+
 .toneDefault {
   background: var(--color-white);
 }

@@ -53,7 +53,7 @@ export function SimulationCard() {
       <h2 id={TITLE_ID} className={styles.title}>
         {step === 1 ? CONTENT.title : CONTENT.contactTitle}
       </h2>
-      <p className={styles.lead}>{step === 1 ? CONTENT.lead : CONTENT.contactLead}</p>
+      {step === 2 && <p className={styles.lead}>{CONTENT.contactLead}</p>}
 
       <form ref={formRef} className={styles.form} onSubmit={form.handleSubmit} noValidate>
         {step === 1 ? (
@@ -160,7 +160,6 @@ export function SimulationCard() {
         </div>
       </form>
 
-      <p className={styles.reassurance}>{CONTENT.reassurance}</p>
       <a
         className={styles.direct}
         href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}

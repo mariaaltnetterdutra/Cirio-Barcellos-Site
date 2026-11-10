@@ -105,12 +105,6 @@
   color: var(--color-danger);
 }
 
-.reassurance {
-  font-size: 13px;
-  text-align: center;
-  color: var(--color-text-3);
-}
-
 .direct {
   align-self: center;
   font-size: 14px;
