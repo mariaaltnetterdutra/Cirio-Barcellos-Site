@@ -2,6 +2,7 @@
 
 import { Children, useRef, useState, type ReactNode } from "react";
 import { Icon } from "@/shared/components/ui/Icon/Icon";
+import { cn } from "@/shared/utils/cn";
 import styles from "./PlansSection.module.css";
 
 interface PlansCarouselProps {
@@ -54,7 +55,7 @@ export function PlansCarousel({ heading, previousLabel, nextLabel, ofLabel, chil
           </button>
         </div>
       </div>
-      <ul ref={listRef} className={styles.list} onScroll={handleScroll}>
+      <ul ref={listRef} className={cn("scroll-row", styles.list)} onScroll={handleScroll}>
         {Children.map(children, (child) => (
           <li className={styles.item}>{child}</li>
         ))}
