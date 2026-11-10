@@ -18,7 +18,7 @@ export function FloatingActions() {
   const isFormVisible = useIsSectionInView(SECTION_IDS.analise);
 
   return (
-    <div className={cn(styles.wrap, isLanding && !isFormVisible && styles.aboveBar)}>
+    <div className={styles.wrap}>
       {isLanding && (
         <Link
           href={sectionHref(SECTION_IDS.analise)}

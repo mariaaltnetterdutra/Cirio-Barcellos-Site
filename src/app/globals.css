@@ -69,7 +69,6 @@
   --max-width-narrow: 760px;
   --gutter: 28px;
   --section-space: 72px;
-  --mobile-bar-height: 68px;
   --header-height: 73px;         /* logo 44px + 2 x 14px de padding + 1px de borda */
 }
 
@@ -121,13 +120,6 @@ html {
 /* clip (e não hidden) para não criar uma área de rolagem própria, que quebraria o cabeçalho sticky. */
 body {
   overflow-x: clip;
-}
-
-/* Reserva o espaço da barra fixa do celular, para ela não cobrir o rodapé. */
-@media (max-width: 760px) {
-  body {
-    padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
-  }
 }
 
 body {

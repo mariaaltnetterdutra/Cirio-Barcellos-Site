@@ -199,17 +199,6 @@ export const FAQ_CONTENT = {
   ] satisfies readonly FaqItem[],
 } as const;
 
-export const FINAL_CTA_CONTENT = {
-  title: "Seu próximo imóvel pode começar com uma boa conversa.",
-  lead: "Conte o seu objetivo. A nossa especialista analisa o seu projeto e apresenta uma estratégia, sem compromisso.",
-  primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
-  secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
-} as const;
-
-export const MOBILE_BAR_CONTENT = {
-  primary: "Analisar meu projeto",
-} as const;
-
 export const FLOATING_ACTIONS_CONTENT = {
   formLabel: "Analisar meu projeto",
   whatsappLabel: "Falar com uma especialista pelo WhatsApp",
