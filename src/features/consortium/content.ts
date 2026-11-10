@@ -208,8 +208,11 @@ export const FINAL_CTA_CONTENT = {
 
 export const MOBILE_BAR_CONTENT = {
   primary: "Analisar meu projeto",
-  secondary: "Especialista",
-  secondaryLabel: "Falar com uma especialista pelo WhatsApp",
+} as const;
+
+export const FLOATING_ACTIONS_CONTENT = {
+  formLabel: "Analisar meu projeto",
+  whatsappLabel: "Falar com uma especialista pelo WhatsApp",
 } as const;
 
 export const SPECIALIST_WHATSAPP_MESSAGE =
