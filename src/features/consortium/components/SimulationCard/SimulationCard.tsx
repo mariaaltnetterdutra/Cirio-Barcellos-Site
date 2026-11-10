@@ -65,7 +65,8 @@ export function SimulationCard() {
               value={values.goal}
               onChange={(goal) => form.setField("goal", goal)}
               error={errors.goal}
-              columns={2}
+              columns={4}
+              stacked
             />
             <ChoiceGroup
               legend={CONTENT.creditQuestion}
@@ -74,7 +75,7 @@ export function SimulationCard() {
               value={values.creditChoice}
               onChange={(choice) => form.setField("creditChoice", choice)}
               error={errors.creditChoice}
-              columns={3}
+              columns={4}
               compact
             />
             {values.creditChoice === CUSTOM_CREDIT && (

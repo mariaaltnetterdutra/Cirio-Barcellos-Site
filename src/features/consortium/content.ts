@@ -12,6 +12,8 @@ import type {
 export const HERO_CONTENT = {
   partnerCaption: "Consórcio imobiliário Porto Bank",
   title: "Conquiste seu imóvel com o Consórcio Porto Bank",
+  /** Mesmo título dividido em duas linhas. */
+  titleLines: ["Conquiste seu imóvel com o", "Consórcio Porto Bank"],
   lead: "Planejamento e atendimento próximo, do primeiro contato à contemplação.",
   // TODO: confirmar com o cliente cada uma destas frases antes de publicar.
   benefits: [
@@ -155,7 +157,7 @@ export const SIMULATION_CONTENT = {
   unknownCreditOption: "Ainda não sei",
   termQuestion: "Em quantos meses você quer pagar?",
   termOption: (months: number) => `${months} meses`,
-  unknownTermOption: "Quero ajuda para escolher",
+  unknownTermOption: "Quero ajuda",
   next: "Continuar",
   back: "Voltar",
   contactTitle: "Quase lá! Como falamos com você?",
