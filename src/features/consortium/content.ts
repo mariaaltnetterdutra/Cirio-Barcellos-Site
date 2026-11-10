@@ -12,10 +12,9 @@ import type {
 export const HERO_CONTENT = {
   partnerCaption: "Consórcio imobiliário Porto Bank",
   title: "Conquiste seu imóvel com o Consórcio Porto Bank",
-  /** Mesmo título dividido em duas linhas. */
-  titleLines: ["Conquiste seu imóvel com o", "Consórcio Porto Bank"],
+  titleLines: ["Conquiste seu imóvel com", "o Consórcio Porto Bank"],
   lead: "Planejamento e atendimento próximo, do primeiro contato à contemplação.",
-  // TODO: confirmar com o cliente cada uma destas frases antes de publicar.
+  
   benefits: [
     { icon: "shield", label: "Sem juros de financiamento" },
     { icon: "trend", label: "Prazos que cabem no seu plano" },

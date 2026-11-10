@@ -1,9 +1,15 @@
-.people {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Duas pessoas à esquerda e o convite para o WhatsApp à direita, aproveitando a largura. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.9fr);
   gap: 24px;
-  margin-top: 36px;
+  margin-top: 28px;
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
   list-style: none;
 }
 
@@ -11,9 +17,8 @@
 .person {
   display: flex;
   flex-direction: column;
-  flex: 0 1 380px;
   min-width: 0;
-  padding: 16px 16px 26px;
+  padding: 14px 14px 20px;
   border: 1px solid var(--color-line);
   border-top: 4px solid var(--color-gold);
   border-radius: var(--radius-xl);
@@ -33,9 +38,9 @@
 }
 
 .name {
-  margin-top: 20px;
+  margin-top: 14px;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-blue-deep);
@@ -43,23 +48,23 @@
 
 /* Duas linhas reservadas: o cargo do Vinicius é mais longo, e o texto dos dois começa no mesmo ponto. */
 .role {
-  margin-top: 6px;
-  font-size: 16px;
+  margin-top: 4px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--color-gold-ink);
 }
 
-@media (min-width: 841px) {
+@media (min-width: 641px) {
   .role {
-    min-height: 3em;
+    min-height: 2.9em;
   }
 }
 
 .text {
-  margin-top: 8px;
-  padding-inline: 8px;
-  font-size: 15.5px;
+  margin-top: 6px;
+  padding-inline: 6px;
+  font-size: 15px;
   color: var(--color-text);
 }
 
@@ -67,9 +72,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 640px;
-  margin: 40px auto 0;
-  padding: 32px 24px;
+  justify-content: center;
+  padding: 28px 22px;
   border-radius: var(--radius-xl);
   background: var(--color-blue-soft);
   text-align: center;
@@ -77,7 +81,7 @@
 
 .callTitle {
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-navy);
@@ -85,12 +89,29 @@
 
 .callText {
   margin-top: 8px;
-  max-width: 46ch;
+  max-width: 34ch;
   color: var(--color-text);
 }
 
 .callButton {
-  margin-top: 22px;
-  padding: 15px 28px;
+  margin-top: 20px;
+  padding: 14px 24px;
   font-size: 16px;
+}
+
+/* Telas médias: o convite desce para baixo das duas pessoas. */
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .callToAction {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .people {
+    grid-template-columns: 1fr;
+  }
 }
