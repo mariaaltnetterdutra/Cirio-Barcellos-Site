@@ -1,10 +1,8 @@
 import { ConsortiumHero } from "@/features/consortium/components/ConsortiumHero/ConsortiumHero";
 import { FaqSection } from "@/features/consortium/components/FaqSection/FaqSection";
-import { FinalCtaSection } from "@/features/consortium/components/FinalCtaSection/FinalCtaSection";
 import { GoalsSection } from "@/features/consortium/components/GoalsSection/GoalsSection";
 import { HowItWorksSection } from "@/features/consortium/components/HowItWorksSection/HowItWorksSection";
 import { LeadFormSection } from "@/features/consortium/components/LeadFormSection/LeadFormSection";
-import { MobileStickyBar } from "@/features/consortium/components/MobileStickyBar/MobileStickyBar";
 import { PlansSection } from "@/features/consortium/components/PlansSection/PlansSection";
 import { PortoBankSection } from "@/features/consortium/components/PortoBankSection/PortoBankSection";
 import { SpecialistSection } from "@/features/consortium/components/SpecialistSection/SpecialistSection";
@@ -24,8 +22,6 @@ export default function ConsortiumPage() {
       <SpecialistSection />
       <LeadFormSection />
       <FaqSection />
-      <FinalCtaSection />
-      <MobileStickyBar />
     </ConsortiumIntentProvider>
   );
 }

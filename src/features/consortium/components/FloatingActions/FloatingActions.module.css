@@ -9,7 +9,6 @@
   gap: 14px;
   /* A faixa em volta não pode bloquear cliques no conteúdo da página. */
   pointer-events: none;
-  transition: bottom 0.2s ease;
 }
 
 .wrap > * {
@@ -38,11 +37,6 @@
   color: var(--color-white);
 }
 
-.whatsapp:hover {
-  background: var(--color-whatsapp-hover);
-  transform: translateY(-2px);
-}
-
 .form {
   gap: 0;
   padding-inline: 17px;
@@ -51,12 +45,6 @@
   font-size: 14.5px;
   font-weight: 700;
   white-space: nowrap;
-}
-
-.form:hover,
-.form:focus-visible {
-  gap: 10px;
-  transform: translateY(-2px);
 }
 
 /* O texto fica escondido até o mouse ou o teclado chegarem: em repouso é só o círculo. */
@@ -69,10 +57,31 @@
     opacity 0.2s ease;
 }
 
-.form:hover .formLabel,
+.form:focus-visible {
+  gap: 10px;
+}
+
 .form:focus-visible .formLabel {
   max-width: 200px;
   opacity: 1;
+}
+
+/* No celular não existe "passar o mouse": ficam só os círculos. */
+@media (hover: hover) {
+  .whatsapp:hover {
+    background: var(--color-whatsapp-hover);
+    transform: translateY(-2px);
+  }
+
+  .form:hover {
+    gap: 10px;
+    transform: translateY(-2px);
+  }
+
+  .form:hover .formLabel {
+    max-width: 200px;
+    opacity: 1;
+  }
 }
 
 .whatsapp:focus-visible,
@@ -89,23 +98,14 @@
   visibility: hidden;
 }
 
-/* No celular o atalho do formulário é a barra de baixo; aqui fica só o WhatsApp, acima dela. */
 @media (max-width: 760px) {
   .wrap {
     right: 16px;
-  }
-
-  .aboveBar {
-    bottom: calc(var(--mobile-bar-height) + 12px + env(safe-area-inset-bottom, 0px));
-  }
-
-  .form {
-    display: none;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wrap,
   .whatsapp,
   .form,
   .formLabel {
