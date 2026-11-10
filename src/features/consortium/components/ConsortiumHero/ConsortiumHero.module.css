@@ -1,22 +1,41 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-slate);
+}
+
+/* ".hero .bg" vence a proporção padrão do ImagePlaceholder: a foto cobre o topo todo. */
+.hero .bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+.bg img {
+  object-position: 50% 40%;
+}
+
+/* Camada escura só para o texto ficar legível; a foto em si não muda. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(27, 37, 54, 0.95) 0%, rgba(27, 37, 54, 0.84) 55%, rgba(27, 37, 54, 0.72) 100%);
+}
+
+/* A seção fica por cima da foto, sem o fundo sólido do tom escuro. */
+.hero .section {
+  position: relative;
+  background: transparent;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
-  grid-template-areas:
-    "text card"
-    "photo card";
-  grid-template-rows: auto 1fr;
-  gap: 32px 56px;
-}
-
-.text {
-  grid-area: text;
-  display: flex;
-  flex-direction: column;
-}
-
-.card {
-  grid-area: card;
-  align-self: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: 56px;
+  align-items: center;
 }
 
 .partner {
@@ -24,7 +43,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .partnerCaption {
@@ -37,7 +56,7 @@
 
 .title {
   max-width: 17ch;
-  font-size: clamp(32px, 4.4vw, 46px);
+  font-size: clamp(32px, 4vw, 46px);
   line-height: 1.08;
   text-wrap: balance;
 }
@@ -70,34 +89,9 @@
   color: var(--color-gold);
 }
 
-/* A foto ocupa o espaço que sobra ao lado do cartão. ".grid .photo" vence a proporção padrão. */
-.grid .photo {
-  grid-area: photo;
-  height: 100%;
-  min-height: 220px;
-  aspect-ratio: auto;
-  border-radius: 22px;
-}
-
-/* Mantém a torre do prédio centralizada quando a foto é cortada. */
-.photo img {
-  object-position: 50% 40%;
-}
-
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "text"
-      "card"
-      "photo";
-    grid-template-rows: auto;
-    gap: 28px;
-  }
-
-  .grid .photo {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 16 / 10;
+    gap: 32px;
   }
 }

@@ -3,7 +3,7 @@ import { cn } from "@/shared/utils/cn";
 import styles from "./Section.module.css";
 
 export type SectionTone = "default" | "muted" | "cream" | "slate" | "navy";
-export type SectionWidth = "default" | "narrow";
+export type SectionWidth = "default" | "narrow" | "wide";
 
 interface SectionProps {
   id?: string;
@@ -40,7 +40,7 @@ export function Section({
       tabIndex={tabIndex}
       className={cn(styles.section, TONE_CLASS[tone], className)}
     >
-      <div className={cn(styles.inner, width === "narrow" && styles.narrow)}>
+      <div className={cn(styles.inner, width === "narrow" && styles.narrow, width === "wide" && styles.wide)}>
         {children}
       </div>
     </section>

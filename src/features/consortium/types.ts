@@ -9,6 +9,13 @@ export interface StatItem {
   label: string;
 }
 
+export interface GoalCard {
+  value: ConsortiumGoal;
+  icon: IconName;
+  title: string;
+  text: string;
+}
+
 export interface CreditPlan {
   /** Valor da carta de crédito, em reais. */
   credit: number;

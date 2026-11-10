@@ -2,6 +2,7 @@ import { COMPANY } from "@/shared/constants/company";
 import type {
   CreditPlan,
   FaqItem,
+  GoalCard,
   IconItem,
   StatItem,
   Step,
@@ -11,7 +12,7 @@ import type {
 export const HERO_CONTENT = {
   partnerCaption: "Consórcio imobiliário Porto Bank",
   title: "Conquiste seu imóvel com o Consórcio Porto Bank",
-  lead: "Planejamento, atendimento próximo e o suporte de quem é especialista no seu futuro.",
+  lead: "Planejamento e atendimento próximo, do primeiro contato à contemplação.",
   // TODO: confirmar com o cliente cada uma destas frases antes de publicar.
   benefits: [
     { icon: "shield", label: "Sem juros de financiamento" },
@@ -29,6 +30,19 @@ export const TRUST_CONTENT = {
   clients: { value: COMPANY.clientsLabel, label: "clientes atendidos pela Círio & Barcellos" } satisfies StatItem,
   google: { label: "no Google", linkLabel: "ver avaliações" },
   partner: { label: "Parceria oficial Consórcio" },
+} as const;
+
+export const GOALS_CONTENT = {
+  eyebrow: "Seu objetivo",
+  title: "O que você quer conquistar?",
+  lead: "Escolha seu objetivo. Vamos ajudar você a conhecer as possibilidades.",
+  cardLink: "Conhecer minhas opções",
+  items: [
+    { value: "imovel", icon: "patrimonio", title: "Comprar um imóvel", text: "Casa ou apartamento para morar ou para alugar." },
+    { value: "terreno", icon: "map", title: "Comprar um terreno", text: "O primeiro passo para construir do seu jeito." },
+    { value: "construir", icon: "build", title: "Construir", text: "Crédito para a obra da casa ou do imóvel comercial." },
+    { value: "reformar", icon: "tool", title: "Reformar", text: "Ampliar, modernizar ou valorizar o imóvel que você já tem." },
+  ] satisfies readonly GoalCard[],
 } as const;
 
 export const PLANS_CONTENT = {
@@ -133,7 +147,6 @@ export const SPECIALIST_CONTENT = {
 
 export const SIMULATION_CONTENT = {
   title: "Comece a simular o seu consórcio",
-  lead: "Escolha o que você quer conquistar. Uma especialista faz a simulação com você.",
   stepLabel: (step: number, total: number) => `Passo ${step} de ${total}`,
   goalQuestion: "O que você quer conquistar?",
   creditQuestion: "Qual valor de crédito você imagina?",
@@ -152,7 +165,6 @@ export const SIMULATION_CONTENT = {
   submit: "Simular com um especialista",
   submitting: "Enviando…",
   whatsappDirect: "Prefiro falar direto no WhatsApp",
-  reassurance: "Leva menos de 1 minuto. Não pedimos CPF nem email.",
   consentBefore:
     "Ao enviar seus dados, você concorda em ser contatado pela Círio & Barcellos para atendimento relacionado ao seu interesse. Consulte nossa",
   consentLink: "Política de Privacidade",
