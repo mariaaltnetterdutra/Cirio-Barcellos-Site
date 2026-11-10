@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import { SECTION_IDS } from "@/shared/constants/routes";
+import { scrollToSection } from "@/shared/utils/scroll";
 import type { BudgetRange, ConsortiumGoal } from "../types";
 
 export interface ConsortiumIntent {
@@ -22,28 +23,17 @@ const ConsortiumIntentContext = createContext<ConsortiumIntentValue | null>(null
 
 const PLAN_GOAL: ConsortiumGoal = "imovel";
 
-function prefersReducedMotion(): boolean {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-function goToLeadForm(): void {
-  const form = document.getElementById(SECTION_IDS.analise);
-  if (!form) return;
-  form.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
-  form.focus({ preventScroll: true });
-}
-
 export function ConsortiumIntentProvider({ children }: { children: ReactNode }) {
   const [intent, setIntent] = useState<ConsortiumIntent>({ requestId: 0 });
 
   const chooseGoal = useCallback((goal: ConsortiumGoal) => {
     setIntent((current) => ({ goal, budget: current.budget, requestId: current.requestId + 1 }));
-    goToLeadForm();
+    scrollToSection(SECTION_IDS.analise);
   }, []);
 
   const choosePlan = useCallback((budget: BudgetRange) => {
     setIntent((current) => ({ goal: PLAN_GOAL, budget, requestId: current.requestId + 1 }));
-    goToLeadForm();
+    scrollToSection(SECTION_IDS.analise);
   }, []);
 
   const value = useMemo(() => ({ intent, chooseGoal, choosePlan }), [intent, chooseGoal, choosePlan]);
