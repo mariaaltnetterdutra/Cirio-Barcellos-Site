@@ -1,4 +1,3 @@
-/* Tokens copiados de docs/DESIGN.md (seção 2). Visual fixo: sem prefers-color-scheme. */
 :root {
   --color-white: #ffffff;
   --color-gray-50: #f5f6f8;
@@ -38,7 +37,7 @@
   --color-on-dark-border: rgba(255, 255, 255, 0.32);
   --color-on-dark-hover: rgba(255, 255, 255, 0.08);
 
-  --color-whatsapp: #25d366;           /* verde oficial do WhatsApp */
+  --color-whatsapp: #25d366;
   --color-whatsapp-hover: #1ebe5a;
 
   --color-success: #2f855a;
@@ -69,7 +68,7 @@
   --max-width-narrow: 760px;
   --gutter: 28px;
   --section-space: 72px;
-  --header-height: 73px;         /* logo 44px + 2 x 14px de padding + 1px de borda */
+  --header-height: 73px;
 }
 
 @media (max-width: 640px) {
@@ -79,7 +78,6 @@
   }
 }
 
-/* Tom escuro de seção: só troca as variáveis, tudo dentro se adapta. */
 .tone-slate {
   --color-bg: #1b2536;
   --color-surface: #243044;
@@ -97,7 +95,6 @@
   color: var(--color-text);
 }
 
-/* Cartão claro dentro de uma seção escura (ex.: simulação no topo): devolve as variáveis ao tom claro. */
 .tone-light {
   --color-bg: #ffffff;
   --color-surface: #ffffff;
@@ -123,7 +120,6 @@
   padding: 0;
 }
 
-/* Rolagem suave até as seções, sem o título ficar escondido embaixo do cabeçalho fixo. */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
@@ -135,7 +131,6 @@ html {
   }
 }
 
-/* clip (e não hidden) para não criar uma área de rolagem própria, que quebraria o cabeçalho sticky. */
 body {
   overflow-x: clip;
 }
@@ -187,9 +182,6 @@ a {
   border: 0;
 }
 
-/* Barra de rolagem padrão das listas que rolam para o lado (carrosséis).
-   Use junto com a classe da lista: <ul className={cn("scroll-row", styles.list)}>.
-   As cores vêm dos tokens de linha, então se adaptam sozinhas aos tons claros e escuros. */
 .scroll-row {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -213,8 +205,6 @@ a {
   background: var(--color-gold);
 }
 
-/* Firefox não entende ::-webkit-scrollbar. Nos outros navegadores estas duas linhas
-   anulariam o desenho acima, por isso ficam só aqui. */
 @supports not selector(::-webkit-scrollbar) {
   .scroll-row {
     scrollbar-width: thin;

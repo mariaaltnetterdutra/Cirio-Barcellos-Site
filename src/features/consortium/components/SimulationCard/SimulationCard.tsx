@@ -35,7 +35,6 @@ const TERM_OPTIONS: readonly ChoiceOption<string>[] = [
   { value: UNKNOWN_TERM, label: CONTENT.unknownTermOption },
 ];
 
-// tabIndex -1: o clique num plano rola até aqui e leva o foco junto.
 export function SimulationCard() {
   const formRef = useRef<HTMLFormElement>(null);
   const form = useLeadForm(formRef);
@@ -145,7 +144,6 @@ export function SimulationCard() {
           </>
         )}
 
-        {/* Armadilha para robôs: fica fora da tela e pessoas nunca preenchem. */}
         <div className={styles.trap} aria-hidden="true">
           <label>
             Não preencha este campo

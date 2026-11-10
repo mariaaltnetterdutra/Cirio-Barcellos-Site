@@ -6,7 +6,6 @@ import styles from "./ImagePlaceholder.module.css";
 export type AspectRatio = "4/5" | "5/4" | "16/10" | "16/11" | "1/1";
 
 interface ImagePlaceholderProps {
-  /** Descreve a foto que vai entrar aqui (também é o texto para leitores de tela). */
   label: string;
   tone?: "light" | "dark";
   aspectRatio?: AspectRatio;

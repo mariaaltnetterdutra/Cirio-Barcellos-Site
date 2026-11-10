@@ -12,8 +12,6 @@ import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
 import { FLOATING_ACTIONS_CONTENT as CONTENT, SPECIALIST_WHATSAPP_MESSAGE } from "../../content";
 import styles from "./FloatingActions.module.css";
 
-// Sempre na tela: o WhatsApp em todas as páginas e, na landing, o atalho para o formulário.
-// Os dois são redondos e do mesmo tamanho; o atalho abre o texto ao passar o mouse.
 export function FloatingActions() {
   const isLanding = usePathname() === ROUTES.home;
   const isFormVisible = useIsSectionInView(SECTION_IDS.analise);

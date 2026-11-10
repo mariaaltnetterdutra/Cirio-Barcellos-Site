@@ -1,11 +1,8 @@
-// Guarda o último pedido só na aba aberta (sessionStorage), para a tela de confirmação mostrar
-// o protocolo e o resumo. Nada disso sai do navegador.
 const STORAGE_KEY = "cb:ultimo-pedido";
 
 export interface LastLead {
   protocol: string;
   firstName: string;
-  /** Já formatado para mostrar, ex.: (51) 9 8177-5864. */
   whatsapp: string;
   goalLabel: string;
   creditLabel: string;

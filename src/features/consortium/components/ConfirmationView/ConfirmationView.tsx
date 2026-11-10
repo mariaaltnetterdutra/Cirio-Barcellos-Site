@@ -17,8 +17,6 @@ function subscribe(onChange: () => void): () => void {
   return () => window.removeEventListener("storage", onChange);
 }
 
-// Lê o último pedido do sessionStorage. No servidor não existe pedido, então a primeira
-// renderização é a versão genérica, que também serve quando alguém abre o link direto.
 export function ConfirmationView() {
   const raw = useSyncExternalStore(subscribe, readLastLeadRaw, () => null);
   const lead = parseLastLead(raw);

@@ -3,12 +3,10 @@ const MIN_DIGITS = 10;
 const MIN_AREA_CODE = 11;
 const MOBILE_FIRST_DIGIT = "9";
 
-/** Guarda só os números, no máximo DDD + 9 dígitos. */
 export function onlyDigits(value: string): string {
   return value.replace(/\D/g, "").slice(0, MAX_DIGITS);
 }
 
-/** Mostra "(51) 9 8177-5864" (celular) ou "(51) 3333-4444" (fixo) enquanto a pessoa digita. */
 export function formatWhatsApp(value: string): string {
   const digits = onlyDigits(value);
   if (digits.length === 0) return "";

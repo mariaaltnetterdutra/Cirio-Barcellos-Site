@@ -11,20 +11,16 @@ export interface ChoiceOption<TValue extends string> {
 
 interface ChoiceGroupProps<TValue extends string> {
   legend: string;
-  /** Também serve para achar o primeiro campo com erro e levar o foco até ele. */
   name: string;
   options: readonly ChoiceOption<TValue>[];
   value: TValue | undefined;
   onChange: (value: TValue) => void;
   error?: string;
   columns?: 1 | 2 | 3 | 4;
-  /** Pílulas mais baixas, para listas longas (valores, prazos). */
   compact?: boolean;
-  /** Ícone em cima do texto, para opções curtas lado a lado. */
   stacked?: boolean;
 }
 
-// Rádios de verdade (teclado com setas, leitor de tela), só que desenhados como "pílulas".
 export function ChoiceGroup<TValue extends string>({
   legend,
   name,

@@ -22,7 +22,6 @@
   cursor: pointer;
 }
 
-/* Fica invisível, mas continua recebendo foco e teclado. */
 .input {
   position: absolute;
   inset: 0;

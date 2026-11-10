@@ -10,8 +10,6 @@ interface LogoProps {
   className?: string;
 }
 
-// Tamanho exibido em telas grandes (docs/DESIGN.md, seção 1). Passar o tamanho de tela,
-// e não o do arquivo, faz o next/image gerar só as versões 1x e 2x necessárias.
 const SYMBOL_SIZE = { width: 39, height: 44 };
 const NAME_SIZE = { width: 130, height: 30 };
 

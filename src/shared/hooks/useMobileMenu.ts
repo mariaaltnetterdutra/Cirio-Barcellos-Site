@@ -1,10 +1,6 @@
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-/**
- * Estado do menu do celular. O menu guarda a página em que foi aberto: ao navegar,
- * o pathname muda e o menu fecha sozinho, sem precisar de efeito para resetar estado.
- */
 export function useMobileMenu() {
   const pathname = usePathname();
   const [openedAt, setOpenedAt] = useState<string | null>(null);
@@ -23,7 +19,6 @@ export function useMobileMenu() {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key !== "Escape") return;
       close();
-      // Devolve o foco ao botão para quem navega pelo teclado não se perder.
       toggleRef.current?.focus();
     }
 

@@ -8,7 +8,6 @@ import { SpecialistSection } from "@/features/consortium/components/SpecialistSe
 import { TrustStrip } from "@/features/consortium/components/TrustStrip/TrustStrip";
 import { ConsortiumIntentProvider } from "@/features/consortium/state/ConsortiumIntentContext";
 
-// O Provider deixa os objetivos e os planos marcarem respostas na simulação, lá no topo.
 export default function ConsortiumPage() {
   return (
     <ConsortiumIntentProvider>

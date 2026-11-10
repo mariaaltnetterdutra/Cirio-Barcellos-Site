@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// Diz se a seção está aparecendo na tela. Sem a seção na página, devolve sempre false.
 export function useIsSectionInView(sectionId: string): boolean {
   const [isInView, setIsInView] = useState(false);
 

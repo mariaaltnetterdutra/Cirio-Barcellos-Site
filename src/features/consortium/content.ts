@@ -196,7 +196,6 @@ export const CONFIRMATION_CONTENT = {
 export const FAQ_CONTENT = {
   eyebrow: "Dúvidas frequentes",
   title: "Antes de começar, o que você precisa saber.",
-  // TODO: respostas a revisar com o cliente.
   items: [
     { question: "O que é consórcio?", answer: "É uma forma de compra planejada em grupo. Os participantes pagam parcelas mensais e, a cada mês, parte do grupo é contemplada com uma carta de crédito para usar na compra do bem." },
     { question: "Consórcio tem juros?", answer: "Não há juros como em um financiamento. Existem a taxa de administração e o fundo de reserva, além de possíveis seguros, que apresentamos de forma clara antes de qualquer decisão." },

@@ -7,17 +7,13 @@ import type { ConsortiumGoal } from "../types";
 
 export interface ConsortiumIntent {
   goal?: ConsortiumGoal;
-  /** Valor da carta de crédito, em reais, escolhido num cartão de plano. */
   creditValue?: number;
-  /** Muda a cada escolha, para a simulação aplicar até um clique repetido no mesmo cartão. */
   requestId: number;
 }
 
 interface ConsortiumIntentValue {
   intent: ConsortiumIntent;
-  /** Leva a pessoa à simulação com o objetivo já marcado. */
   chooseGoal: (goal: ConsortiumGoal) => void;
-  /** Um plano é sempre de imóvel: leva à simulação com o objetivo e o valor já marcados. */
   choosePlan: (creditValue: number) => void;
 }
 

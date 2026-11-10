@@ -4,7 +4,6 @@
   background: var(--color-slate);
 }
 
-/* ".hero .bg" vence a proporção padrão do ImagePlaceholder: a foto cobre o topo todo. */
 .hero .bg {
   position: absolute;
   inset: 0;
@@ -18,7 +17,6 @@
   object-position: 50% 40%;
 }
 
-/* Camada escura só do lado do texto: a foto aparece inteira à direita. O arquivo não muda. */
 .overlay {
   position: absolute;
   inset: 0;
@@ -31,7 +29,6 @@
   );
 }
 
-/* A seção fica por cima da foto, sem o fundo sólido do tom escuro. */
 .hero .section {
   position: relative;
   background: transparent;
@@ -68,7 +65,6 @@
 .titleLine {
   display: block;
 }
-
 
 .lead {
   margin-top: 14px;

@@ -40,7 +40,6 @@ function submitErrorMessage(error: unknown): string {
   return SIMULATION_CONTENT.errors.submit;
 }
 
-/** `formRef` fica no componente do formulário: o hook só usa para levar o foco ao 1º erro. */
 export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
   const router = useRouter();
   const { intent } = useConsortiumIntent();
@@ -53,8 +52,6 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
   const [submitError, setSubmitError] = useState<string>();
   const [appliedRequestId, setAppliedRequestId] = useState(intent.requestId);
 
-  // Quando a pessoa clica num objetivo ou num plano lá embaixo, as respostas já vêm marcadas.
-  // Ajustar o estado durante a renderização evita um efeito e um quadro com valores velhos.
   if (appliedRequestId !== intent.requestId) {
     setAppliedRequestId(intent.requestId);
     setValues((current) => ({

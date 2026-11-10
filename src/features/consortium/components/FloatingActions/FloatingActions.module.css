@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 14px;
-  /* A faixa em volta não pode bloquear cliques no conteúdo da página. */
   pointer-events: none;
 }
 
@@ -15,7 +14,6 @@
   pointer-events: auto;
 }
 
-/* Os dois botões têm a mesma altura, o mesmo formato e a mesma sombra. */
 .whatsapp,
 .form {
   display: flex;
@@ -47,7 +45,6 @@
   white-space: nowrap;
 }
 
-/* O texto fica escondido até o mouse ou o teclado chegarem: em repouso é só o círculo. */
 .formLabel {
   max-width: 0;
   overflow: hidden;
@@ -66,7 +63,6 @@
   opacity: 1;
 }
 
-/* No celular não existe "passar o mouse": ficam só os círculos. */
 @media (hover: hover) {
   .whatsapp:hover {
     background: var(--color-whatsapp-hover);
@@ -86,7 +82,6 @@
 
 .whatsapp:focus-visible,
 .form:focus-visible {
-  /* Anel duplo: aparece tanto em fundo claro quanto escuro. */
   outline: none;
   box-shadow:
     0 0 0 3px var(--color-white),

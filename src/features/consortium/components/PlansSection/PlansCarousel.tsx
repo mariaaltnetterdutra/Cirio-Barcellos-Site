@@ -9,14 +9,12 @@ interface PlansCarouselProps {
   heading: ReactNode;
   previousLabel: string;
   nextLabel: string;
-  /** Palavra entre os números do contador do celular, ex.: "de" em "2 de 5". */
   ofLabel: string;
   children: ReactNode;
 }
 
 type Direction = -1 | 1;
 
-/** Largura de um cartão mais o espaço entre eles: quanto a lista anda a cada passo. */
 function getStep(list: HTMLUListElement): number {
   const firstItem = list.firstElementChild;
   if (!(firstItem instanceof HTMLElement)) return 0;
