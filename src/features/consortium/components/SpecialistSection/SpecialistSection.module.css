@@ -1,15 +1,15 @@
 /* Duas pessoas lado a lado e, embaixo, o convite para o WhatsApp. */
 .layout {
   display: grid;
-  gap: 24px;
-  max-width: 800px;
+  gap: 20px;
+  max-width: 960px;
   margin: 28px auto 0;
 }
 
 .people {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: 16px;
   list-style: none;
 }
 
@@ -55,9 +55,18 @@
   color: var(--color-gold-ink);
 }
 
+/* Quando o cargo quebra em duas linhas (telas médias), reserva o espaço para o texto dos dois começar no mesmo ponto. */
 @media (min-width: 641px) {
   .role {
     min-height: 2.9em;
+  }
+}
+
+/* No computador o cargo cabe em uma linha só. */
+@media (min-width: 1024px) {
+  .role {
+    min-height: 0;
+    white-space: nowrap;
   }
 }
 
@@ -69,6 +78,8 @@
 }
 
 .callToAction {
+  justify-self: center;
+  width: min(100%, 560px);
   display: flex;
   flex-direction: column;
   align-items: center;
