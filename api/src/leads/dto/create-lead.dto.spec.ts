@@ -6,8 +6,8 @@ const VALID = {
   nome: "  Maria Teste  ",
   whatsapp: "51999998888",
   objetivo: "imovel",
-  valor: "300a500",
-  prazo: "1a3",
+  valorCredito: 300000,
+  prazoMeses: 180,
   consentimento: true,
 };
 
@@ -26,9 +26,14 @@ describe("CreateLeadDto", () => {
     expect(errorsFor({ ...VALID, consentimento: false })).toContain("consentimento");
   });
 
-  it("recusa WhatsApp sem DDD e opções que não existem", () => {
-    expect(errorsFor({ ...VALID, whatsapp: "99998888", valor: "2m" })).toEqual(
-      expect.arrayContaining(["whatsapp", "valor"]),
+  it("recusa WhatsApp sem DDD, valor fora do limite e objetivo que não existe", () => {
+    expect(errorsFor({ ...VALID, whatsapp: "99998888", valorCredito: 10, objetivo: "carro" })).toEqual(
+      expect.arrayContaining(["whatsapp", "valorCredito", "objetivo"]),
     );
+  });
+
+  it("aceita pedido sem valor e sem prazo (a pessoa ainda não sabe)", () => {
+    const { valorCredito: _valor, prazoMeses: _prazo, ...semValores } = VALID;
+    expect(errorsFor(semValores)).toHaveLength(0);
   });
 });

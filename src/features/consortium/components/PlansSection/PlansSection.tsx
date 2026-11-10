@@ -18,7 +18,7 @@ export function PlansSection() {
         ofLabel={CONTENT.ofLabel}
       >
         {CONTENT.plans.map((plan) => (
-          <PlanCard key={plan.creditInThousands} plan={plan} />
+          <PlanCard key={plan.credit} plan={plan} />
         ))}
       </PlansCarousel>
       <p className={styles.footnote}>{CONTENT.footnote}</p>

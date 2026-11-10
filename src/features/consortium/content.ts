@@ -1,9 +1,7 @@
 import { COMPANY } from "@/shared/constants/company";
 import type {
-  CallToAction,
   CreditPlan,
   FaqItem,
-  GoalCard,
   IconItem,
   StatItem,
   Step,
@@ -12,10 +10,14 @@ import type {
 
 export const HERO_CONTENT = {
   partnerCaption: "Consórcio imobiliário Porto Bank",
-  title: "Seu próximo imóvel pode começar com planejamento.",
-  lead: "Compra de imóvel, terreno, construção ou reforma com uma estratégia pensada para o seu objetivo, o seu prazo e o seu orçamento.",
-  primaryCta: { label: "Quero analisar meu projeto" } satisfies CallToAction,
-  secondaryCta: { label: "Falar com uma especialista" } satisfies CallToAction,
+  title: "Conquiste seu imóvel com o Consórcio Porto Bank",
+  lead: "Planejamento, atendimento próximo e o suporte de quem é especialista no seu futuro.",
+  // TODO: confirmar com o cliente cada uma destas frases antes de publicar.
+  benefits: [
+    { icon: "shield", label: "Sem juros de financiamento" },
+    { icon: "trend", label: "Prazos que cabem no seu plano" },
+    { icon: "user", label: "Atendimento feito por pessoas" },
+  ] satisfies readonly IconItem[],
   photo: {
     src: "/images/consorcio/predio-topo.jpg",
     alt: "Torre residencial moderna iluminada ao anoitecer",
@@ -27,19 +29,6 @@ export const TRUST_CONTENT = {
   clients: { value: COMPANY.clientsLabel, label: "clientes atendidos pela Círio & Barcellos" } satisfies StatItem,
   google: { label: "no Google", linkLabel: "ver avaliações" },
   partner: { label: "Parceria oficial Consórcio" },
-} as const;
-
-export const GOALS_CONTENT = {
-  eyebrow: "Seu objetivo",
-  title: "O que você quer conquistar?",
-  lead: "Escolha seu objetivo. Vamos ajudar você a conhecer as possibilidades.",
-  cardLink: "Conhecer minhas opções",
-  items: [
-    { value: "imovel", icon: "patrimonio", title: "Comprar um imóvel", text: "Casa ou apartamento para morar ou para alugar." },
-    { value: "terreno", icon: "map", title: "Comprar um terreno", text: "O primeiro passo para construir do seu jeito." },
-    { value: "construir", icon: "build", title: "Construir", text: "Crédito para a obra da casa ou do imóvel comercial." },
-    { value: "reformar", icon: "tool", title: "Reformar", text: "Ampliar, modernizar ou valorizar o imóvel que você já tem." },
-  ] satisfies readonly GoalCard[],
 } as const;
 
 export const PLANS_CONTENT = {
@@ -55,38 +44,33 @@ export const PLANS_CONTENT = {
     "Imagens e valores de crédito ilustrativos. Parcelas, prazos e condições conforme o grupo e as regras vigentes do produto.",
   plans: [
     {
-      creditInThousands: 200,
+      credit: 200_000,
       title: "Seu começo, do seu jeito",
       text: "Conheça as opções para planejar o seu imóvel com a nossa equipe.",
-      budget: "100a300",
       photo: { src: "/images/consorcio/planos/plano-200.jpg", alt: "Sala de estar com mesa de jantar e varanda com vista da cidade" },
     },
     {
-      creditInThousands: 300,
+      credit: 300_000,
       title: "A casa que você imagina",
       text: "Veja como planejar a compra com atendimento próximo.",
-      budget: "100a300",
       photo: { src: "/images/consorcio/planos/plano-300.jpg", alt: "Casa térrea com jardim, palmeira e garagem coberta" },
     },
     {
-      creditInThousands: 400,
+      credit: 400_000,
       title: "Seu apartamento, no seu tempo",
       text: "Entenda as possibilidades para chegar ao imóvel certo.",
-      budget: "300a500",
       photo: { src: "/images/consorcio/planos/plano-400.jpg", alt: "Prédio residencial com varandas de vidro ao entardecer" },
     },
     {
-      creditInThousands: 500,
+      credit: 500_000,
       title: "Mais espaço para viver",
       text: "Conheça as opções para um imóvel maior, com orientação clara.",
-      budget: "300a500",
       photo: { src: "/images/consorcio/planos/plano-500.jpg", alt: "Sala ampla integrada à cozinha, com vista do pôr do sol" },
     },
     {
-      creditInThousands: 600,
+      credit: 600_000,
       title: "Espaço e lazer para a família",
       text: "Veja as possibilidades para esse projeto, com acompanhamento.",
-      budget: "500a1m",
       photo: { src: "/images/consorcio/planos/plano-600.jpg", alt: "Piscina com deck de madeira e espaço gourmet" },
     },
   ] satisfies readonly CreditPlan[],
@@ -147,29 +131,34 @@ export const SPECIALIST_CONTENT = {
   },
 } as const;
 
-export const LEAD_FORM_CONTENT = {
-  eyebrow: "Fale com a nossa equipe",
-  title: "Vamos encontrar um caminho para sua conquista?",
-  lead: "Conte o que você tem em mente. Nossa equipe vai ajudar você a conhecer as opções de crédito e parcelas para o seu objetivo.",
-  bullets: [
-    "Leva menos de 1 minuto",
-    "Não pedimos CPF, endereço nem email",
-    "Quem responde é sempre uma pessoa da equipe",
-    "Ainda não sabe os valores? Tudo bem. Começamos por uma conversa.",
-  ],
-  goalQuestion: "Qual é o seu objetivo?",
-  otherGoal: { label: "Conte em poucas palavras (opcional)", placeholder: "Ex.: comprar uma sala comercial", maxLength: 80 },
-  budgetQuestion: "Qual o valor aproximado do seu projeto?",
-  timeframeQuestion: "Em quanto tempo você pretende realizar?",
+export const SIMULATION_CONTENT = {
+  title: "Comece a simular o seu consórcio",
+  lead: "Escolha o que você quer conquistar. Uma especialista faz a simulação com você.",
+  stepLabel: (step: number, total: number) => `Passo ${step} de ${total}`,
+  goalQuestion: "O que você quer conquistar?",
+  creditQuestion: "Qual valor de crédito você imagina?",
+  customCredit: { label: "Digite o valor do crédito (R$)", placeholder: "Ex.: 350.000" },
+  customCreditOption: "Outro valor",
+  unknownCreditOption: "Ainda não sei",
+  termQuestion: "Em quantos meses você quer pagar?",
+  termOption: (months: number) => `${months} meses`,
+  unknownTermOption: "Quero ajuda para escolher",
+  next: "Continuar",
+  back: "Voltar",
+  contactTitle: "Quase lá! Como falamos com você?",
+  contactLead: "Uma pessoa da nossa equipe chama você no WhatsApp para fazer a simulação.",
   name: { label: "Seu nome", placeholder: "Como podemos te chamar?" },
   whatsapp: { label: "WhatsApp", placeholder: "(51) 9 0000-0000" },
-  submit: "Quero conhecer minhas opções",
+  submit: "Simular com um especialista",
   submitting: "Enviando…",
+  whatsappDirect: "Prefiro falar direto no WhatsApp",
+  reassurance: "Leva menos de 1 minuto. Não pedimos CPF nem email.",
   consentBefore:
     "Ao enviar seus dados, você concorda em ser contatado pela Círio & Barcellos para atendimento relacionado ao seu interesse. Consulte nossa",
   consentLink: "Política de Privacidade",
   errors: {
     choice: "Escolha uma opção.",
+    customCredit: "Informe um valor entre R$ 50 mil e R$ 10 milhões.",
     name: "Informe seu nome.",
     whatsapp: "Informe um WhatsApp com DDD.",
     submit: "Não conseguimos enviar agora. Tente de novo em instantes ou fale com a gente pelo WhatsApp.",
@@ -184,7 +173,7 @@ export const CONFIRMATION_CONTENT = {
   genericText:
     "A nossa especialista em consórcio vai analisar o seu projeto e falar com você pelo WhatsApp em horário comercial.",
   protocolLabel: "Protocolo",
-  summaryLabels: { goal: "Objetivo", budget: "Valor aproximado", timeframe: "Prazo" },
+  summaryLabels: { goal: "Objetivo", credit: "Valor do crédito", term: "Prazo" },
   whatsappCta: "Adiantar pelo WhatsApp",
   backCta: "Voltar ao início",
   whatsappMessage: (protocol: string, name: string) =>

@@ -39,9 +39,8 @@ export class LeadsService {
           nome: dto.nome,
           whatsapp: dto.whatsapp,
           objetivo: dto.objetivo,
-          objetivoOutro: dto.objetivo === "outro" ? dto.objetivoOutro : undefined,
-          valor: dto.valor,
-          prazo: dto.prazo,
+          valorCredito: dto.valorCredito,
+          prazoMeses: dto.prazoMeses,
           origem: dto.origem ?? {},
           consentimentoEm: new Date(),
         });

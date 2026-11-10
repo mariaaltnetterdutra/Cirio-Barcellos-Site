@@ -7,7 +7,6 @@ export const ROUTES = {
 export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
 
 export const SECTION_IDS = {
-  objetivos: "objetivos",
   planos: "planos",
   comoFunciona: "como-funciona",
   portoBank: "porto-bank",
@@ -31,7 +30,6 @@ export interface NavItem {
 }
 
 export const SITE_NAV: readonly NavItem[] = [
-  { label: "Objetivos", sectionId: SECTION_IDS.objetivos },
   { label: "Planos", sectionId: SECTION_IDS.planos },
   { label: "Como funciona", sectionId: SECTION_IDS.comoFunciona },
   { label: "Dúvidas", sectionId: SECTION_IDS.duvidas },

@@ -26,7 +26,7 @@ Teste: abra http://localhost:3001/health → `{"status":"ok"}`.
 ## 3. Enviar um pedido de teste
 
 ```bash
-curl -X POST http://localhost:3001/leads -H "Content-Type: application/json" -d "{\"nome\":\"Maria Teste\",\"whatsapp\":\"51999998888\",\"objetivo\":\"imovel\",\"valor\":\"300a500\",\"prazo\":\"1a3\",\"consentimento\":true,\"origem\":{\"pagina\":\"/\",\"utmSource\":\"google\",\"gclid\":\"teste\"}}"
+curl -X POST http://localhost:3001/leads -H "Content-Type: application/json" -d "{\"nome\":\"Maria Teste\",\"whatsapp\":\"51999998888\",\"objetivo\":\"imovel\",\"valorCredito\":300000,\"prazoMeses\":180,\"consentimento\":true,\"origem\":{\"pagina\":\"/\",\"utmSource\":\"google\",\"gclid\":\"teste\"}}"
 ```
 
 Resposta: `{"protocolo":"CB-2026-XXXXX","criadoEm":"..."}`. O pedido aparece na coleção `leads` (Compass ou Atlas).

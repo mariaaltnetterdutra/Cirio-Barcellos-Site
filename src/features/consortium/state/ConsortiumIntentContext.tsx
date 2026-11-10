@@ -3,40 +3,31 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import { SECTION_IDS } from "@/shared/constants/routes";
 import { scrollToSection } from "@/shared/utils/scroll";
-import type { BudgetRange, ConsortiumGoal } from "../types";
 
 export interface ConsortiumIntent {
-  goal?: ConsortiumGoal;
-  budget?: BudgetRange;
-  /** Muda a cada escolha, para o formulário aplicar até um clique repetido no mesmo card. */
+  /** Valor da carta de crédito, em reais, escolhido num cartão de plano. */
+  creditValue?: number;
+  /** Muda a cada escolha, para o formulário aplicar até um clique repetido no mesmo plano. */
   requestId: number;
 }
 
 interface ConsortiumIntentValue {
   intent: ConsortiumIntent;
-  chooseGoal: (goal: ConsortiumGoal) => void;
-  /** Um plano é sempre de imóvel: marca o objetivo "imovel" e a faixa de valor do plano. */
-  choosePlan: (budget: BudgetRange) => void;
+  /** Leva a pessoa à simulação com o valor do plano já marcado. */
+  choosePlan: (creditValue: number) => void;
 }
 
 const ConsortiumIntentContext = createContext<ConsortiumIntentValue | null>(null);
 
-const PLAN_GOAL: ConsortiumGoal = "imovel";
-
 export function ConsortiumIntentProvider({ children }: { children: ReactNode }) {
   const [intent, setIntent] = useState<ConsortiumIntent>({ requestId: 0 });
 
-  const chooseGoal = useCallback((goal: ConsortiumGoal) => {
-    setIntent((current) => ({ goal, budget: current.budget, requestId: current.requestId + 1 }));
+  const choosePlan = useCallback((creditValue: number) => {
+    setIntent((current) => ({ creditValue, requestId: current.requestId + 1 }));
     scrollToSection(SECTION_IDS.analise);
   }, []);
 
-  const choosePlan = useCallback((budget: BudgetRange) => {
-    setIntent((current) => ({ goal: PLAN_GOAL, budget, requestId: current.requestId + 1 }));
-    scrollToSection(SECTION_IDS.analise);
-  }, []);
-
-  const value = useMemo(() => ({ intent, chooseGoal, choosePlan }), [intent, chooseGoal, choosePlan]);
+  const value = useMemo(() => ({ intent, choosePlan }), [intent, choosePlan]);
 
   return <ConsortiumIntentContext value={value}>{children}</ConsortiumIntentContext>;
 }
