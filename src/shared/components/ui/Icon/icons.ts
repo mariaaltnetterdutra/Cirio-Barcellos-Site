@@ -18,7 +18,7 @@ export type IconName =
   | "globe"
   | "key"
   | "message"
-  | "whatsapp"
+  | "clipboard"
   | "check"
   | "info"
   | "pin"
@@ -76,12 +76,10 @@ export const ICONS: Record<IconName, readonly IconShape[]> = {
     { kind: "path", d: "M12.6 11.4L4 20v2h3v-2h2v-2h2l1.6-1.6" },
   ],
   message: [{ kind: "path", d: "M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" }],
-  whatsapp: [
-    { kind: "path", d: "M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" },
-    {
-      kind: "path",
-      d: "M9.27 8.83h1.68l.84 2.1-1.05.63a4.62 4.62 0 0 0 2.1 2.1l.63-1.05 2.1.84v1.68a.84.84 0 0 1-.84.84A6.72 6.72 0 0 1 8.43 9.67a.84.84 0 0 1 .84-.84z",
-    },
+  clipboard: [
+    { kind: "rect", x: 5, y: 4, width: 14, height: 17, rx: 2 },
+    { kind: "rect", x: 9, y: 2, width: 6, height: 4, rx: 1 },
+    { kind: "path", d: "M9 11.5h6M9 15.5h4" },
   ],
   check: [{ kind: "path", d: "M5 12.5l4.5 4.5L19 7.5" }],
   info: [
