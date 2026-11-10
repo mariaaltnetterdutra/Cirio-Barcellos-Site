@@ -1,6 +1,5 @@
 export interface GoogleReviewsSummary {
   rating: number;
-  total: number;
   url: string;
 }
 
@@ -32,10 +31,8 @@ export const COMPANY: Company = {
   cep: "92310-190",
   foundedYearsLabel: "+20 anos",
   clientsLabel: "+10 mil",
-  // TODO: confirmar nota, total e link reais do perfil no Google com o cliente.
   googleReviews: {
-    rating: 4.9,
-    total: 312,
-    url: "https://www.google.com/search?q=C%C3%ADrio+%26+Barcellos+Seguros+Canoas",
+    rating: 5,
+    url: "https://www.google.com/searchviewer/10?output=search&svid=CCYSGioYOhYweDA6MHhjOTE4NDYzYThmMzhmNmVmGAo&hl=pt&gl=BR#sv=CAESzQEKuQEStgEKd0FERGJXZWJxUmdadnBpRHlKUzdSUXpIUkY0LUxnVjlDZ3lKSVpRUXYzb2xBTm1nR3c3MG9Wd1FZYmtaWUh0R19EV291dHgtNVZBQUQ2bEg5endfSVNjQVFETFhXaTBTYmFFemtqaHBHOXlRX2lMV05rX3E1QVdnEhduRXJ6YXJPNkU2Zlgxc1FQck5ISHFRcxoiQUhOMEU3RlBwZzE1THVlUm1nTTQwQ2QtSVhZSlpQYjk0ZxIEODA1MRoBMyoAMAA4AUAAGAAgjaLi5QFKAhAB",
   },
 };
