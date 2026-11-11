@@ -1,4 +1,5 @@
 import { Injectable, Logger } from "@nestjs/common";
+import { MailService } from "../mail/mail.service";
 import type { CreateLeadResponseDto } from "./dto/create-lead-response.dto";
 import type { CreateLeadDto } from "./dto/create-lead.dto";
 import { LeadsRepository } from "./leads.repository";
@@ -16,10 +17,12 @@ function isDuplicateKeyError(error: unknown): boolean {
 export class LeadsService {
   private readonly logger = new Logger(LeadsService.name);
 
-  constructor(private readonly leadsRepository: LeadsRepository) {}
+  constructor(
+    private readonly leadsRepository: LeadsRepository,
+    private readonly mailService: MailService,
+  ) {}
 
   async create(dto: CreateLeadDto): Promise<CreateLeadResponseDto> {
-    // Robô preencheu o campo invisível: responde como se fosse normal, mas não salva.
     if (dto.website) {
       this.logger.warn("Envio descartado pelo campo anti-robô.");
       return { protocolo: generateProtocol(), criadoEm: new Date().toISOString() };
@@ -27,10 +30,21 @@ export class LeadsService {
 
     const lead = await this.saveWithUniqueProtocol(dto);
     this.logger.log(`Novo pedido ${lead.protocolo}`);
+    // Sem await: o cliente recebe o protocolo sem esperar o email, e uma falha no email não perde o pedido.
+    void this.notifyTeam(lead);
     return { protocolo: lead.protocolo, criadoEm: lead.criadoEm.toISOString() };
   }
 
-  // O protocolo é sorteado; no raro caso de repetir, tenta outro.
+  private async notifyTeam(lead: Lead): Promise<void> {
+    try {
+      const sent = await this.mailService.sendNewLead(lead);
+      if (sent) await this.leadsRepository.markEmailSent(lead.protocolo);
+    } catch (error) {
+      // Só o protocolo vai para o log: nome e telefone do cliente ficam fora.
+      this.logger.error(`Falha ao avisar a equipe do pedido ${lead.protocolo}`, error instanceof Error ? error.stack : undefined);
+    }
+  }
+
   private async saveWithUniqueProtocol(dto: CreateLeadDto): Promise<Lead> {
     for (let attempt = 1; ; attempt += 1) {
       try {

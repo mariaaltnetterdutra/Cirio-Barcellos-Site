@@ -25,7 +25,6 @@ function hasMessage(value: unknown): value is { message: string | string[] } {
   return typeof value === "object" && value !== null && "message" in value;
 }
 
-/** Respostas de erro sempre em português e sem detalhes internos (stack, banco, etc.). */
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   private readonly logger = new Logger(AllExceptionsFilter.name);
@@ -44,7 +43,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     const statusCode = exception.getStatus();
     const payload = exception.getResponse();
-    // Erros de validação já vêm com as mensagens em português definidas nos DTOs.
     if (statusCode === HttpStatus.BAD_REQUEST && hasMessage(payload) && Array.isArray(payload.message)) {
       return { statusCode, message: payload.message };
     }

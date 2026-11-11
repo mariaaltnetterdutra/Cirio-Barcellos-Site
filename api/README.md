@@ -31,6 +31,14 @@ curl -X POST http://localhost:3001/leads -H "Content-Type: application/json" -d 
 
 Resposta: `{"protocolo":"CB-2026-XXXXX","criadoEm":"..."}`. O pedido aparece na coleção `leads` (Compass ou Atlas).
 
+## 4. Email para a equipe
+
+A cada pedido novo a API manda um email para a equipe (nunca para o cliente) com o protocolo, as respostas, a origem do anúncio e um link que abre o WhatsApp do cliente já com a mensagem pronta.
+
+- **Sem configurar nada** (desenvolvimento): o texto do email aparece no terminal onde a API roda.
+- **Para enviar de verdade**: preencha `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM` e `MAIL_TO` no `.env` (exemplos no `.env.example`). Em produção eles são obrigatórios e a API não sobe sem eles.
+- Se o email falhar, o pedido continua salvo (`emailEnviado` fica `false` no banco) e o erro vai para o log.
+
 ## Comandos
 
 | Comando | O que faz |

@@ -7,7 +7,6 @@ import { type EnvironmentVariables, validateEnvironment } from "./config/env.val
 import { HealthController } from "./health/health.controller";
 import { LeadsModule } from "./leads/leads.module";
 
-// Limite geral por IP; a rota do formulário tem um limite próprio, mais baixo.
 const DEFAULT_RATE_LIMIT = { ttl: 60_000, limit: 60 };
 
 @Module({

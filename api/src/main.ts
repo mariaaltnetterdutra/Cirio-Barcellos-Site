@@ -12,7 +12,6 @@ async function bootstrap(): Promise<void> {
 
   app.use(helmet());
   app.enableCors({ origin: config.get("CORS_ORIGIN", { infer: true }), methods: ["GET", "POST"] });
-  // whitelist + forbidNonWhitelisted: campos que não estão no DTO são recusados.
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableShutdownHooks();
