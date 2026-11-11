@@ -1,0 +1,54 @@
+.heading h1 {
+  max-width: none;
+}
+
+.updated {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-text-3);
+}
+
+.notice {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  background: var(--color-gold-soft);
+  font-size: 14px;
+  color: var(--color-gold-ink);
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.title {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-blue-deep);
+}
+
+.text {
+  margin-top: 10px;
+  max-width: 68ch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 68ch;
+  margin-top: 10px;
+  padding-left: 22px;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 40px;
+  font-weight: 700;
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
