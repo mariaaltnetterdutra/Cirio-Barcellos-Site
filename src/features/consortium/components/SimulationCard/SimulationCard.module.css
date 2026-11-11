@@ -86,7 +86,11 @@
 }
 
 .consent {
+  max-width: 36ch;
+  margin-inline: auto;
   font-size: 12.5px;
+  text-align: center;
+  text-wrap: balance;
   color: var(--color-text-3);
 }
 
