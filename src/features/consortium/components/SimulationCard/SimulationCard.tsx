@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ChoiceGroup, type ChoiceOption } from "@/shared/components/form/ChoiceGroup/ChoiceGroup";
 import { TextField } from "@/shared/components/form/TextField/TextField";
+import { WhatsAppLogo } from "@/shared/components/brand/WhatsAppLogo/WhatsAppLogo";
 import { Button } from "@/shared/components/ui/Button/Button";
 import { ROUTES, SECTION_IDS } from "@/shared/constants/routes";
 import { formatCreditValue, formatThousands, onlyCurrencyDigits } from "@/shared/utils/currency";
@@ -165,6 +166,7 @@ export function SimulationCard() {
         target="_blank"
         rel="noopener noreferrer"
       >
+        <WhatsAppLogo className={styles.directLogo} />
         {CONTENT.whatsappDirect}
       </a>
     </section>

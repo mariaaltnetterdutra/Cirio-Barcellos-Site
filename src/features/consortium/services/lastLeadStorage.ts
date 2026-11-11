@@ -12,9 +12,7 @@ export interface LastLead {
 export function saveLastLead(lead: LastLead): void {
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
-  } catch {
-    // Navegador bloqueou o armazenamento: a confirmação mostra a versão genérica.
-  }
+  } catch {}
 }
 
 export function readLastLeadRaw(): string | null {
