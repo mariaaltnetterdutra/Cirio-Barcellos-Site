@@ -29,9 +29,9 @@ export function ConsortiumHero() {
               <PortoBankLogo variant="dark" size="lg" />
               <span className={styles.partnerCaption}>{CONTENT.partnerCaption}</span>
             </div>
-            <h1 id={TITLE_ID} className={styles.title} aria-label={CONTENT.title}>
+            <h1 id={TITLE_ID} className={styles.title}>
               {CONTENT.titleLines.map((line) => (
-                <span key={line} className={styles.titleLine} aria-hidden="true">
+                <span key={line} className={styles.titleLine}>
                   {line}
                 </span>
               ))}
