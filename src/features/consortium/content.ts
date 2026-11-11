@@ -166,8 +166,8 @@ export const SIMULATION_CONTENT = {
   submit: "Simular com um especialista",
   submitting: "Enviando…",
   whatsappDirect: "Prefiro falar direto no WhatsApp",
-  consentBefore: "Ao enviar o formulário, você concorda com nossa",
-  consentLink: "Política de Privacidade",
+  consentBefore: "Ao enviar seus dados, você concorda em ser contatado pela Círio & Barcellos. Consulte nossa",
+  consentLink: "política de privacidade",
   errors: {
     choice: "Escolha uma opção.",
     customCredit: "Informe um valor entre R$ 50 mil e R$ 10 milhões.",
