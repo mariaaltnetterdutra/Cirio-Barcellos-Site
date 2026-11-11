@@ -17,7 +17,6 @@ import { LeadOriginDto } from "./lead-origin.dto";
 
 const trim = ({ value }: { value: unknown }) => (typeof value === "string" ? value.trim() : value);
 
-/** O que o formulário da landing envia em POST /leads. */
 export class CreateLeadDto {
   @Transform(trim)
   @IsString({ message: "Informe seu nome." })
@@ -30,14 +29,12 @@ export class CreateLeadDto {
   @IsIn(GOALS, { message: "Escolha um objetivo." })
   objetivo!: ConsortiumGoal;
 
-  /** Valor do crédito em reais. Fica de fora quando a pessoa ainda não sabe. */
   @IsOptional()
   @IsInt({ message: "Informe o valor do crédito em reais." })
   @Min(CREDIT_LIMITS.min, { message: "Valor de crédito abaixo do mínimo." })
   @Max(CREDIT_LIMITS.max, { message: "Valor de crédito acima do máximo." })
   valorCredito?: number;
 
-  /** Prazo do plano em meses. Fica de fora quando a pessoa quer ajuda para escolher. */
   @IsOptional()
   @IsInt({ message: "Informe o prazo em meses." })
   @Min(TERM_LIMITS.min, { message: "Prazo abaixo do mínimo." })
@@ -52,7 +49,6 @@ export class CreateLeadDto {
   @Type(() => LeadOriginDto)
   origem?: LeadOriginDto;
 
-  /** Campo invisível no site (anti-robô). Gente de verdade deixa vazio. */
   @IsOptional()
   @IsString()
   @MaxLength(200)
