@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/core/analytics/track";
 import { WhatsAppLogo } from "@/shared/components/brand/WhatsAppLogo/WhatsAppLogo";
 import { Icon } from "@/shared/components/ui/Icon/Icon";
 import { ROUTES, SECTION_IDS, sectionHref } from "@/shared/constants/routes";
@@ -23,7 +24,10 @@ export function FloatingActions() {
           href={sectionHref(SECTION_IDS.analise)}
           className={cn(styles.form, isFormVisible && styles.hidden)}
           aria-label={CONTENT.formLabel}
-          onClick={(event) => handleSectionLinkClick(event, SECTION_IDS.analise)}
+          onClick={(event) => {
+            trackEvent("clique_analisar_projeto");
+            handleSectionLinkClick(event, SECTION_IDS.analise);
+          }}
           tabIndex={isFormVisible ? -1 : undefined}
         >
           <span className={styles.formLabel} aria-hidden="true">

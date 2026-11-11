@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
+import { GoogleTagManager } from "@/core/analytics/GoogleTagManager";
 import { COMPANY } from "@/shared/constants/company";
 import { SITE_METADATA } from "@/shared/constants/site";
 import "./globals.css";
@@ -36,7 +37,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${fraunces.variable} ${publicSans.variable} ${plexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleTagManager />
+      </body>
     </html>
   );
 }
