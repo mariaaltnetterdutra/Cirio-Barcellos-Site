@@ -45,3 +45,7 @@ next-env.d.ts
 /api/node_modules
 /api/dist
 /api/coverage
+
+# arquivos compactados e temporários
+/*.zip
+/zim6DzDz
