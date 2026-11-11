@@ -20,13 +20,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(27, 37, 54, 0.92) 0%,
-    rgba(27, 37, 54, 0.74) 32%,
-    rgba(27, 37, 54, 0.28) 62%,
-    rgba(27, 37, 54, 0.08) 100%
-  );
+  background: var(--gradient-hero-overlay);
 }
 
 .hero .section {

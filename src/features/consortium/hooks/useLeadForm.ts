@@ -1,5 +1,3 @@
-"use client";
-
 import { useRouter } from "next/navigation";
 import { useRef, useState, type FormEvent, type RefObject } from "react";
 import { ApiError } from "@/core/api/httpClient";
@@ -149,3 +147,5 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
     handleSubmit,
   };
 }
+
+export type LeadFormApi = ReturnType<typeof useLeadForm>;

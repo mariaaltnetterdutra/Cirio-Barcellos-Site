@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 const MIDDLE_BAND = "-45% 0px -50% 0px";
