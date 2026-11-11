@@ -1,4 +1,5 @@
 import { postJson } from "@/core/api/httpClient";
+import { readAttribution } from "@/core/analytics/attribution";
 import { env } from "@/core/config/env";
 import type { ValidLeadForm } from "../validation/validateLeadForm";
 import type { CreateLeadRequestDto, CreateLeadResponseDto } from "./lead.dto";
@@ -16,7 +17,7 @@ export function buildCreateLeadRequest(form: ValidLeadForm): CreateLeadRequestDt
     valorCredito: form.creditValue,
     prazoMeses: form.termMonths,
     consentimento: true,
-    origem: { pagina: window.location.pathname },
+    origem: { pagina: window.location.pathname, ...readAttribution() },
     website: form.website || undefined,
   };
 }
