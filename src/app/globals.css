@@ -61,6 +61,7 @@
 
   --shadow-card: 0 1px 2px rgba(22, 26, 32, 0.05), 0 16px 34px -20px rgba(22, 26, 32, 0.25);
   --gradient-photo-overlay: linear-gradient(to top, rgba(8, 12, 20, 0.9) 0%, rgba(8, 12, 20, 0.6) 34%, rgba(8, 12, 20, 0) 62%);
+  --gradient-hero-overlay: linear-gradient(90deg, rgba(27, 37, 54, 0.92) 0%, rgba(27, 37, 54, 0.74) 32%, rgba(27, 37, 54, 0.28) 62%, rgba(27, 37, 54, 0.08) 100%);
   --shadow-card-hover: 0 18px 36px -20px rgba(28, 87, 154, 0.6);
 
   --max-width: 1080px;

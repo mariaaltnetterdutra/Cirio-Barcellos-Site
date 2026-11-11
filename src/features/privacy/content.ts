@@ -1,8 +1,7 @@
 import { COMPANY } from "@/shared/constants/company";
 
 // Texto-base e genérico da Política de Privacidade (LGPD), curto para caber em uma página.
-// O cliente (e, de preferência, um profissional jurídico) precisa revisar antes de a página ir ao ar.
-// TODO cliente: prazo de guarda dos dados, encarregado (DPO), e-mail de contato e ferramentas de medição reais.
+// Validado pela equipe; se a empresa passar a ter encarregado (DPO) ou e-mail de contato, incluir no tópico 8.
 
 export interface PolicySection {
   id: string;

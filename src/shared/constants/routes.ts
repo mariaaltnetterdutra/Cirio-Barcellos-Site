@@ -4,8 +4,6 @@ export const ROUTES = {
   privacidade: "/politica-de-privacidade",
 } as const;
 
-export type AppRoute = (typeof ROUTES)[keyof typeof ROUTES];
-
 export const SECTION_IDS = {
   objetivos: "objetivos",
   planos: "planos",

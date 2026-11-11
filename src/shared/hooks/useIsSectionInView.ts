@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 export function useIsSectionInView(sectionId: string): boolean {
