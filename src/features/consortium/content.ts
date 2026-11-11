@@ -165,7 +165,6 @@ export const SIMULATION_CONTENT = {
   whatsapp: { label: "WhatsApp", placeholder: "(51) 9 0000-0000" },
   submit: "Simular com um especialista",
   submitting: "Enviando…",
-  whatsappDirect: "Prefiro falar direto no WhatsApp",
   consentBefore: "Ao enviar seus dados, você concorda em ser contatado pela Círio & Barcellos. Consulte nossa",
   consentLink: "política de privacidade",
   errors: {
