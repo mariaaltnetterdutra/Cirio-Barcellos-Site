@@ -107,19 +107,6 @@
   color: var(--color-danger);
 }
 
-.direct {
-  align-self: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-whatsapp-ink);
-}
-
-
-.direct:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 @media (max-width: 640px) {
   .card {
     padding: 18px 14px;

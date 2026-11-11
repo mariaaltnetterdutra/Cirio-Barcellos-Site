@@ -8,8 +8,7 @@ import { Button } from "@/shared/components/ui/Button/Button";
 import { ROUTES, SECTION_IDS } from "@/shared/constants/routes";
 import { formatCreditValue, formatThousands, onlyCurrencyDigits } from "@/shared/utils/currency";
 import { formatWhatsApp, onlyDigits } from "@/shared/utils/phone";
-import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
-import { SIMULATION_CONTENT as CONTENT, SPECIALIST_WHATSAPP_MESSAGE } from "../../content";
+import { SIMULATION_CONTENT as CONTENT } from "../../content";
 import { useLeadForm } from "../../hooks/useLeadForm";
 import {
   CREDIT_VALUES,
@@ -158,15 +157,6 @@ export function SimulationCard() {
           </label>
         </div>
       </form>
-
-      <a
-        className={styles.direct}
-        href={buildWhatsAppUrl(SPECIALIST_WHATSAPP_MESSAGE)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {CONTENT.whatsappDirect}
-      </a>
     </section>
   );
 }
