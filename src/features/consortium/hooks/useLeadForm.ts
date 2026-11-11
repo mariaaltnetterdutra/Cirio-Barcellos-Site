@@ -73,6 +73,11 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
+  /** Ao trocar de passo o botão clicado some da tela; o foco vai para o primeiro campo do novo passo. */
+  function focusFieldSoon(name: string): void {
+    requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>(`[name="${name}"]`)?.focus());
+  }
+
   function focusFirstError(order: readonly LeadFormField[], found: LeadFormErrors): void {
     const firstField = order.find((field) => found[field]);
     if (!firstField) return;
@@ -88,12 +93,14 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
     }
     trackEvent("simulacao_passo_2");
     setStep(2);
+    focusFieldSoon("name");
   }
 
   function goBack(): void {
     setStatus("idle");
     setSubmitError(undefined);
     setStep(1);
+    focusFieldSoon("goal");
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
