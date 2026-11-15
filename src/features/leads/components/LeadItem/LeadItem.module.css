@@ -1,0 +1,107 @@
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 16px 28px;
+  padding: 20px 22px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  list-style: none;
+}
+
+.identity,
+.details,
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 20px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.protocol {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 13.5px;
+  color: var(--color-text-2);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.facts dt,
+.originList dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+
+.facts dd {
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.origin,
+.originSummary {
+  font-size: 14px;
+  color: var(--color-text-2);
+}
+
+.origin summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.originTitle {
+  font-weight: 700;
+}
+
+.originList {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-50);
+}
+
+.originList dd {
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+}
+
+.phone {
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact {
+  padding: 10px 16px;
+}
+
+@media (max-width: 960px) {
+  .item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .facts {
+    grid-template-columns: 1fr;
+  }
+}

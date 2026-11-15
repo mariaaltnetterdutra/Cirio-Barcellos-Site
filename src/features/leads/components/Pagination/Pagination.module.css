@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.position {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text-2);
+  font-variant-numeric: tabular-nums;
+}

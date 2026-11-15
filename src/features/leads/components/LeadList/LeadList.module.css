@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list,
+.listLoading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.listLoading {
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.message,
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 20px;
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-card);
+  color: var(--color-text-2);
+  text-align: center;
+}
+
+.error {
+  border-style: solid;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  font-weight: 600;
+}

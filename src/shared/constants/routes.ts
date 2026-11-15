@@ -2,6 +2,7 @@ export const ROUTES = {
   home: "/",
   confirmacao: "/confirmacao",
   privacidade: "/politica-de-privacidade",
+  painel: "/painel",
 } as const;
 
 export const SECTION_IDS = {

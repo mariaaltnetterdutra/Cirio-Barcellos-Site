@@ -1,3 +1,6 @@
+/** Código do Brasil, que antecede o DDD nos links do WhatsApp. */
+export const COMPANY_COUNTRY_CODE = "55";
+
 export interface GoogleReviewsSummary {
   rating: number;
   url: string;
