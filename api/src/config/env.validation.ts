@@ -10,7 +10,7 @@ export class EnvironmentVariables {
   @IsInt()
   @Min(1)
   @Max(65535)
-  PORT = 3001;
+  PORT: number = 3001;
 
   @IsString()
   @IsNotEmpty()
@@ -30,7 +30,7 @@ export class EnvironmentVariables {
   @IsInt()
   @Min(1)
   @Max(65535)
-  SMTP_PORT = 587;
+  SMTP_PORT: number = 587;
 
   @ValidateIf((env: EnvironmentVariables) => env.NODE_ENV === "production" || Boolean(env.SMTP_HOST))
   @IsString()
