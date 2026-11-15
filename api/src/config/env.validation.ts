@@ -1,7 +1,12 @@
 import { plainToInstance } from "class-transformer";
-import { IsIn, IsInt, IsNotEmpty, IsString, Max, Min, ValidateIf, validateSync } from "class-validator";
+import { IsIn, IsInt, IsNotEmpty, IsString, Max, MinLength, Min, ValidateIf, validateSync } from "class-validator";
+import { ADMIN_PASSWORD_MIN_LENGTH, ADMIN_TOKEN_SECRET_MIN_LENGTH } from "../admin/admin.constants";
 
 const NODE_ENVIRONMENTS = ["development", "production", "test"] as const;
+
+function isAdminConfigured(env: EnvironmentVariables): boolean {
+  return env.NODE_ENV === "production" || Boolean(env.ADMIN_PASSWORD) || Boolean(env.ADMIN_TOKEN_SECRET);
+}
 
 export class EnvironmentVariables {
   @IsIn(NODE_ENVIRONMENTS)
@@ -52,6 +57,18 @@ export class EnvironmentVariables {
   @IsString()
   @IsNotEmpty()
   MAIL_TO?: string;
+
+  // Painel de leads: só liga quando a senha e o segredo do token estão preenchidos.
+  // Em produção, ou se um dos dois for preenchido, os dois passam a ser obrigatórios e precisam ser fortes.
+  @ValidateIf(isAdminConfigured)
+  @IsString()
+  @MinLength(ADMIN_PASSWORD_MIN_LENGTH)
+  ADMIN_PASSWORD?: string;
+
+  @ValidateIf(isAdminConfigured)
+  @IsString()
+  @MinLength(ADMIN_TOKEN_SECRET_MIN_LENGTH)
+  ADMIN_TOKEN_SECRET?: string;
 }
 
 export function validateEnvironment(config: Record<string, unknown>): EnvironmentVariables {

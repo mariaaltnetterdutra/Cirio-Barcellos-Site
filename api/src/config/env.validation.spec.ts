@@ -32,3 +32,30 @@ describe("validateEnvironment", () => {
     expect(() => validateEnvironment({ ...BASE, PORT: "abc" })).toThrow(/PORT/);
   });
 });
+
+describe("validateEnvironment: painel", () => {
+  const ADMIN = { ADMIN_PASSWORD: "senha-forte-123", ADMIN_TOKEN_SECRET: "x".repeat(32) };
+
+  it("deixa o painel desligado em desenvolvimento sem senha e sem segredo", () => {
+    expect(() => validateEnvironment(BASE)).not.toThrow();
+  });
+
+  it("aceita senha e segredo fortes", () => {
+    expect(() => validateEnvironment({ ...BASE, ...ADMIN })).not.toThrow();
+  });
+
+  it("exige os dois assim que um for preenchido", () => {
+    expect(() => validateEnvironment({ ...BASE, ADMIN_PASSWORD: ADMIN.ADMIN_PASSWORD })).toThrow(/ADMIN_TOKEN_SECRET/);
+  });
+
+  it("recusa senha curta e segredo curto", () => {
+    expect(() => validateEnvironment({ ...BASE, ADMIN_PASSWORD: "curta", ADMIN_TOKEN_SECRET: "curto" })).toThrow(
+      /ADMIN_PASSWORD, ADMIN_TOKEN_SECRET/,
+    );
+  });
+
+  it("é obrigatório em produção", () => {
+    const production = { ...BASE, NODE_ENV: "production", SMTP_HOST: "h", SMTP_USER: "u", SMTP_PASS: "p", MAIL_FROM: "f", MAIL_TO: "t" };
+    expect(() => validateEnvironment(production)).toThrow(/ADMIN_PASSWORD/);
+  });
+});

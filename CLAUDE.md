@@ -102,4 +102,4 @@ Referência visual e de textos da V1: a tela "Consórcio imobiliário (anúncios
 
 **Backend:** a API (NestJS + MongoDB) fica na pasta `api/`, com `package.json`, `CLAUDE.md` e testes próprios. O site não importa nada de `api/`, e vice-versa.
 
-**Não crie nada da V2 ou da V3 agora.** O planejamento da V1, task por task, fica no quadro "Planejamento V1".
+**Não crie nada da V2 agora.** Da V3, só o painel de pedidos da equipe (`/painel`, login por senha única + lista, busca, filtros e status) foi antecipado a pedido da equipe; o login por corretor continua para depois. O planejamento da V1, task por task, fica no quadro "Planejamento V1".

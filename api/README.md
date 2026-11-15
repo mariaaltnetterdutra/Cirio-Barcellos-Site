@@ -39,6 +39,15 @@ A cada pedido novo a API manda um email para a equipe (nunca para o cliente) com
 - **Para enviar de verdade**: preencha `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM` e `MAIL_TO` no `.env` (exemplos no `.env.example`). Em produção eles são obrigatórios e a API não sobe sem eles.
 - Se o email falhar, o pedido continua salvo (`emailEnviado` fica `false` no banco) e o erro vai para o log.
 
+## 5. Painel de pedidos (equipe)
+
+O site tem a página `/painel`, onde a equipe vê os pedidos, busca, filtra e muda o status do atendimento. A API protege essas rotas com uma **senha única da equipe**:
+
+1. No `.env`, preencha `ADMIN_PASSWORD` (10+ caracteres) e `ADMIN_TOKEN_SECRET` (32+ caracteres aleatórios; gere com `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`). Vazios = painel desligado; em produção são obrigatórios.
+2. `POST /admin/login` com `{ "senha": "..." }` devolve um token que vale 8 horas. As outras rotas pedem `Authorization: Bearer <token>`.
+3. `GET /admin/leads?busca=&status=&objetivo=&pagina=&limite=` devolve a página de pedidos, o total e quantos há em cada status. `PATCH /admin/leads/:protocolo` com `{ "status": "EM_ATENDIMENTO" }` muda o status (`NOVO`, `EM_ATENDIMENTO`, `PROPOSTA`, `FECHADO`, `PERDIDO`).
+4. O login aceita 5 tentativas por minuto por endereço. Na hospedagem, configure o proxy para a API enxergar o IP real de quem acessa.
+
 ## Comandos
 
 | Comando | O que faz |
