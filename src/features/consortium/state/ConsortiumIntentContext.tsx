@@ -22,8 +22,9 @@ const ConsortiumIntentContext = createContext<ConsortiumIntentValue | null>(null
 export function ConsortiumIntentProvider({ children }: { children: ReactNode }) {
   const [intent, setIntent] = useState<ConsortiumIntent>({ requestId: 0 });
 
+  // Cada clique começa uma seleção nova: vale só o que a pessoa clicou agora, sem herdar o valor de antes.
   const chooseGoal = useCallback((goal: ConsortiumGoal) => {
-    setIntent((current) => ({ goal, creditValue: current.creditValue, requestId: current.requestId + 1 }));
+    setIntent((current) => ({ goal, requestId: current.requestId + 1 }));
     scrollToSection(SECTION_IDS.analise);
   }, []);
 

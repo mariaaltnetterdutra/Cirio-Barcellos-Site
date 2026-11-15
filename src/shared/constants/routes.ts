@@ -6,6 +6,7 @@ export const ROUTES = {
 } as const;
 
 export const SECTION_IDS = {
+  inicio: "inicio",
   objetivos: "objetivos",
   planos: "planos",
   comoFunciona: "como-funciona",
@@ -30,6 +31,7 @@ export interface NavItem {
 }
 
 export const SITE_NAV: readonly NavItem[] = [
+  { label: "Início", sectionId: SECTION_IDS.inicio },
   { label: "Objetivos", sectionId: SECTION_IDS.objetivos },
   { label: "Planos", sectionId: SECTION_IDS.planos },
   { label: "Como funciona", sectionId: SECTION_IDS.comoFunciona },
