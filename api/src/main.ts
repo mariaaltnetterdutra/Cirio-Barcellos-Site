@@ -11,7 +11,7 @@ async function bootstrap(): Promise<void> {
   const config = app.get<ConfigService<EnvironmentVariables, true>>(ConfigService);
 
   app.use(helmet());
-  app.enableCors({ origin: config.get("CORS_ORIGIN", { infer: true }), methods: ["GET", "POST"] });
+  app.enableCors({ origin: config.get("CORS_ORIGIN", { infer: true }), methods: ["GET", "POST", "PATCH"] });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableShutdownHooks();

@@ -10,5 +10,6 @@ import { Lead, LeadSchema } from "./schemas/lead.schema";
   imports: [MongooseModule.forFeature([{ name: Lead.name, schema: LeadSchema }]), MailModule],
   controllers: [LeadsController],
   providers: [LeadsService, LeadsRepository],
+  exports: [LeadsRepository],
 })
 export class LeadsModule {}
