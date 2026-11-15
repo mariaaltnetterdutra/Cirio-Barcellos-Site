@@ -96,6 +96,27 @@
   color: var(--color-text);
 }
 
+/* Cor de cada status do atendimento no painel (bolinha, borda do cartão e do seletor). */
+[data-lead-status] {
+  --status-color: var(--color-blue);
+}
+
+[data-lead-status="EM_ATENDIMENTO"] {
+  --status-color: var(--color-gold);
+}
+
+[data-lead-status="PROPOSTA"] {
+  --status-color: var(--color-blue-deep);
+}
+
+[data-lead-status="FECHADO"] {
+  --status-color: var(--color-success);
+}
+
+[data-lead-status="PERDIDO"] {
+  --status-color: var(--color-text-3);
+}
+
 .tone-light {
   --color-bg: #ffffff;
   --color-surface: #ffffff;

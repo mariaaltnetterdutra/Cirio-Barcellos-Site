@@ -7,6 +7,7 @@ import { useAdminToken } from "@/features/auth/hooks/useAdminToken";
 import { clearSession } from "@/features/auth/services/sessionStore";
 import { Logo } from "@/shared/components/brand/Logo/Logo";
 import { Button } from "@/shared/components/ui/Button/Button";
+import { cn } from "@/shared/utils/cn";
 import { LeadsPanel } from "../LeadsPanel/LeadsPanel";
 import styles from "./PanelGate.module.css";
 
@@ -36,15 +37,17 @@ export function PanelGate() {
         )}
       </header>
 
-      <div className={styles.content}>
-        {token === undefined && (
-          <p className={styles.checking} role="status">
-            {AUTH_CONTENT.checking}
-          </p>
-        )}
-        {token === null && <LoginForm notice={sessionEnded ? AUTH_CONTENT.expired : undefined} />}
-        {token && <LeadsPanel token={token} onUnauthorized={handleUnauthorized} />}
-      </div>
+      {token === undefined && (
+        <p className={styles.checking} role="status">
+          {AUTH_CONTENT.checking}
+        </p>
+      )}
+      {token === null && (
+        <div className={cn("tone-slate", styles.login)}>
+          <LoginForm notice={sessionEnded ? AUTH_CONTENT.expired : undefined} />
+        </div>
+      )}
+      {token && <LeadsPanel token={token} onUnauthorized={handleUnauthorized} />}
     </div>
   );
 }

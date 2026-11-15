@@ -1,24 +1,7 @@
 .wrapper {
-  --status-color: var(--color-blue);
   display: block;
   border-left: 5px solid var(--status-color);
   border-radius: var(--radius-md);
-}
-
-.wrapper[data-status="EM_ATENDIMENTO"] {
-  --status-color: var(--color-gold);
-}
-
-.wrapper[data-status="PROPOSTA"] {
-  --status-color: var(--color-blue-deep);
-}
-
-.wrapper[data-status="FECHADO"] {
-  --status-color: var(--color-success);
-}
-
-.wrapper[data-status="PERDIDO"] {
-  --status-color: var(--color-text-3);
 }
 
 .select {

@@ -19,7 +19,7 @@ export function Pagination({ page, totalPages, onChange }: PaginationProps) {
       <p className={styles.position} aria-live="polite">
         {CONTENT.pageOf(page, totalPages)}
       </p>
-      <Button variant="ghost" disabled={page >= totalPages} onClick={() => onChange(page + 1)}>
+      <Button disabled={page >= totalPages} onClick={() => onChange(page + 1)}>
         {CONTENT.next}
       </Button>
     </nav>

@@ -11,4 +11,5 @@ export const SITE_FOOTER_CONTENT = {
   susepLabel: "Registro SUSEP",
   privacyLink: { label: "Política de Privacidade", href: ROUTES.privacidade },
   cepLabel: "CEP",
+  panelLink: { label: "Painel da equipe", href: ROUTES.painel },
 } as const;

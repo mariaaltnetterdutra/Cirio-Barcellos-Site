@@ -15,7 +15,7 @@ function isLeadStatus(value: string): value is LeadStatus {
 
 export function StatusSelect({ leadName, value, disabled, onChange }: StatusSelectProps) {
   return (
-    <span className={styles.wrapper} data-status={value}>
+    <span className={styles.wrapper} data-lead-status={value}>
       <select
         className={styles.select}
         aria-label={CONTENT.statusSelectLabel(leadName)}
