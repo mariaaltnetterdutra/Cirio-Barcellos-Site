@@ -2,6 +2,7 @@ import { PortoBankLogo } from "@/shared/components/brand/PortoBankLogo/PortoBank
 import { Section } from "@/shared/components/layout/Section/Section";
 import { ImagePlaceholder } from "@/shared/components/media/ImagePlaceholder/ImagePlaceholder";
 import { Icon } from "@/shared/components/ui/Icon/Icon";
+import { SECTION_IDS } from "@/shared/constants/routes";
 import { HERO_CONTENT as CONTENT } from "../../content";
 import { SimulationCard } from "../SimulationCard/SimulationCard";
 import styles from "./ConsortiumHero.module.css";
@@ -10,7 +11,7 @@ const TITLE_ID = "hero-titulo";
 
 export function ConsortiumHero() {
   return (
-    <div className={styles.hero}>
+    <div id={SECTION_IDS.inicio} className={styles.hero}>
       <ImagePlaceholder
         label={CONTENT.photo.alt}
         src={CONTENT.photo.src}

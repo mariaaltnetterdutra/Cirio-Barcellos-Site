@@ -52,12 +52,21 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
 
   if (appliedRequestId !== intent.requestId) {
     setAppliedRequestId(intent.requestId);
+    // Limpa as escolhas anteriores (objetivo, valor e prazo); nome e WhatsApp já digitados ficam.
     setValues((current) => ({
       ...current,
-      goal: intent.goal ?? current.goal,
-      creditChoice: intent.creditValue ? String(intent.creditValue) : current.creditChoice,
+      goal: intent.goal ?? INITIAL_VALUES.goal,
+      creditChoice: intent.creditValue ? String(intent.creditValue) : undefined,
+      customCredit: "",
+      termChoice: undefined,
     }));
-    setErrors((current) => ({ ...current, goal: undefined, creditChoice: undefined }));
+    setErrors((current) => ({
+      ...current,
+      goal: undefined,
+      creditChoice: undefined,
+      customCredit: undefined,
+      termChoice: undefined,
+    }));
     setStep(1);
   }
 
