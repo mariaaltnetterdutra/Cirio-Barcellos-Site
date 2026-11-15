@@ -1,0 +1,47 @@
+.wrapper {
+  --status-color: var(--color-blue);
+  display: block;
+  border-left: 5px solid var(--status-color);
+  border-radius: var(--radius-md);
+}
+
+.wrapper[data-status="EM_ATENDIMENTO"] {
+  --status-color: var(--color-gold);
+}
+
+.wrapper[data-status="PROPOSTA"] {
+  --status-color: var(--color-blue-deep);
+}
+
+.wrapper[data-status="FECHADO"] {
+  --status-color: var(--color-success);
+}
+
+.wrapper[data-status="PERDIDO"] {
+  --status-color: var(--color-text-3);
+}
+
+.select {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--color-line-strong);
+  border-left: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.select:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}

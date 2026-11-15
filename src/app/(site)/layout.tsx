@@ -1,4 +1,5 @@
 import { AttributionTracker } from "@/core/analytics/AttributionTracker";
+import { GoogleTagManager } from "@/core/analytics/GoogleTagManager";
 import { WhatsAppClickTracker } from "@/core/analytics/WhatsAppClickTracker";
 import { FloatingActions } from "@/features/consortium/components/FloatingActions/FloatingActions";
 import { LegalNotice } from "@/shared/components/layout/LegalNotice/LegalNotice";
@@ -19,6 +20,8 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <FloatingActions />
       <AttributionTracker />
       <WhatsAppClickTracker />
+      {/* Só no site público: o painel da equipe mostra dados de clientes e não pode ser medido. */}
+      <GoogleTagManager />
     </>
   );
 }

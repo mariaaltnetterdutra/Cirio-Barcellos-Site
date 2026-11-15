@@ -1,0 +1,28 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--color-gray-50);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px var(--gutter);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-white);
+}
+
+.content {
+  width: min(100%, var(--max-width-wide));
+  margin: 0 auto;
+  padding: 32px var(--gutter) 64px;
+}
+
+.checking {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--color-text-2);
+}

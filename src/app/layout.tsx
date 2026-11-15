@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
-import { GoogleTagManager } from "@/core/analytics/GoogleTagManager";
 import { env } from "@/core/config/env";
 import { COMPANY } from "@/shared/constants/company";
 import { SITE_METADATA } from "@/shared/constants/site";
@@ -51,7 +50,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
-        <GoogleTagManager />
       </body>
     </html>
   );

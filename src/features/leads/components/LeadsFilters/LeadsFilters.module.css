@@ -1,0 +1,17 @@
+.filters {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 16px;
+}
+
+.clear {
+  min-height: 48px;
+}
+
+@media (max-width: 760px) {
+  .filters {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+}
