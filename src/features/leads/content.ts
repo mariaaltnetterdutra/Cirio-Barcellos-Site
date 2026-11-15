@@ -9,6 +9,7 @@ export const STATUS_LABELS: Record<LeadStatus, string> = {
 };
 
 export const LEADS_CONTENT = {
+  eyebrow: "Área da equipe",
   title: "Pedidos de simulação",
   refresh: "Atualizar",
   refreshing: "Atualizando…",

@@ -15,10 +15,14 @@
   background: var(--color-white);
 }
 
-.content {
-  width: min(100%, var(--max-width-wide));
-  margin: 0 auto;
-  padding: 32px var(--gutter) 64px;
+.login {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  padding: 56px var(--gutter);
+  background:
+    var(--gradient-hero-overlay),
+    var(--color-bg);
 }
 
 .checking {

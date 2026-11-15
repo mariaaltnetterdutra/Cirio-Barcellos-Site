@@ -3,6 +3,12 @@
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
   align-items: end;
   gap: 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--color-line);
+  border-top: 4px solid var(--color-gold);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
 }
 
 .clear {

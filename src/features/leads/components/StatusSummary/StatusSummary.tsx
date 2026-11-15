@@ -18,7 +18,7 @@ interface ChipProps {
 
 function Chip({ label, count, status, pressed, onClick }: ChipProps) {
   return (
-    <button type="button" className={styles.chip} data-status={status} aria-pressed={pressed} onClick={onClick}>
+    <button type="button" className={styles.chip} data-lead-status={status} aria-pressed={pressed} onClick={onClick}>
       <span className={styles.dot} aria-hidden="true" />
       <span className={styles.label}>{label}</span>
       <span className={styles.count}>{count}</span>

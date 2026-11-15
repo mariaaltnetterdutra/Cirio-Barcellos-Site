@@ -26,7 +26,7 @@ export function LeadItem({ lead, isSaving, onStatusChange }: LeadItemProps) {
   ];
 
   return (
-    <li className={styles.item}>
+    <li className={styles.item} data-lead-status={lead.status}>
       <div className={styles.identity}>
         <h2 className={styles.name}>{lead.nome}</h2>
         <p className={styles.protocol}>{lead.protocolo}</p>
@@ -53,7 +53,7 @@ export function LeadItem({ lead, isSaving, onStatusChange }: LeadItemProps) {
       <div className={styles.actions}>
         <p className={styles.phone}>{formatWhatsApp(lead.whatsapp)}</p>
         <ButtonLink
-          variant="ghost"
+          variant="whatsapp"
           icon="message"
           className={styles.contact}
           href={buildLeadWhatsAppUrl(lead)}

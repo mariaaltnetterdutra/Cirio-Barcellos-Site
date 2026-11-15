@@ -5,6 +5,7 @@ import { ApiError } from "@/core/api/httpClient";
 import { TextField } from "@/shared/components/form/TextField/TextField";
 import { Button } from "@/shared/components/ui/Button/Button";
 import { Eyebrow } from "@/shared/components/ui/Eyebrow/Eyebrow";
+import { cn } from "@/shared/utils/cn";
 import { AUTH_CONTENT as CONTENT } from "../../content";
 import { login } from "../../services/authService";
 import { saveSession } from "../../services/sessionStore";
@@ -48,7 +49,7 @@ export function LoginForm({ notice }: LoginFormProps) {
   }
 
   return (
-    <section className={styles.wrapper} aria-labelledby={TITLE_ID}>
+    <section className={cn("tone-light", styles.wrapper)} aria-labelledby={TITLE_ID}>
       <Eyebrow>{CONTENT.eyebrow}</Eyebrow>
       <h1 id={TITLE_ID} className={styles.title}>
         {CONTENT.title}
