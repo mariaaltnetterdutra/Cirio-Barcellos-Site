@@ -25,6 +25,8 @@ export class MailService {
       host,
       port,
       secure: port === SMTPS_PORT,
+      // Na porta 587 a conexão precisa virar criptografada (STARTTLS); sem isso o email não sai.
+      requireTLS: port !== SMTPS_PORT,
       auth: { user: config.get("SMTP_USER", { infer: true }), pass: config.get("SMTP_PASS", { infer: true }) },
     });
   }
