@@ -72,7 +72,6 @@ export async function SiteFooter() {
         <p>
           © {year} {COMPANY.legalName}
         </p>
-        {/* Sem pré-carregamento: é um atalho só da equipe, não deve pesar para o visitante. */}
         <Link href={CONTENT.panelLink.href} prefetch={false} className={styles.panelLink}>
           {CONTENT.panelLink.label}
         </Link>

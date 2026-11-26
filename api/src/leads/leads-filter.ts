@@ -28,7 +28,6 @@ function searchClause(busca: string): FilterQuery<Lead> {
   return { $or: [{ nome: { $regex: escapeRegex(busca), $options: "i" } }, byProtocol] };
 }
 
-/** Busca e objetivo, sem o status: é a base para contar quantos pedidos há em cada status. */
 export function buildSearchFilter({ busca, objetivo }: LeadSearch): FilterQuery<Lead> {
   return {
     ...(busca ? searchClause(busca) : {}),

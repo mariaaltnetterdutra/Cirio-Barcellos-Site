@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { MAIN_CONTENT_ID, SKIP_LINK_LABEL } from "@/shared/constants/a11y";
 
-// A área da equipe não pode aparecer no Google nem ser seguida por robôs.
 export const metadata: Metadata = {
   title: "Painel de pedidos",
   robots: { index: false, follow: false },

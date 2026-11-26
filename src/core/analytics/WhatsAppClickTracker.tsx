@@ -11,7 +11,6 @@ function clickPlace(link: Element): string {
   return link.closest("footer") ? "rodape" : "flutuante";
 }
 
-/** Conta todo clique em link de WhatsApp do site, sem cada botão precisar avisar. */
 export function WhatsAppClickTracker() {
   useEffect(() => {
     function handleClick(event: MouseEvent): void {

@@ -3,7 +3,6 @@ import { env } from "@/core/config/env";
 
 const GTM_ID_FORMAT = /^GTM-[A-Z0-9]+$/;
 
-/** Só carrega o Google Tag Manager se NEXT_PUBLIC_GTM_ID estiver definido e com o formato certo. */
 export function GoogleTagManager() {
   const id = env.gtmId;
   if (!id || !GTM_ID_FORMAT.test(id)) return null;

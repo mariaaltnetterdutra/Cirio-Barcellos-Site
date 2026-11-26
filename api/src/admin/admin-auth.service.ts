@@ -25,7 +25,6 @@ export class AdminAuthService {
     this.secret = config.get("ADMIN_TOKEN_SECRET", { infer: true });
   }
 
-  /** O painel só existe quando a senha e o segredo do token estão no .env. */
   private get credentials(): { password: string; secret: string } | undefined {
     return this.password && this.secret ? { password: this.password, secret: this.secret } : undefined;
   }
@@ -34,7 +33,6 @@ export class AdminAuthService {
     const credentials = this.credentials;
     if (!credentials) throw new ServiceUnavailableException("O painel não está ativado neste ambiente.");
 
-    // Compara os hashes, que têm sempre o mesmo tamanho, para o tempo de resposta não revelar a senha.
     if (!timingSafeEqual(digest(password), digest(credentials.password))) {
       this.logger.warn("Tentativa de entrada no painel com senha incorreta.");
       throw new UnauthorizedException("Senha incorreta.");

@@ -32,7 +32,6 @@ interface RequestOptions<TResponse> {
   path: string;
   parse: (data: unknown) => TResponse;
   body?: object;
-  /** Token da área da equipe; vai no cabeçalho Authorization. */
   token?: string;
   timeoutMs?: number;
 }

@@ -1,4 +1,3 @@
-/* Política compacta: letra pequena e duas colunas no computador, para caber em uma tela. */
 .heading h1 {
   max-width: none;
   font-size: clamp(24px, 3vw, 30px);

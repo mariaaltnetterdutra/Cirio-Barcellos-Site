@@ -1,5 +1,3 @@
-// Guarda o token da equipe só enquanto a aba estiver aberta (sessionStorage) e nunca em cookie ou URL.
-// Se o navegador bloquear o armazenamento, a sessão vale apenas até recarregar a página.
 const STORAGE_KEY = "cb:painel";
 
 export interface AdminSession {
@@ -49,7 +47,6 @@ export function subscribeSession(listener: () => void): () => void {
   };
 }
 
-/** Token da sessão ativa, ou null se não há sessão (ou ela venceu). */
 export function getSessionToken(): string | null {
   const session = memorySession ?? readStored();
   return session && !isExpired(session) ? session.token : null;
@@ -60,7 +57,6 @@ export function saveSession(session: AdminSession): void {
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
   } catch {
-    // Sem armazenamento: a sessão fica só na memória.
   }
   notify();
 }
@@ -70,7 +66,6 @@ export function clearSession(): void {
   try {
     sessionStorage.removeItem(STORAGE_KEY);
   } catch {
-    // Nada a limpar.
   }
   notify();
 }

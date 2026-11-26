@@ -12,7 +12,6 @@ function isTokenPayload(value: unknown): value is TokenPayload {
   return typeof value === "object" && value !== null && "exp" in value && typeof value.exp === "number";
 }
 
-/** Token no formato `dados.assinatura`: guarda só a validade, sem nenhum dado de pessoa. */
 export function createAdminToken(secret: string, expiresAtMs: number): string {
   const payload = Buffer.from(JSON.stringify({ exp: expiresAtMs } satisfies TokenPayload)).toString("base64url");
   return `${payload}.${sign(payload, secret)}`;

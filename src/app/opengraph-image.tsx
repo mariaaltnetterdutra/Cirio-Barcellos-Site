@@ -3,7 +3,6 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 import { COMPANY } from "@/shared/constants/company";
 
-// Imagem que aparece quando o link do site é compartilhado (WhatsApp, redes sociais, Google).
 export const alt = "Consórcio imobiliário Porto Bank | Círio & Barcellos";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

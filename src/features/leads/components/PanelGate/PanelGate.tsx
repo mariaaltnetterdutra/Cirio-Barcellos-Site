@@ -11,7 +11,6 @@ import { cn } from "@/shared/utils/cn";
 import { LeadsPanel } from "../LeadsPanel/LeadsPanel";
 import styles from "./PanelGate.module.css";
 
-/** Decide o que a pessoa vê: o login, ou o painel quando há sessão válida. */
 export function PanelGate() {
   const token = useAdminToken();
   const [sessionEnded, setSessionEnded] = useState(false);

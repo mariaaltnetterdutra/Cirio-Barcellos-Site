@@ -17,7 +17,6 @@ export class AdminLeadsService {
     const [leads, total, resumo] = await Promise.all([
       this.leadsRepository.findPage(filter, (pagina - 1) * limite, limite),
       this.leadsRepository.count(filter),
-      // Os contadores ignoram o filtro de status para o painel mostrar quantos há em cada um.
       this.leadsRepository.countByStatus(buildSearchFilter({ busca, objetivo })),
     ]);
 

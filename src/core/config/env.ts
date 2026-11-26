@@ -2,7 +2,6 @@ export interface Env {
   apiUrl: string;
   siteUrl: string;
   useMocks: boolean;
-  /** ID do Google Tag Manager (GTM-XXXXXXX); sem ele, nada é carregado. */
   gtmId?: string;
 }
 

@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "api/**",
   ]),
+  {
+    files: ["src/app/opengraph-image.tsx"],
+    rules: { "@next/next/no-img-element": "off" },
+  },
 ]);
 
 export default eslintConfig;

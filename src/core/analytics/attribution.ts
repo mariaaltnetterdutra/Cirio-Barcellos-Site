@@ -1,8 +1,4 @@
-// Guarda de onde o visitante veio (anúncio, busca, link) para o pedido chegar à equipe com a origem.
-// Regra do primeiro toque: a primeira origem útil da visita vale até a aba fechar. Fica só no navegador
-// (sessionStorage) e só vai para a API junto com o pedido.
 const STORAGE_KEY = "cb:origem";
-// Mesmo limite que a API aceita em cada campo de origem.
 const MAX_LENGTH = 200;
 
 export interface Attribution {
@@ -12,7 +8,6 @@ export interface Attribution {
   utmTerm?: string;
   utmContent?: string;
   gclid?: string;
-  /** Site de onde a pessoa veio, sem parâmetros. */
   referrer?: string;
 }
 
@@ -81,7 +76,6 @@ function readStored(): Attribution {
   }
 }
 
-/** Chamada ao abrir a página: só guarda se ainda não há origem e se esta visita trouxe alguma. */
 export function captureAttribution(): void {
   if (hasAnyValue(readStored())) return;
   const current = readCurrentVisit();
@@ -89,11 +83,9 @@ export function captureAttribution(): void {
   try {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(current));
   } catch {
-    // Armazenamento bloqueado: o pedido segue sem origem, o que não impede o envio.
   }
 }
 
-/** Origem guardada nesta aba (vazia quando a pessoa chegou direto). */
 export function readAttribution(): Attribution {
   return readStored();
 }

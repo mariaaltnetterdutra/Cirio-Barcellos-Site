@@ -11,7 +11,6 @@ import styles from "./SimulationCard.module.css";
 const TITLE_ID = "simulacao-titulo";
 const TOTAL_STEPS = 2;
 
-// tabIndex -1: o clique num objetivo ou plano rola até aqui e leva o foco junto.
 export function SimulationCard() {
   const formRef = useRef<HTMLFormElement>(null);
   const form = useLeadForm(formRef);
@@ -34,7 +33,6 @@ export function SimulationCard() {
       <form ref={formRef} className={styles.form} onSubmit={form.handleSubmit} noValidate>
         {step === 1 ? <ChoicesStep form={form} /> : <ContactStep form={form} />}
 
-        {/* Armadilha para robôs: fica fora da tela e pessoas nunca preenchem. */}
         <div className={styles.trap} aria-hidden="true">
           <label>
             Não preencha este campo

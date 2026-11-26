@@ -1,7 +1,6 @@
 import { GOAL_LABELS } from "../leads/leads.constants";
 import type { Lead } from "../leads/schemas/lead.schema";
 
-// Texto do aviso interno para a equipe. Não é enviado ao cliente: o contato com ele é sempre humano.
 const COUNTRY_CODE = "55";
 const TIME_ZONE = "America/Sao_Paulo";
 
@@ -21,7 +20,6 @@ export interface LeadEmail {
   text: string;
 }
 
-/** (51) 9 9999-8888 para 11 dígitos e (51) 9999-8888 para 10. */
 export function formatWhatsApp(digits: string): string {
   const area = digits.slice(0, 2);
   const rest = digits.slice(2);

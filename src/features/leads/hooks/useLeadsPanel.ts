@@ -8,7 +8,6 @@ import type { AdminLead, LeadStatus, LeadsPage, LeadsQuery } from "../types";
 const INITIAL_QUERY: LeadsQuery = { busca: "", pagina: 1 };
 
 interface FetchResult {
-  /** Identifica a busca que gerou este resultado; enquanto não bate com a atual, a tela está carregando. */
   key: string;
   page?: LeadsPage;
   failed?: boolean;
@@ -31,7 +30,6 @@ function replaceLead(page: LeadsPage, updated: AdminLead): LeadsPage {
 
 interface Options {
   token: string;
-  /** Chamado quando a API recusa o token (sessão vencida). */
   onUnauthorized: () => void;
 }
 
@@ -85,7 +83,6 @@ export function useLeadsPanel({ token, onUnauthorized }: Options) {
           current?.page ? { ...current, page: replaceLead(current.page, updated) } : current,
         );
         setFeedback({ kind: "saved", message: CONTENT.statusSaved(lead.nome) });
-        // Recarrega para os contadores e o filtro de status refletirem a mudança.
         setReloadCount((count) => count + 1);
       } catch (error) {
         if (isUnauthorized(error)) onUnauthorized();

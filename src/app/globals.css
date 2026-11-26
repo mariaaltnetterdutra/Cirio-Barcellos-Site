@@ -96,7 +96,6 @@
   color: var(--color-text);
 }
 
-/* Cor de cada status do atendimento no painel (bolinha, borda do cartão e do seletor). */
 [data-lead-status] {
   --status-color: var(--color-blue);
 }

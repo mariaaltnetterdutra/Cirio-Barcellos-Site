@@ -2,8 +2,6 @@ import { env } from "@/core/config/env";
 import { COMPANY } from "@/shared/constants/company";
 import { SITE_METADATA } from "@/shared/constants/site";
 
-// Dados estruturados para o Google entender quem é a empresa. Só usa dados já confirmados em COMPANY.
-// Sem nota do Google aqui: avaliação própria no site não vale como estrela no resultado de busca.
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "InsuranceAgency",

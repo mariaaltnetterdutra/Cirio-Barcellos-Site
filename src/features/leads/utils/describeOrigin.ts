@@ -7,7 +7,6 @@ export interface OriginDetail {
 }
 
 export interface OriginDescription {
-  /** Uma linha para a equipe bater o olho: de onde veio o pedido. */
   summary: string;
   details: OriginDetail[];
 }

@@ -4,7 +4,6 @@ const LEGACY_LANDING_PATHS = ["/consorcio", "/consorcio-imobiliario"] as const;
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
-  // Esconde o botão "N" do Next que aparece no canto da tela durante o desenvolvimento.
   devIndicators: false,
   partialPrefetching: true,
   async redirects() {

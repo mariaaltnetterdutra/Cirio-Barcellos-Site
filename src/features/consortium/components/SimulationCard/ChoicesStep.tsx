@@ -25,7 +25,6 @@ const TERM_OPTIONS: readonly ChoiceOption<string>[] = [
   { value: UNKNOWN_TERM, label: CONTENT.unknownTermOption },
 ];
 
-/** Passo 1: objetivo, valor do crédito e prazo. */
 export function ChoicesStep({ form }: { form: LeadFormApi }) {
   const { values, errors } = form;
 

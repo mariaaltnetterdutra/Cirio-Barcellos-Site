@@ -32,7 +32,6 @@ function makeService({ create, sendNewLead = jest.fn().mockResolvedValue(false),
   return new LeadsService(repository, mail);
 }
 
-// O aviso por email roda sem o service esperar: este atraso deixa o aviso terminar antes de conferir.
 const flushNotification = () => new Promise((resolve) => setImmediate(resolve));
 
 describe("LeadsService", () => {

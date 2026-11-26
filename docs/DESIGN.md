@@ -222,4 +222,4 @@ Títulos com `text-wrap: balance`.
 | 6 | Avaliações do Google | cinza-claro |
 | 7 | Rodapé (`id="contato"`) | degradê azul-marinho |
 
-Os textos de cada seção estão no protótipo e no arquivo de prompts (Etapa 8). **Copiar exatamente.**
+Os textos de cada seção estão no protótipo (`docs/prototipo-v5.html`). **Copiar exatamente.**

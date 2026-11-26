@@ -25,16 +25,11 @@ export class MailService {
       host,
       port,
       secure: port === SMTPS_PORT,
-      // Na porta 587 a conexão precisa virar criptografada (STARTTLS); sem isso o email não sai.
       requireTLS: port !== SMTPS_PORT,
       auth: { user: config.get("SMTP_USER", { infer: true }), pass: config.get("SMTP_PASS", { infer: true }) },
     });
   }
 
-  /**
-   * Avisa a equipe de um pedido novo. Devolve true se o email saiu.
-   * Sem SMTP configurado (só em desenvolvimento) apenas mostra o texto no log.
-   */
   async sendNewLead(lead: Lead): Promise<boolean> {
     const email = buildLeadEmail(lead);
 

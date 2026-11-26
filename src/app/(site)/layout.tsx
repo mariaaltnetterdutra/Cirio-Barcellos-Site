@@ -20,7 +20,6 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <FloatingActions />
       <AttributionTracker />
       <WhatsAppClickTracker />
-      {/* Só no site público: o painel da equipe mostra dados de clientes e não pode ser medido. */}
       <GoogleTagManager />
     </>
   );

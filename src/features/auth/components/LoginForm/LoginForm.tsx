@@ -22,7 +22,6 @@ function loginErrorMessage(error: unknown): string {
 }
 
 interface LoginFormProps {
-  /** Aviso mostrado quando a pessoa volta ao login porque a sessão terminou. */
   notice?: string;
 }
 

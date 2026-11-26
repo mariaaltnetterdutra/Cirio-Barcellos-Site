@@ -25,7 +25,6 @@ export function firstName(fullName: string): string {
   return fullName.trim().split(/\s+/)[0] ?? fullName;
 }
 
-/** Link que abre a conversa com o cliente, já com a mensagem pronta; a equipe só confere e envia. */
 export function buildLeadWhatsAppUrl(lead: AdminLead): string {
   const message = LEADS_CONTENT.item.whatsappMessage(firstName(lead.nome), lead.protocolo);
   return `https://wa.me/${COMPANY_COUNTRY_CODE}${lead.whatsapp}?text=${encodeURIComponent(message)}`;

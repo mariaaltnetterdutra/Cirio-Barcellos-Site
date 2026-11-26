@@ -25,8 +25,6 @@ export class EnvironmentVariables {
   @IsNotEmpty()
   MONGODB_URI!: string;
 
-  // Email para a equipe. Em desenvolvimento pode ficar vazio (o texto só aparece no log);
-  // em produção, ou assim que SMTP_HOST for preenchido, todos os campos abaixo passam a ser obrigatórios.
   @ValidateIf((env: EnvironmentVariables) => env.NODE_ENV === "production" || Boolean(env.SMTP_HOST))
   @IsString()
   @IsNotEmpty()
@@ -52,14 +50,11 @@ export class EnvironmentVariables {
   @IsNotEmpty()
   MAIL_FROM?: string;
 
-  /** Quem recebe os avisos (uma ou mais caixas, separadas por vírgula). */
   @ValidateIf((env: EnvironmentVariables) => env.NODE_ENV === "production" || Boolean(env.SMTP_HOST))
   @IsString()
   @IsNotEmpty()
   MAIL_TO?: string;
 
-  // Painel de leads: só liga quando a senha e o segredo do token estão preenchidos.
-  // Em produção, ou se um dos dois for preenchido, os dois passam a ser obrigatórios e precisam ser fortes.
   @ValidateIf(isAdminConfigured)
   @IsString()
   @MinLength(ADMIN_PASSWORD_MIN_LENGTH)

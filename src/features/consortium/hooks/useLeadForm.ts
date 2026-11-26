@@ -52,7 +52,6 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
 
   if (appliedRequestId !== intent.requestId) {
     setAppliedRequestId(intent.requestId);
-    // Limpa as escolhas anteriores (objetivo, valor e prazo); nome e WhatsApp já digitados ficam.
     setValues((current) => ({
       ...current,
       goal: intent.goal ?? INITIAL_VALUES.goal,
@@ -82,7 +81,6 @@ export function useLeadForm(formRef: RefObject<HTMLFormElement | null>) {
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
-  /** Ao trocar de passo o botão clicado some da tela; o foco vai para o primeiro campo do novo passo. */
   function focusFieldSoon(name: string): void {
     requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>(`[name="${name}"]`)?.focus());
   }

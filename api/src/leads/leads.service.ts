@@ -30,7 +30,6 @@ export class LeadsService {
 
     const lead = await this.saveWithUniqueProtocol(dto);
     this.logger.log(`Novo pedido ${lead.protocolo}`);
-    // Sem await: o cliente recebe o protocolo sem esperar o email, e uma falha no email não perde o pedido.
     void this.notifyTeam(lead);
     return { protocolo: lead.protocolo, criadoEm: lead.criadoEm.toISOString() };
   }
@@ -40,7 +39,6 @@ export class LeadsService {
       const sent = await this.mailService.sendNewLead(lead);
       if (sent) await this.leadsRepository.markEmailSent(lead.protocolo);
     } catch (error) {
-      // Só o protocolo vai para o log: nome e telefone do cliente ficam fora.
       this.logger.error(`Falha ao avisar a equipe do pedido ${lead.protocolo}`, error instanceof Error ? error.stack : undefined);
     }
   }

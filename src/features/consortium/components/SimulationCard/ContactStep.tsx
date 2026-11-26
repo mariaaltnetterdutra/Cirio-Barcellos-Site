@@ -7,7 +7,6 @@ import { SIMULATION_CONTENT as CONTENT } from "../../content";
 import type { LeadFormApi } from "../../hooks/useLeadForm";
 import styles from "./SimulationCard.module.css";
 
-/** Passo 2: nome e WhatsApp, com o envio. */
 export function ContactStep({ form }: { form: LeadFormApi }) {
   const { values, errors } = form;
 
