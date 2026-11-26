@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
+const LEGACY_LANDING_PATHS = ["/consorcio", "/consorcio-imobiliario"];
 
-const LEGACY_LANDING_PATHS = ["/consorcio", "/consorcio-imobiliario"] as const;
-
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   cacheComponents: true,
   devIndicators: false,
   partialPrefetching: true,
